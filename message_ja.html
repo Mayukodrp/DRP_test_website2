@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社長メッセージ - DRP International Ltd.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2563eb;
+            --accent-color: #3b82f6;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --gold: #d4af37;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: var(--bg-light);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lang-switcher a {
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Header Section */
+        .page-header {
+            margin-top: 80px;
+            padding: 5rem 2rem 3rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+        }
+
+        /* Message Section */
+        .message-container {
+            max-width: 1000px;
+            margin: -50px auto 0;
+            padding: 0 2rem 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .president-intro {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            padding: 3rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .president-photo {
+            position: relative;
+            width: 300px;
+            height: 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .president-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .president-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .president-info h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .president-info .title {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .president-info .brief {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .message-content {
+            padding: 3rem;
+        }
+
+        .philosophy {
+            background: linear-gradient(to right, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--gold);
+        }
+
+        .philosophy h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .philosophy h3::before {
+            content: '✦';
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        .philosophy-text {
+            font-size: 1.1rem;
+            line-height: 2.2;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .message-text {
+            font-size: 1.05rem;
+            line-height: 2.2;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        .message-text p {
+            margin-bottom: 1.8rem;
+        }
+
+        .message-text h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .core-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .value-item {
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-item h5 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .value-item p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .signature .name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .signature .position {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .president-intro {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .president-photo {
+                margin: 0 auto;
+            }
+
+            .core-values {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-right {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .lang-switcher {
+                margin-right: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .president-intro,
+            .message-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .president-photo {
+                width: 250px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index_ja.html" class="logo">DRP</a>
+            <div class="nav-right">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index_ja.html">ホーム</a></li>
+                    <li><a href="message_ja.html" class="active">社長メッセージ</a></li>
+                    <li><a href="index_ja.html#about">企業情報</a></li>
+                    <li><a href="index_ja.html#business">事業内容</a></li>
+                    <li><a href="index_ja.html#companies">拠点</a></li>
+                    <li><a href="index_ja.html#contact">お問い合わせ</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="message.html">🇬🇧 English</a>
+                </div>
+                <div class="mobile-menu" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <h1>社長メッセージ</h1>
+        <p>ビジョンとパートナーシップで未来を築く</p>
+    </header>
+
+    <!-- Message Content -->
+    <div class="message-container">
+        <div class="message-card">
+            <div class="president-intro">
+                <div class="president-photo">
+                    <img src="shachou.png" alt="リテシュ・シン - 代表取締役社長 兼 CEO">
+                </div>
+                <div class="president-info">
+                    <h2>リテシュ・シン</h2>
+                    <p class="title">代表取締役社長 兼 CEO</p>
+                    <p class="brief">グローバルなコモディティ取引とビジネス開発における25年以上の経験を持ち、リテシュはDRP Internationalを3大陸にわたる信頼されるパートナーへと成長させました。戦略的パートナーシップを通じて持続可能な価値を創造するという彼のビジョンが、私たちの使命を前進させ続けています。</p>
+                </div>
+            </div>
+
+            <div class="message-content">
+                <div class="philosophy">
+                    <h3>経営理念</h3>
+                    <p class="philosophy-text">「ビジネスにおける真の成功は、完了した取引の数だけで測られるものではありません。築き上げた永続的な関係性と、すべてのステークホルダーのために創造した持続可能な価値によって測られるものです。私たちは、誠実さ、革新性、そして卓越性への揺るぎないコミットメントをもって、ビジネスをゼロから構築することを信条としています。」</p>
+                </div>
+
+                <div class="message-text">
+                    <p>パートナー並びにステークホルダーの皆様へ</p>
+                    
+                    <p>DRP International Ltd.の代表として、皆様にご挨拶できることを大変誇りに思い、また身の引き締まる思いでおります。2016年の創業以来、私たちは成長、革新、そして価値創造の素晴らしい旅路を歩み、最も野心的な期待さえも超える成果を収めてまいりました。</p>
+
+                    <p>ますます相互接続が進む世界において、市場、文化、そして機会を橋渡しする能力は、これまで以上に重要となっています。DRPでは、深い専門知識、戦略的な関係性、そして揺るぎない誠実さという三つの基本的な柱の上に基盤を築いてまいりました。これらの原則が、私たちの下すすべての決定と築くすべてのパートナーシップを導いています。</p>
+
+                    <h4>グローバルな卓越性へのビジョン</h4>
+                    
+                    <p>私たちのビジョンは、伝統的なコモディティ取引をはるかに超えています。私たちは機会の創造者として、大陸を越えて供給と需要を結びつけ、他者が見落とす裁定取引の機会を特定し、AMER、EMEA、APAC地域のパートナーが直面する固有の課題に対処するオーダーメイドのソリューションを創造しています。</p>
+
+                    <p>グローバル貿易の複雑性は、知識だけでなく、知恵を必要とします。市場のダイナミクスを理解し、変化を予測し、大胆さと慎重さの両方をもって行動する知恵です。私たちの多言語・多文化チームは、すべての取引にこの知恵をもたらし、単なる商品ではなく、持続可能な成長を促進する包括的なソリューションを提供することを保証します。</p>
+
+                    <h4>私たちの核となる価値観</h4>
+
+                    <div class="core-values">
+                        <div class="value-item">
+                            <div class="icon">🤝</div>
+                            <h5>誠実さを第一に</h5>
+                            <p>私たちは最高の倫理基準でビジネスを行い、透明性と説明責任を通じて信頼を築きます。</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="icon">🌏</div>
+                            <h5>グローバルな視点</h5>
+                            <p>グローバルに考え、ローカルに行動し、文化的感受性と市場知識が不可分であることを理解しています。</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="icon">💡</div>
+                            <h5>革新性と機敏性</h5>
+                            <p>変化を受け入れ、進化する市場需要に応えるため、革新的なソリューションを継続的に追求します。</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="icon">🎯</div>
+                            <h5>実行における卓越性</h5>
+                            <p>調達から配送まで、シームレスな実行を保証する運営の卓越性にコミットしています。</p>
+                        </div>
+                    </div>
+
+                    <h4>未来への展望</h4>
+
+                    <p>未来を見据えるとき、私は楽観主義と決意に満たされています。グローバル市場は、関係性、専門知識、インフラに投資する意思のある者に、前例のない機会を提供しています。私たちは、能力を拡大し、市場プレゼンスを深め、そして最も重要なこととして、パートナーの皆様に卓越した価値を提供し続けます。</p>
+
+                    <p>私たちの成功は、皆様の成功と切り離せないものです。私たちは単なるサービスプロバイダーではありません。私たち自身の成功と同じくらい、皆様の成功にコミットする成長のパートナーなのです。このパートナーシップの精神は、私たちの運営の卓越性と市場洞察と相まって、国際貿易の複雑性をナビゲートする上で、私たちを独自の位置に置いています。</p>
+
+                    <p>DRP Internationalへの継続的な信頼と信用に感謝申し上げます。共に、ビジネスをゼロから構築し、永続的な価値を創造し、グローバルなコモディティ取引の未来を形作ってまいります。</p>
+
+                    <div class="signature">
+                        <p class="name">リテシュ・シン</p>
+                        <p class="position">代表取締役社長 兼 最高経営責任者</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© DRP. All Rights Reserved.</p>
+        <p>DRP Group companies</p>
+        <p><a href="https://www.drpgp.com" target="_blank">www.drpgp.com</a></p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                nav.style.padding = '0.5rem 0';
+            } else {
+                nav.style.padding = '1rem 0';
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
+

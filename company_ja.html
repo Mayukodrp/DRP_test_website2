@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会社概要 - DRP International Ltd.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2563eb;
+            --accent-color: #3b82f6;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: var(--bg-light);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lang-switcher a {
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Header Section */
+        .page-header {
+            margin-top: 80px;
+            padding: 5rem 2rem 3rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+        }
+
+        /* Company Content */
+        .company-container {
+            max-width: 1000px;
+            margin: -50px auto 0;
+            padding: 0 2rem 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .company-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .company-info {
+            padding: 3rem;
+        }
+
+        .info-section {
+            margin-bottom: 3rem;
+        }
+
+        .info-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-table tr {
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .info-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .info-table th {
+            text-align: left;
+            padding: 1.25rem 2rem 1.25rem 0;
+            color: var(--primary-color);
+            font-weight: 600;
+            width: 180px;
+            vertical-align: top;
+        }
+
+        .info-table td {
+            padding: 1.25rem 0;
+            color: var(--text-dark);
+            line-height: 2;
+        }
+
+        .office-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .office-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .office-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .office-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .office-card .office-type {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .office-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-right {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .lang-switcher {
+                margin-right: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .company-info {
+                padding: 2rem 1.5rem;
+            }
+
+            .info-table th {
+                width: 120px;
+                font-size: 0.9rem;
+            }
+
+            .info-table td {
+                font-size: 0.95rem;
+            }
+
+            .office-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index_ja.html" class="logo">DRP</a>
+            <div class="nav-right">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index_ja.html">ホーム</a></li>
+                    <li><a href="message_ja.html">社長メッセージ</a></li>
+                    <li><a href="products_ja.html">取扱製品</a></li>
+                    <li><a href="company_ja.html" class="active">会社概要</a></li>
+                    <li><a href="index_ja.html#contact">お問い合わせ</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="company.html">🇬🇧 English</a>
+                </div>
+                <div class="mobile-menu" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <h1>会社概要</h1>
+        <p>卓越性を通じて信頼を築く</p>
+    </header>
+
+    <!-- Company Content -->
+    <div class="company-container">
+        <div class="company-card">
+            <div class="company-info">
+                <div class="info-section">
+                    <h2>会社情報</h2>
+                    <table class="info-table">
+                        <tr>
+                            <th>会社名</th>
+                            <td>DRP International Ltd.</td>
+                        </tr>
+                        <tr>
+                            <th>創業</th>
+                            <td>2016年</td>
+                        </tr>
+                        <tr>
+                            <th>資本金</th>
+                            <td>5,000,000カナダドル</td>
+                        </tr>
+                        <tr>
+                            <th>代表取締役社長</th>
+                            <td>リテシュ・シン</td>
+                        </tr>
+                        <tr>
+                            <th>本社所在地</th>
+                            <td>80B-135 James St. S.<br>Hamilton, ON, L8P 2Z6<br>カナダ</td>
+                        </tr>
+                        <tr>
+                            <th>事業内容</th>
+                            <td>
+                                • 総合商品取引（鉄鋼、農産物、花卉・緑葉）<br>
+                                • 国際流通・物流サービス<br>
+                                • プレミアム食品の輸出入<br>
+                                • サプライチェーン管理サービス
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>サービス地域</th>
+                            <td>AMER（北米・中南米）<br>EMEA（欧州・中東・アフリカ）<br>APAC（アジア太平洋）</td>
+                        </tr>
+                        <tr>
+                            <th>メールアドレス</th>
+                            <td><a href="mailto:info@drpgp.com" style="color: var(--secondary-color);">info@drpgp.com</a></td>
+                        </tr>
+                        <tr>
+                            <th>ウェブサイト</th>
+                            <td><a href="https://www.drpgp.com" target="_blank" style="color: var(--secondary-color);">www.drpgp.com</a></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="info-section">
+                    <h2>グローバル拠点</h2>
+                    <div class="office-grid">
+                        <div class="office-card">
+                            <h3>🇨🇦 カナダ</h3>
+                            <p class="office-type">本社</p>
+                            <p><strong>DRP International Ltd.</strong></p>
+                            <p>80B-135 James St. S.<br>Hamilton, ON, L8P 2Z6</p>
+                            <p>Email: info@drpgp.com</p>
+                        </div>
+
+                        <div class="office-card">
+                            <h3>🇯🇵 日本</h3>
+                            <p class="office-type">支店</p>
+                            <p><strong>DRP International Ltd.</strong></p>
+                            <p>東京都墨田区錦糸1-2-1<br>アルカセントラル14階<br>〒130-0013</p>
+                            <p>Email: info@drpgp.com</p>
+                        </div>
+
+                        <div class="office-card">
+                            <h3>🇬🇧 イギリス</h3>
+                            <p class="office-type">子会社</p>
+                            <p><strong>DRP International (UK) Ltd.</strong></p>
+                            <p>Bray Business Centre<br>Maidenhead, SL6 2ED<br>Berkshire</p>
+                            <p>Email: info@drpgp.com</p>
+                        </div>
+
+                        <div class="office-card">
+                            <h3>🇳🇱 オランダ</h3>
+                            <p class="office-type">支店</p>
+                            <p><strong>DRP International (UK) Ltd.</strong></p>
+                            <p>WTC, Zuidplein 36<br>1077XV 562 - Amsterdam</p>
+                            <p>Email: info@drpgp.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© DRP. All Rights Reserved.</p>
+        <p>DRP Group companies</p>
+        <p><a href="https://www.drpgp.com" target="_blank">www.drpgp.com</a></p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                nav.style.padding = '0.5rem 0';
+            } else {
+                nav.style.padding = '1rem 0';
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
+

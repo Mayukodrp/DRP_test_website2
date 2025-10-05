@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取扱製品 - DRP International Ltd.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2563eb;
+            --accent-color: #3b82f6;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: var(--bg-light);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lang-switcher a {
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Header Section */
+        .page-header {
+            margin-top: 80px;
+            padding: 5rem 2rem 3rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+        }
+
+        /* Products Section */
+        .products-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem 5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            margin-bottom: 3rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-content {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 3rem;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Tall image for Hat Project */
+        .product-image.tall-image {
+            height: 600px;
+            background: var(--white);
+        }
+
+        .product-image.tall-image::before {
+            display: none;
+        }
+
+        .product-image.tall-image img {
+            object-fit: contain;
+        }
+
+        .product-info {
+            padding: 3rem 3rem 3rem 0;
+        }
+
+        .product-category {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .product-info h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .product-info p {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .product-features {
+            margin-top: 1.5rem;
+        }
+
+        .product-features h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .product-features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .product-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Special Project Card */
+        .special-project {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: var(--white);
+        }
+
+        .special-project .product-info {
+            color: var(--white);
+        }
+
+        .special-project .product-info h2,
+        .special-project .product-info p,
+        .special-project .product-features h3,
+        .special-project .product-features li {
+            color: var(--white);
+        }
+
+        .special-project .product-category {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .product-content {
+                grid-template-columns: 1fr;
+            }
+
+            .product-info {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-right {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .lang-switcher {
+                margin-right: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .product-image {
+                height: 250px;
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index_ja.html" class="logo">DRP</a>
+            <div class="nav-right">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index_ja.html">ホーム</a></li>
+                    <li><a href="message_ja.html">社長メッセージ</a></li>
+                    <li><a href="products_ja.html" class="active">取扱製品</a></li>
+                    <li><a href="company_ja.html">会社概要</a></li>
+                    <li><a href="index_ja.html#contact">お問い合わせ</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <a href="products.html">🇬🇧 English</a>
+                </div>
+                <div class="mobile-menu" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <h1>取扱製品</h1>
+        <p>世界各国から厳選された高品質商品</p>
+    </header>
+
+    <!-- Products Content -->
+    <div class="products-container">
+        <!-- Product 1: Recycled Steel -->
+        <div class="product-card">
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="japanese_steel.png" alt="高品質リサイクル鉄鋼">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">鉄鋼取引</span>
+                    <h2>高品質リサイクル鉄鋼</h2>
+                    <p>国際品質基準を満たすプレミアムリサイクル鉄鋼製品を提供しています。当社のリサイクル鉄鋼は、優れた強度と耐久性を維持しながら、持続可能な建設および製造に貢献します。</p>
+                    <p>厳格な品質管理プロセスを通じて調達されるリサイクル鉄鋼は、性能を損なうことなく環境に配慮した代替品を提供します。</p>
+                    <div class="product-features">
+                        <h3>主な特徴</h3>
+                        <ul>
+                            <li>国際品質基準に適合</li>
+                            <li>環境に配慮した持続可能な調達</li>
+                            <li>新鋼材に対するコスト効果的な代替品</li>
+                            <li>複数のグレードと仕様に対応</li>
+                            <li>信頼性の高いグローバルサプライチェーン</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2: Canadian Edamame -->
+        <div class="product-card">
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="canada_edamame.png" alt="カナダ産枝豆">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">農産物</span>
+                    <h2>カナダ産枝豆</h2>
+                    <p>カナダの清浄な農業地域で栽培されたプレミアム枝豆。当社の枝豆は、その卓越した味、栄養価値、そして一貫した品質で知られています。</p>
+                    <p>持続可能な農法を用いて栽培されたカナダ産枝豆は、風味と健康効果の完璧な組み合わせを提供し、小売および食品サービス用途に最適です。</p>
+                    <div class="product-features">
+                        <h3>主な特徴</h3>
+                        <ul>
+                            <li>カナダのクリーンな環境で栽培</li>
+                            <li>高タンパク質・高栄養価</li>
+                            <li>非遺伝子組み換え・持続可能な農法</li>
+                            <li>生鮮・冷凍オプションあり</li>
+                            <li>安定した品質と供給</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3: Flowers from Around the World -->
+        <div class="product-card">
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="africa_bara.png" alt="世界各国のプレミアム花卉">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">花卉・緑葉</span>
+                    <h2>世界各国のプレミアム花卉</h2>
+                    <p>世界中の一流生産者から最高品質の花卉・緑葉を調達・流通しています。当社の広範なネットワークにより、新鮮で美しい花を常に時間通りにお届けします。</p>
+                    <p>オランダ産のバラから熱帯のランまで、多様な品揃えは卸売業者、小売業者、そして卓越した品質と多様性を求めるイベントプランナーのニーズに応えます。</p>
+                    <div class="product-features">
+                        <h3>主な特徴</h3>
+                        <ul>
+                            <li>グローバル調達ネットワーク</li>
+                            <li>豊富な品種とカラーバリエーション</li>
+                            <li>温度管理された物流</li>
+                            <li>年間を通じた安定供給</li>
+                            <li>プレミアム生産者との直接取引</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 4: Uji Matcha -->
+        <div class="product-card">
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="uji_maccha.png" alt="本格宇治抹茶">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">日本プレミアム製品</span>
+                    <h2>本格宇治抹茶</h2>
+                    <p>日本の茶文化発祥の地、京都・宇治の本物の抹茶。当社の宇治抹茶は、何世紀にもわたる伝統と茶の栽培・加工における専門知識を体現しています。</p>
+                    <p>宇治の伝統的な茶園から直接調達されたこのプレミアム抹茶は、茶道家や世界中の料理プロフェッショナルが賞賛する鮮やかな色、滑らかな質感、豊かな旨味を提供します。</p>
+                    <div class="product-features">
+                        <h3>主な特徴</h3>
+                        <ul>
+                            <li>宇治産地認証取得</li>
+                            <li>茶道用・料理用グレード対応</li>
+                            <li>抗酸化物質とL-テアニンが豊富</li>
+                            <li>伝統的な石臼挽き製法</li>
+                            <li>宇治茶園からの直接調達</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 5: Hat Project - Swiss Premium Products -->
+        <div class="product-card">
+            <div class="product-content">
+                <div class="product-image tall-image">
+                    <img src="swiss_water.png" alt="ハットプロジェクト - スイスプレミアム製品">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">特別プロジェクト</span>
+                    <h2>ハットプロジェクト - スイスプレミアム製品</h2>
+                    <p>ハットプロジェクトは、ヨーロッパ最高級のグルメ製品を目の肥えたお客様にお届けする革新的なコンセプトです。伝統的なスイスの山小屋にインスパイアされ、ヨーロッパ各地の卓越した食材を厳選・流通しています。</p>
+                    <p>スイスの職人チョコレートからイタリアのトリュフ、フランスのチーズからスペインのオリーブオイルまで、ハットプロジェクトはヨーロッパの料理芸術の頂点を体現しています。各製品は、その品質、本物性、そしてストーリーのために慎重に選ばれています。</p>
+                    <div class="product-features">
+                        <h3>主な特徴</h3>
+                        <ul>
+                            <li>ヨーロッパプレミアム食品の厳選セレクション</li>
+                            <li>スイス風のプレゼンテーションとパッケージング</li>
+                            <li>職人生産者との直接パートナーシップ</li>
+                            <li>本物のストーリーを持つ伝統製品</li>
+                            <li>プレミアムギフト・小売ソリューション</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© DRP. All Rights Reserved.</p>
+        <p>DRP Group companies</p>
+        <p><a href="https://www.drpgp.com" target="_blank">www.drpgp.com</a></p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                nav.style.padding = '0.5rem 0';
+            } else {
+                nav.style.padding = '1rem 0';
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
+
