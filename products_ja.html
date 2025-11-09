@@ -118,23 +118,32 @@
         .lang-switcher {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
         }
 
-        .lang-switcher a {
-            padding: 0.5rem 1rem;
+        .lang-switcher select {
+            padding: 0.5rem 2.5rem 0.5rem 1rem;
             background: var(--primary-color);
             color: var(--white);
-            text-decoration: none;
+            border: none;
             border-radius: 5px;
             font-size: 0.9rem;
             font-weight: 500;
+            cursor: pointer;
             transition: all 0.3s ease;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e');
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1rem;
         }
 
-        .lang-switcher a:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
+        .lang-switcher select:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .lang-switcher select:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
         }
 
         .nav-right {
@@ -297,6 +306,57 @@
             font-weight: bold;
         }
 
+        /* Product Link */
+        .product-link {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .steel-types-link {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .steel-types-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 86, 49, 0.3);
+        }
+
+        /* Steel Types Section */
+        .steel-types-section {
+            padding: 3rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .under-construction {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .under-construction h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .construction-message {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
         /* Special Project Card */
         .special-project {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -408,7 +468,13 @@
                     <li><a href="index_ja.html#contact">お問い合わせ</a></li>
                 </ul>
                 <div class="lang-switcher">
-                    <a href="products.html">🇬🇧 English</a>
+                    <select onchange="changeLanguage(this.value)" aria-label="言語を選択">
+                        <option value="products.html">🇬🇧 EN</option>
+                        <option value="products_ja.html" selected>🇯🇵 JP</option>
+                        <option value="products_de.html">🇩🇪 DE</option>
+                        <option value="products_zh.html">🇨🇳 ZH</option>
+                        <option value="products_fr.html">🇫🇷 FR</option>
+                    </select>
                 </div>
                 <div class="mobile-menu" onclick="toggleMenu()">
                     <span></span>
@@ -448,108 +514,20 @@
                             <li>信頼性の高いグローバルサプライチェーン</li>
                         </ul>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 2: Canadian Edamame -->
-        <div class="product-card">
-            <div class="product-content">
-                <div class="product-image">
-                    <img src="canada_edamame.png" alt="カナダ産枝豆">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">農産物</span>
-                    <h2>カナダ産枝豆</h2>
-                    <p>カナダの清浄な農業地域で栽培されたプレミアム枝豆。当社の枝豆は、その卓越した味、栄養価値、そして一貫した品質で知られています。</p>
-                    <p>持続可能な農法を用いて栽培されたカナダ産枝豆は、風味と健康効果の完璧な組み合わせを提供し、小売および食品サービス用途に最適です。</p>
-                    <div class="product-features">
-                        <h3>主な特徴</h3>
-                        <ul>
-                            <li>カナダのクリーンな環境で栽培</li>
-                            <li>高タンパク質・高栄養価</li>
-                            <li>非遺伝子組み換え・持続可能な農法</li>
-                            <li>生鮮・冷凍オプションあり</li>
-                            <li>安定した品質と供給</li>
-                        </ul>
+                    <div class="product-link">
+                        <a href="#steel-types" class="steel-types-link">取り扱う鉄の種類</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Product 3: Flowers from Around the World -->
-        <div class="product-card">
-            <div class="product-content">
-                <div class="product-image">
-                    <img src="africa_bara.png" alt="世界各国のプレミアム花卉">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">花卉・緑葉</span>
-                    <h2>世界各国のプレミアム花卉</h2>
-                    <p>世界中の一流生産者から最高品質の花卉・緑葉を調達・流通しています。当社の広範なネットワークにより、新鮮で美しい花を常に時間通りにお届けします。</p>
-                    <p>オランダ産のバラから熱帯のランまで、多様な品揃えは卸売業者、小売業者、そして卓越した品質と多様性を求めるイベントプランナーのニーズに応えます。</p>
-                    <div class="product-features">
-                        <h3>主な特徴</h3>
-                        <ul>
-                            <li>グローバル調達ネットワーク</li>
-                            <li>豊富な品種とカラーバリエーション</li>
-                            <li>温度管理された物流</li>
-                            <li>年間を通じた安定供給</li>
-                            <li>プレミアム生産者との直接取引</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
 
-        <!-- Product 4: Uji Matcha -->
-        <div class="product-card">
-            <div class="product-content">
-                <div class="product-image">
-                    <img src="uji_maccha.png" alt="本格宇治抹茶">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">日本プレミアム製品</span>
-                    <h2>本格宇治抹茶</h2>
-                    <p>日本の茶文化発祥の地、京都・宇治の本物の抹茶。当社の宇治抹茶は、何世紀にもわたる伝統と茶の栽培・加工における専門知識を体現しています。</p>
-                    <p>宇治の伝統的な茶園から直接調達されたこのプレミアム抹茶は、茶道家や世界中の料理プロフェッショナルが賞賛する鮮やかな色、滑らかな質感、豊かな旨味を提供します。</p>
-                    <div class="product-features">
-                        <h3>主な特徴</h3>
-                        <ul>
-                            <li>宇治産地認証取得</li>
-                            <li>茶道用・料理用グレード対応</li>
-                            <li>抗酸化物質とL-テアニンが豊富</li>
-                            <li>伝統的な石臼挽き製法</li>
-                            <li>宇治茶園からの直接調達</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 5: Hat Project - Swiss Premium Products -->
-        <div class="product-card">
-            <div class="product-content">
-                <div class="product-image tall-image">
-                    <img src="swiss_water.png" alt="ハットプロジェクト - スイスプレミアム製品">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">特別プロジェクト</span>
-                    <h2>ハットプロジェクト - スイスプレミアム製品</h2>
-                    <p>ハットプロジェクトは、ヨーロッパ最高級のグルメ製品を目の肥えたお客様にお届けする革新的なコンセプトです。伝統的なスイスの山小屋にインスパイアされ、ヨーロッパ各地の卓越した食材を厳選・流通しています。</p>
-                    <p>スイスの職人チョコレートからイタリアのトリュフ、フランスのチーズからスペインのオリーブオイルまで、ハットプロジェクトはヨーロッパの料理芸術の頂点を体現しています。各製品は、その品質、本物性、そしてストーリーのために慎重に選ばれています。</p>
-                    <div class="product-features">
-                        <h3>主な特徴</h3>
-                        <ul>
-                            <li>ヨーロッパプレミアム食品の厳選セレクション</li>
-                            <li>スイス風のプレゼンテーションとパッケージング</li>
-                            <li>職人生産者との直接パートナーシップ</li>
-                            <li>本物のストーリーを持つ伝統製品</li>
-                            <li>プレミアムギフト・小売ソリューション</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <!-- Steel Types Section -->
+    <div id="steel-types" class="steel-types-section">
+        <div class="under-construction">
+            <h2>取り扱う鉄の種類</h2>
+            <p class="construction-message">更新中</p>
         </div>
     </div>
 
@@ -561,6 +539,13 @@
     </footer>
 
     <script>
+        // Language change function
+        function changeLanguage(url) {
+            if (url) {
+                window.location.href = url;
+            }
+        }
+
         // Mobile menu toggle
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');

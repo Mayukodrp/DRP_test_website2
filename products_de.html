@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>会社概要 - DRP International Ltd.</title>
+    <title>Unsere Produkte - DRP International Ltd.</title>
     <style>
         * {
             margin: 0;
@@ -22,8 +22,8 @@
         }
 
         body {
-            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             color: var(--text-dark);
             overflow-x: hidden;
             background: var(--bg-light);
@@ -178,107 +178,204 @@
             max-width: 800px;
         }
 
-        /* Company Content */
-        .company-container {
-            max-width: 1000px;
-            margin: -50px auto 0;
+        /* Products Section */
+        .products-container {
+            max-width: 1200px;
+            margin: 3rem auto;
             padding: 0 2rem 5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            margin-bottom: 3rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-content {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 3rem;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             position: relative;
             z-index: 1;
         }
 
-        .company-card {
+        /* Tall image for Hat Project */
+        .product-image.tall-image {
+            height: 600px;
             background: var(--white);
+        }
+
+        .product-image.tall-image::before {
+            display: none;
+        }
+
+        .product-image.tall-image img {
+            object-fit: contain;
+        }
+
+        .product-info {
+            padding: 3rem 3rem 3rem 0;
+        }
+
+        .product-category {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--secondary-color);
+            color: var(--white);
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
-
-        .company-info {
-            padding: 3rem;
-        }
-
-        .info-section {
-            margin-bottom: 3rem;
-        }
-
-        .info-section h2 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid var(--secondary-color);
-        }
-
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .info-table tr {
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .info-table tr:last-child {
-            border-bottom: none;
-        }
-
-        .info-table th {
-            text-align: left;
-            padding: 1.25rem 2rem 1.25rem 0;
-            color: var(--primary-color);
-            font-weight: 600;
-            width: 180px;
-            vertical-align: top;
-        }
-
-        .info-table td {
-            padding: 1.25rem 0;
-            color: var(--text-dark);
-            line-height: 2;
-        }
-
-        .office-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .office-card {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .office-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .office-card h3 {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .office-card .office-type {
-            font-size: 0.9rem;
-            color: var(--secondary-color);
+            font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 1rem;
         }
 
-        .office-card p {
-            font-size: 0.95rem;
-            color: var(--text-light);
+        .product-info h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .product-info p {
+            font-size: 1.05rem;
             line-height: 1.8;
-            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .product-features {
+            margin-top: 1.5rem;
+        }
+
+        .product-features h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .product-features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .product-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Product Link */
+        .product-link {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .steel-types-link {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .steel-types-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 86, 49, 0.3);
+        }
+
+        /* Steel Types Section */
+        .steel-types-section {
+            padding: 3rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .under-construction {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .under-construction h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .construction-message {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        /* Special Project Card */
+        .special-project {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: var(--white);
+        }
+
+        .special-project .product-info {
+            color: var(--white);
+        }
+
+        .special-project .product-info h2,
+        .special-project .product-info p,
+        .special-project .product-features h3,
+        .special-project .product-features li {
+            color: var(--white);
+        }
+
+        .special-project .product-category {
+            background: rgba(255, 255, 255, 0.3);
         }
 
         /* Footer */
@@ -306,6 +403,16 @@
         }
 
         /* Responsive */
+        @media (max-width: 968px) {
+            .product-content {
+                grid-template-columns: 1fr;
+            }
+
+            .product-info {
+                padding: 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-right {
                 flex-direction: column;
@@ -340,21 +447,9 @@
                 font-size: 2rem;
             }
 
-            .company-info {
-                padding: 2rem 1.5rem;
-            }
-
-            .info-table th {
-                width: 120px;
-                font-size: 0.9rem;
-            }
-
-            .info-table td {
-                font-size: 0.95rem;
-            }
-
-            .office-grid {
-                grid-template-columns: 1fr;
+            .product-image {
+                height: 250px;
+                font-size: 4rem;
             }
         }
     </style>
@@ -363,22 +458,22 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index_ja.html" class="logo"><img src="logo.jpg" alt="DRP International Ltd."></a>
+            <a href="index_de.html" class="logo"><img src="logo.jpg" alt="DRP International Ltd."></a>
             <div class="nav-right">
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index_ja.html">ホーム</a></li>
-                    <li><a href="message_ja.html">社長メッセージ</a></li>
-                    <li><a href="products_ja.html">取扱製品</a></li>
-                    <li><a href="company_ja.html" class="active">会社概要</a></li>
-                    <li><a href="index_ja.html#contact">お問い合わせ</a></li>
+                    <li><a href="index_de.html">Startseite</a></li>
+                    <li><a href="message_de.html">Botschaft</a></li>
+                    <li><a href="products_de.html" class="active">Produkte</a></li>
+                    <li><a href="company_de.html">Unternehmen</a></li>
+                    <li><a href="index_de.html#contact">Kontakt</a></li>
                 </ul>
                 <div class="lang-switcher">
-                    <select onchange="changeLanguage(this.value)" aria-label="言語を選択">
-                        <option value="company.html">🇬🇧 EN</option>
-                        <option value="company_ja.html" selected>🇯🇵 JP</option>
-                        <option value="company_de.html">🇩🇪 DE</option>
-                        <option value="company_zh.html">🇨🇳 ZH</option>
-                        <option value="company_fr.html">🇫🇷 FR</option>
+                    <select onchange="changeLanguage(this.value)" aria-label="Sprache wählen">
+                        <option value="products.html">🇬🇧 EN</option>
+                        <option value="products_ja.html">🇯🇵 JP</option>
+                        <option value="products_de.html" selected>🇩🇪 DE</option>
+                        <option value="products_zh.html">🇨🇳 ZH</option>
+                        <option value="products_fr.html">🇫🇷 FR</option>
                     </select>
                 </div>
                 <div class="mobile-menu" onclick="toggleMenu()">
@@ -392,101 +487,54 @@
 
     <!-- Header -->
     <header class="page-header">
-        <h1>会社概要</h1>
-        <p>卓越性を通じて信頼を築く</p>
+        <h1>Unsere Produkte</h1>
+        <p>Hochwertige Rohstoffe aus der ganzen Welt</p>
     </header>
 
-    <!-- Company Content -->
-    <div class="company-container">
-        <div class="company-card">
-            <div class="company-info">
-                <div class="info-section">
-                    <h2>会社情報</h2>
-                    <table class="info-table">
-                        <tr>
-                            <th>会社名</th>
-                            <td>DRP International Ltd.</td>
-                        </tr>
-                        <tr>
-                            <th>創業</th>
-                            <td>2016年</td>
-                        </tr>
-                        <tr>
-                            <th>代表取締役社長</th>
-                            <td>リテシュ・シン</td>
-                        </tr>
-                        <tr>
-                            <th>本社所在地</th>
-                            <td>80B-135 James St. S.<br>Hamilton, ON, L8P 2Z6<br>カナダ</td>
-                        </tr>
-                        <tr>
-                            <th>事業内容</th>
-                            <td>
-                                • 総合商品取引（鉄鋼、農産物、花卉・緑葉）<br>
-                                • 国際流通・物流サービス<br>
-                                • プレミアム食品の輸出入<br>
-                                • サプライチェーン管理サービス
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>サービス地域</th>
-                            <td>AMER（北米・中南米）<br>EMEA（欧州・中東・アフリカ）<br>APAC（アジア太平洋）</td>
-                        </tr>
-                        <tr>
-                            <th>メールアドレス</th>
-                            <td><a href="mailto:info@drpgp.com" style="color: var(--secondary-color);">info@drpgp.com</a></td>
-                        </tr>
-                        <tr>
-                            <th>ウェブサイト</th>
-                            <td><a href="https://www.drpgp.com" target="_blank" style="color: var(--secondary-color);">www.drpgp.com</a></td>
-                        </tr>
-                    </table>
+    <!-- Products Content -->
+    <div class="products-container">
+        <!-- Product 1: Recycled Steel -->
+        <div class="product-card">
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="japanese_steel.png" alt="Hochwertiger recycelter Stahl">
                 </div>
-
-                <div class="info-section">
-                    <h2>グローバル拠点</h2>
-                    <div class="office-grid">
-                        <div class="office-card">
-                            <h3>🇨🇦 カナダ</h3>
-                            <p class="office-type">本社</p>
-                            <p><strong>DRP International Ltd.</strong></p>
-                            <p>80B-135 James St. S.<br>Hamilton, ON, L8P 2Z6</p>
-                            <p>Email: info@drpgp.com</p>
-                        </div>
-
-                        <div class="office-card">
-                            <h3>🇯🇵 日本</h3>
-                            <p class="office-type">支店</p>
-                            <p><strong>DRP International Ltd.</strong></p>
-                            <p>東京都墨田区錦糸1-2-1<br>アルカセントラル14階<br>〒130-0013</p>
-                            <p>Email: info@drpgp.com</p>
-                        </div>
-
-                        <div class="office-card">
-                            <h3>🇬🇧 イギリス</h3>
-                            <p class="office-type">子会社</p>
-                            <p><strong>DRP International (UK) Ltd.</strong></p>
-                            <p>Bray Business Centre<br>Maidenhead, SL6 2ED<br>Berkshire</p>
-                            <p>Email: info@drpgp.com</p>
-                        </div>
-
-                        <div class="office-card">
-                            <h3>🇳🇱 オランダ</h3>
-                            <p class="office-type">支店</p>
-                            <p><strong>DRP International (UK) Ltd.</strong></p>
-                            <p>WTC, Zuidplein 36<br>1077XV 562 - Amsterdam</p>
-                            <p>Email: info@drpgp.com</p>
-                        </div>
+                <div class="product-info">
+                    <span class="product-category">Stahlhandel</span>
+                    <h2>Hochwertiger recycelter Stahl</h2>
+                    <p>Wir bieten Premium-Recycling-Stahlprodukte, die internationale Qualitätsstandards erfüllen. Unser recycelter Stahl trägt zu nachhaltigem Bauen und Fertigung bei und bewahrt dabei außergewöhnliche Festigkeit und Langlebigkeit.</p>
+                    <p>Durch rigorose Qualitätskontrollprozesse beschafft, bietet unser recycelter Stahl eine umweltverantwortliche Alternative ohne Kompromisse bei der Leistung.</p>
+                    <div class="product-features">
+                        <h3>Hauptmerkmale</h3>
+                        <ul>
+                            <li>Erfüllt internationale Qualitätsstandards</li>
+                            <li>Umweltfreundliche Beschaffung</li>
+                            <li>Kosteneffektive Alternative zu Neustahl</li>
+                            <li>Mehrere Güteklassen und Spezifikationen verfügbar</li>
+                            <li>Zuverlässige globale Lieferkette</li>
+                        </ul>
+                    </div>
+                    <div class="product-link">
+                        <a href="#steel-types" class="steel-types-link">Stahlsorten, die wir anbieten</a>
                     </div>
                 </div>
             </div>
+        </div>
+
+    </div>
+
+    <!-- Steel Types Section -->
+    <div id="steel-types" class="steel-types-section">
+        <div class="under-construction">
+            <h2>Stahlsorten, die wir anbieten</h2>
+            <p class="construction-message">In Bearbeitung</p>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>© DRP. All Rights Reserved.</p>
-        <p>DRP Group companies</p>
+        <p>© DRP. Alle Rechte vorbehalten.</p>
+        <p>DRP Gruppenunternehmen</p>
         <p><a href="https://www.drpgp.com" target="_blank">www.drpgp.com</a></p>
     </footer>
 

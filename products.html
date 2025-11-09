@@ -118,23 +118,32 @@
         .lang-switcher {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
         }
 
-        .lang-switcher a {
-            padding: 0.5rem 1rem;
+        .lang-switcher select {
+            padding: 0.5rem 2.5rem 0.5rem 1rem;
             background: var(--primary-color);
             color: var(--white);
-            text-decoration: none;
+            border: none;
             border-radius: 5px;
             font-size: 0.9rem;
             font-weight: 500;
+            cursor: pointer;
             transition: all 0.3s ease;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e');
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1rem;
         }
 
-        .lang-switcher a:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
+        .lang-switcher select:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .lang-switcher select:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
         }
 
         .nav-right {
@@ -297,6 +306,57 @@
             font-weight: bold;
         }
 
+        /* Product Link */
+        .product-link {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .steel-types-link {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .steel-types-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 86, 49, 0.3);
+        }
+
+        /* Steel Types Section */
+        .steel-types-section {
+            padding: 3rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .under-construction {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .under-construction h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .construction-message {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
         /* Special Project Card */
         .special-project {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -408,7 +468,13 @@
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
                 <div class="lang-switcher">
-                    <a href="products_ja.html">🇯🇵 日本語</a>
+                    <select onchange="changeLanguage(this.value)" aria-label="Select Language">
+                        <option value="products.html" selected>🇬🇧 EN</option>
+                        <option value="products_ja.html">🇯🇵 JP</option>
+                        <option value="products_de.html">🇩🇪 DE</option>
+                        <option value="products_zh.html">🇨🇳 ZH</option>
+                        <option value="products_fr.html">🇫🇷 FR</option>
+                    </select>
                 </div>
                 <div class="mobile-menu" onclick="toggleMenu()">
                     <span></span>
@@ -448,108 +514,20 @@
                             <li>Reliable global supply chain</li>
                         </ul>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 2: Canadian Edamame -->
-        <div class="product-card">
-            <div class="product-content">
-                <div class="product-image">
-                    <img src="canada_edamame.png" alt="Canadian Edamame">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Agricultural Products</span>
-                    <h2>Canadian Edamame</h2>
-                    <p>Premium edamame cultivated in the pristine agricultural regions of Canada. Our edamame beans are known for their exceptional taste, nutritional value, and consistent quality.</p>
-                    <p>Grown using sustainable farming practices, Canadian edamame offers the perfect combination of flavor and health benefits, ideal for both retail and food service applications.</p>
-                    <div class="product-features">
-                        <h3>Key Features</h3>
-                        <ul>
-                            <li>Grown in Canada's clean environment</li>
-                            <li>High protein and nutritional content</li>
-                            <li>Non-GMO and sustainably farmed</li>
-                            <li>Fresh and frozen options available</li>
-                            <li>Consistent quality and supply</li>
-                        </ul>
+                    <div class="product-link">
+                        <a href="#steel-types" class="steel-types-link">Types of Steel We Handle</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Product 3: Flowers from Around the World -->
-        <div class="product-card">
-            <div class="product-content">
-                <div class="product-image">
-                    <img src="africa_bara.png" alt="Premium Flowers from Around the World">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Flowers & Foliage</span>
-                    <h2>Premium Flowers from Around the World</h2>
-                    <p>We source and distribute the finest flowers and foliage from leading growers across the globe. Our extensive network ensures fresh, beautiful blooms delivered on time, every time.</p>
-                    <p>From Dutch roses to tropical orchids, our diverse selection caters to wholesalers, retailers, and event planners seeking exceptional quality and variety.</p>
-                    <div class="product-features">
-                        <h3>Key Features</h3>
-                        <ul>
-                            <li>Global sourcing network</li>
-                            <li>Wide variety of species and colors</li>
-                            <li>Temperature-controlled logistics</li>
-                            <li>Year-round availability</li>
-                            <li>Direct relationships with premium growers</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
 
-        <!-- Product 4: Uji Matcha -->
-        <div class="product-card">
-            <div class="product-content">
-                <div class="product-image">
-                    <img src="uji_maccha.png" alt="Authentic Uji Matcha">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Japanese Premium Products</span>
-                    <h2>Authentic Uji Matcha</h2>
-                    <p>Genuine matcha from Uji, Kyoto—the birthplace of Japanese tea culture. Our Uji matcha represents centuries of tradition and expertise in tea cultivation and processing.</p>
-                    <p>Sourced directly from traditional tea gardens in Uji, this premium matcha offers vibrant color, smooth texture, and rich umami flavor prized by tea masters and culinary professionals worldwide.</p>
-                    <div class="product-features">
-                        <h3>Key Features</h3>
-                        <ul>
-                            <li>Authentic Uji origin certification</li>
-                            <li>Ceremonial and culinary grades available</li>
-                            <li>Rich in antioxidants and L-theanine</li>
-                            <li>Traditional stone-ground processing</li>
-                            <li>Direct sourcing from Uji tea gardens</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 5: Hat Project - Swiss Premium Products -->
-        <div class="product-card">
-            <div class="product-content">
-                <div class="product-image tall-image">
-                    <img src="swiss_water.png" alt="Hat Project - Swiss Premium Products">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Special Project</span>
-                    <h2>Hat Project - Swiss Premium Products</h2>
-                    <p>The Hat Project is our innovative concept bringing the finest European gourmet products to discerning customers. Inspired by traditional Swiss mountain chalets, we curate and distribute exceptional foods from across Europe.</p>
-                    <p>From artisanal Swiss chocolates to Italian truffles, French cheeses to Spanish olive oils, the Hat Project represents the pinnacle of European culinary excellence. Each product is carefully selected for its quality, authenticity, and story.</p>
-                    <div class="product-features">
-                        <h3>Key Features</h3>
-                        <ul>
-                            <li>Curated selection of European premium foods</li>
-                            <li>Swiss-inspired presentation and packaging</li>
-                            <li>Direct partnerships with artisan producers</li>
-                            <li>Heritage products with authentic stories</li>
-                            <li>Premium gift and retail solutions</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <!-- Steel Types Section -->
+    <div id="steel-types" class="steel-types-section">
+        <div class="under-construction">
+            <h2>Types of Steel We Handle</h2>
+            <p class="construction-message">Under Construction</p>
         </div>
     </div>
 
@@ -561,6 +539,13 @@
     </footer>
 
     <script>
+        // Language change function
+        function changeLanguage(url) {
+            if (url) {
+                window.location.href = url;
+            }
+        }
+
         // Mobile menu toggle
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');

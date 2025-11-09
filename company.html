@@ -118,23 +118,32 @@
         .lang-switcher {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
         }
 
-        .lang-switcher a {
-            padding: 0.5rem 1rem;
+        .lang-switcher select {
+            padding: 0.5rem 2.5rem 0.5rem 1rem;
             background: var(--primary-color);
             color: var(--white);
-            text-decoration: none;
+            border: none;
             border-radius: 5px;
             font-size: 0.9rem;
             font-weight: 500;
+            cursor: pointer;
             transition: all 0.3s ease;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e');
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1rem;
         }
 
-        .lang-switcher a:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
+        .lang-switcher select:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .lang-switcher select:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
         }
 
         .nav-right {
@@ -364,7 +373,13 @@
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
                 <div class="lang-switcher">
-                    <a href="company_ja.html">🇯🇵 日本語</a>
+                    <select onchange="changeLanguage(this.value)" aria-label="Select Language">
+                        <option value="company.html" selected>🇬🇧 EN</option>
+                        <option value="company_ja.html">🇯🇵 JP</option>
+                        <option value="company_de.html">🇩🇪 DE</option>
+                        <option value="company_zh.html">🇨🇳 ZH</option>
+                        <option value="company_fr.html">🇫🇷 FR</option>
+                    </select>
                 </div>
                 <div class="mobile-menu" onclick="toggleMenu()">
                     <span></span>
@@ -395,10 +410,6 @@
                         <tr>
                             <th>Established</th>
                             <td>2016</td>
-                        </tr>
-                        <tr>
-                            <th>Capital</th>
-                            <td>CAD $5,000,000</td>
                         </tr>
                         <tr>
                             <th>President & CEO</th>
@@ -480,6 +491,13 @@
     </footer>
 
     <script>
+        // Language change function
+        function changeLanguage(url) {
+            if (url) {
+                window.location.href = url;
+            }
+        }
+
         // Mobile menu toggle
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
