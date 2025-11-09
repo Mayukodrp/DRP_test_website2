@@ -282,6 +282,12 @@
             margin-top: 3rem;
         }
 
+        .feature-item-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
         .feature-item {
             text-align: center;
             padding: 2rem;
@@ -294,6 +300,10 @@
         .feature-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item-link .feature-item {
+            cursor: pointer;
         }
 
         .feature-icon {
@@ -573,11 +583,13 @@
             </div>
 
             <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Réseau Mondial</h3>
-                    <p>Opérant dans les régions AMER, EMEA et APAC</p>
-                </div>
+                <a href="#companies" class="feature-item-link">
+                    <div class="feature-item">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Réseau Mondial</h3>
+                        <p>Opérant dans les régions AMER, EMEA et APAC</p>
+                    </div>
+                </a>
                 <div class="feature-item">
                     <div class="feature-icon">🚢</div>
                     <h3>Excellence Logistique</h3>
