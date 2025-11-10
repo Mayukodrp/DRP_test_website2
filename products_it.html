@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Présentation de l'Entreprise - DRP International Ltd.</title>
+    <title>I Nostri Prodotti - DRP International Ltd.</title>
     <style>
         * {
             margin: 0;
@@ -178,107 +178,183 @@
             max-width: 800px;
         }
 
-        /* Company Content */
-        .company-container {
-            max-width: 1000px;
-            margin: -50px auto 0;
+        /* Products Section */
+        .products-container {
+            max-width: 1200px;
+            margin: 3rem auto;
             padding: 0 2rem 5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            margin-bottom: 3rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-content {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 3rem;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             position: relative;
             z-index: 1;
         }
 
-        .company-card {
+        /* Tall image for Hat Project */
+        .product-image.tall-image {
+            height: 600px;
             background: var(--white);
+        }
+
+        .product-image.tall-image::before {
+            display: none;
+        }
+
+        .product-image.tall-image img {
+            object-fit: contain;
+        }
+
+        .product-info {
+            padding: 3rem 3rem 3rem 0;
+        }
+
+        .product-category {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--secondary-color);
+            color: var(--white);
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
-
-        .company-info {
-            padding: 3rem;
-        }
-
-        .info-section {
-            margin-bottom: 3rem;
-        }
-
-        .info-section h2 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid var(--secondary-color);
-        }
-
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .info-table tr {
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .info-table tr:last-child {
-            border-bottom: none;
-        }
-
-        .info-table th {
-            text-align: left;
-            padding: 1.25rem 2rem 1.25rem 0;
-            color: var(--primary-color);
-            font-weight: 600;
-            width: 200px;
-            vertical-align: top;
-        }
-
-        .info-table td {
-            padding: 1.25rem 0;
-            color: var(--text-dark);
-            line-height: 1.8;
-        }
-
-        .office-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .office-card {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .office-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .office-card h3 {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .office-card .office-type {
-            font-size: 0.9rem;
-            color: var(--secondary-color);
+            font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 1rem;
         }
 
-        .office-card p {
-            font-size: 0.95rem;
-            color: var(--text-light);
+        .product-info h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .product-info p {
+            font-size: 1.05rem;
             line-height: 1.8;
-            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .product-features {
+            margin-top: 1.5rem;
+        }
+
+        .product-features h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .product-features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .product-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Product Link */
+        .product-link {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .steel-types-link {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .steel-types-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 86, 49, 0.3);
+        }
+
+        /* Steel Types Section */
+        .steel-types-section {
+            padding: 3rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .under-construction {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .under-construction h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .construction-message {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-weight: 300;
         }
 
         /* Footer */
@@ -306,6 +382,16 @@
         }
 
         /* Responsive */
+        @media (max-width: 968px) {
+            .product-content {
+                grid-template-columns: 1fr;
+            }
+
+            .product-info {
+                padding: 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-right {
                 flex-direction: column;
@@ -340,21 +426,9 @@
                 font-size: 2rem;
             }
 
-            .company-info {
-                padding: 2rem 1.5rem;
-            }
-
-            .info-table th {
-                width: 120px;
-                font-size: 0.9rem;
-            }
-
-            .info-table td {
-                font-size: 0.95rem;
-            }
-
-            .office-grid {
-                grid-template-columns: 1fr;
+            .product-image {
+                height: 250px;
+                font-size: 4rem;
             }
         }
     </style>
@@ -363,23 +437,23 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index_fr.html" class="logo"><img src="logo.jpg" alt="DRP International Ltd."></a>
+            <a href="index_it.html" class="logo"><img src="logo.jpg" alt="DRP International Ltd."></a>
             <div class="nav-right">
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index_fr.html">Accueil</a></li>
-                    <li><a href="message_fr.html">Message</a></li>
-                    <li><a href="products_fr.html">Produits</a></li>
-                    <li><a href="company_fr.html" class="active">Entreprise</a></li>
-                    <li><a href="index_fr.html#contact">Contact</a></li>
+                    <li><a href="index_it.html">Home</a></li>
+                    <li><a href="message_it.html">Messaggio</a></li>
+                    <li><a href="products_it.html" class="active">Prodotti</a></li>
+                    <li><a href="company_it.html">Azienda</a></li>
+                    <li><a href="index_it.html#contact">Contatto</a></li>
                 </ul>
                 <div class="lang-switcher">
-                    <select onchange="changeLanguage(this.value)" aria-label="Choisir la langue">
-                        <option value="company.html">🇬🇧 English</option>
-                        <option value="company_de.html">🇩🇪 German</option>
-                        <option value="company_fr.html" selected>🇫🇷 French</option>
-                        <option value="company_it.html">🇮🇹 Italian</option>
-                        <option value="company_ja.html">🇯🇵 Japanese</option>
-                        <option value="company_zh.html">🇨🇳 Chinese</option>
+                    <select onchange="changeLanguage(this.value)" aria-label="Seleziona lingua">
+                        <option value="products.html">🇬🇧 English</option>
+                        <option value="products_de.html">🇩🇪 German</option>
+                        <option value="products_fr.html">🇫🇷 French</option>
+                        <option value="products_it.html" selected>🇮🇹 Italian</option>
+                        <option value="products_ja.html">🇯🇵 Japanese</option>
+                        <option value="products_zh.html">🇨🇳 Chinese</option>
                     </select>
                 </div>
                 <div class="mobile-menu" onclick="toggleMenu()">
@@ -393,100 +467,54 @@
 
     <!-- Header -->
     <header class="page-header">
-        <h1>Présentation de l'Entreprise</h1>
-        <p>Construire la Confiance par l'Excellence</p>
+        <h1>I Nostri Prodotti</h1>
+        <p>Prodotti di Qualità da Tutto il Mondo</p>
     </header>
 
-    <!-- Company Content -->
-    <div class="company-container">
-        <div class="company-card">
-            <div class="company-info">
-                <div class="info-section">
-                    <h2>Informations sur l'Entreprise</h2>
-                    <table class="info-table">
-                        <tr>
-                            <th>Nom de l'Entreprise</th>
-                            <td>DRP International Ltd.</td>
-                        </tr>
-                        <tr>
-                            <th>Établie</th>
-                            <td>2016</td>
-                        </tr>
-                        <tr>
-                            <th>Président & PDG</th>
-                            <td>Ritesh Singh</td>
-                        </tr>
-                        <tr>
-                            <th>Siège Social</th>
-                            <td>80B-135 James St. S.<br>Hamilton, ON, L8P 2Z6<br>Canada</td>
-                        </tr>
-                        <tr>
-                            <th>Activités Commerciales</th>
-                            <td>
-                                • Commerce multi-produits (Acier)<br>
-                                • Distribution et logistique internationales<br>
-                                • Services de gestion de la chaîne d'approvisionnement
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Zones de Service</th>
-                            <td>AMER (Amérique du Nord, Centrale, du Sud)<br>EMEA (Europe, Moyen-Orient, Afrique)<br>APAC (Asie-Pacifique)</td>
-                        </tr>
-                        <tr>
-                            <th>Email</th>
-                            <td><a href="mailto:info@drpgp.com" style="color: var(--secondary-color);">info@drpgp.com</a></td>
-                        </tr>
-                        <tr>
-                            <th>Site Web</th>
-                            <td><a href="https://www.drpgp.com" target="_blank" style="color: var(--secondary-color);">www.drpgp.com</a></td>
-                        </tr>
-                    </table>
+    <!-- Products Content -->
+    <div class="products-container">
+        <!-- Product 1: Recycled Steel -->
+        <div class="product-card">
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="japanese_steel.png" alt="Acciaio Riciclato di Alta Qualità">
                 </div>
-
-                <div class="info-section">
-                    <h2>Bureaux Mondiaux</h2>
-                    <div class="office-grid">
-                        <div class="office-card">
-                            <h3>🇨🇦 Canada</h3>
-                            <p class="office-type">Siège Social</p>
-                            <p><strong>DRP International Ltd.</strong></p>
-                            <p>80B-135 James St. S.<br>Hamilton, ON, L8P 2Z6</p>
-                            <p>Email : info@drpgp.com</p>
-                        </div>
-
-                        <div class="office-card">
-                            <h3>🇯🇵 Japon</h3>
-                            <p class="office-type">Succursale</p>
-                            <p><strong>DRP International Ltd.</strong></p>
-                            <p>14F Arca Central<br>1-2-1 Kinshi, Sumida-Ku<br>Tokyo, 130-0013</p>
-                            <p>Email : info@drpgp.com</p>
-                        </div>
-
-                        <div class="office-card">
-                            <h3>🇬🇧 Royaume-Uni</h3>
-                            <p class="office-type">Filiale</p>
-                            <p><strong>DRP International (UK) Ltd.</strong></p>
-                            <p>Bray Business Centre<br>Maidenhead, SL6 2ED<br>Berkshire</p>
-                            <p>Email : info@drpgp.com</p>
-                        </div>
-
-                        <div class="office-card">
-                            <h3>🇳🇱 Pays-Bas</h3>
-                            <p class="office-type">Succursale</p>
-                            <p><strong>DRP International (UK) Ltd.</strong></p>
-                            <p>WTC, Zuidplein 36<br>1077XV 562 - Amsterdam</p>
-                            <p>Email : info@drpgp.com</p>
-                        </div>
+                <div class="product-info">
+                    <span class="product-category">Trading di Acciaio</span>
+                    <h2>Acciaio Riciclato di Alta Qualità</h2>
+                    <p>Forniamo prodotti di acciaio riciclato premium che soddisfano gli standard internazionali di qualità. Il nostro acciaio riciclato contribuisce a una costruzione e produzione sostenibili mantenendo resistenza e durabilità eccezionali.</p>
+                    <p>Proveniente da rigorosi processi di controllo qualità, il nostro acciaio riciclato offre un'alternativa ecologica senza compromettere le prestazioni.</p>
+                    <div class="product-features">
+                        <h3>Caratteristiche Principali</h3>
+                        <ul>
+                            <li>Conforme agli standard internazionali di qualità</li>
+                            <li>Approvvigionamento ecologicamente sostenibile</li>
+                            <li>Alternativa conveniente all'acciaio vergine</li>
+                            <li>Disponibili diversi gradi e specifiche</li>
+                            <li>Catena di approvvigionamento globale affidabile</li>
+                        </ul>
+                    </div>
+                    <div class="product-link">
+                        <a href="#steel-types" class="steel-types-link">Tipi di acciaio che trattiamo</a>
                     </div>
                 </div>
             </div>
+        </div>
+
+    </div>
+
+    <!-- Steel Types Section -->
+    <div id="steel-types" class="steel-types-section">
+        <div class="under-construction">
+            <h2>Tipi di acciaio che trattiamo</h2>
+            <p class="construction-message">In aggiornamento</p>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>© DRP. Tous Droits Réservés.</p>
-        <p>Sociétés du Groupe DRP</p>
+        <p>© DRP. Tutti i Diritti Riservati.</p>
+        <p>Società del Gruppo DRP</p>
         <p><a href="https://www.drpgp.com" target="_blank">www.drpgp.com</a></p>
     </footer>
 

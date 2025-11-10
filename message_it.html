@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Présentation de l'Entreprise - DRP International Ltd.</title>
+    <title>Messaggio del Presidente - DRP International Ltd.</title>
     <style>
         * {
             margin: 0;
@@ -19,6 +19,7 @@
             --text-light: #64748b;
             --bg-light: #f8fafc;
             --white: #ffffff;
+            --gold: #d4af37;
         }
 
         body {
@@ -178,8 +179,8 @@
             max-width: 800px;
         }
 
-        /* Company Content */
-        .company-container {
+        /* Message Section */
+        .message-container {
             max-width: 1000px;
             margin: -50px auto 0;
             padding: 0 2rem 5rem;
@@ -187,98 +188,169 @@
             z-index: 1;
         }
 
-        .company-card {
+        .message-card {
             background: var(--white);
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            margin-bottom: 2rem;
         }
 
-        .company-info {
+        .president-intro {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
             padding: 3rem;
-        }
-
-        .info-section {
-            margin-bottom: 3rem;
-        }
-
-        .info-section h2 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid var(--secondary-color);
-        }
-
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .info-table tr {
             border-bottom: 1px solid #e2e8f0;
         }
 
-        .info-table tr:last-child {
-            border-bottom: none;
+        .president-photo {
+            position: relative;
+            width: 300px;
+            height: 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .info-table th {
-            text-align: left;
-            padding: 1.25rem 2rem 1.25rem 0;
-            color: var(--primary-color);
-            font-weight: 600;
-            width: 200px;
-            vertical-align: top;
+        .president-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
-        .info-table td {
-            padding: 1.25rem 0;
-            color: var(--text-dark);
-            line-height: 1.8;
+        .president-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .office-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .office-card {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .office-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .office-card h3 {
-            font-size: 1.3rem;
+        .president-info h2 {
+            font-size: 2rem;
             color: var(--primary-color);
             margin-bottom: 0.5rem;
+        }
+
+        .president-info .title {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .president-info .brief {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .message-content {
+            padding: 3rem;
+        }
+
+        .philosophy {
+            background: linear-gradient(to right, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--gold);
+        }
+
+        .philosophy h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .office-card .office-type {
-            font-size: 0.9rem;
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 1rem;
+        .philosophy h3::before {
+            content: '✦';
+            color: var(--gold);
+            font-size: 1.5rem;
         }
 
-        .office-card p {
+        .philosophy-text {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--text-dark);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .message-text {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        .message-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .message-text h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .core-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .value-item {
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-item h5 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .value-item p {
             font-size: 0.95rem;
             color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .signature .name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .signature .position {
+            font-size: 1rem;
+            color: var(--text-light);
         }
 
         /* Footer */
@@ -306,6 +378,21 @@
         }
 
         /* Responsive */
+        @media (max-width: 968px) {
+            .president-intro {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .president-photo {
+                margin: 0 auto;
+            }
+
+            .core-values {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-right {
                 flex-direction: column;
@@ -340,21 +427,14 @@
                 font-size: 2rem;
             }
 
-            .company-info {
+            .president-intro,
+            .message-content {
                 padding: 2rem 1.5rem;
             }
 
-            .info-table th {
-                width: 120px;
-                font-size: 0.9rem;
-            }
-
-            .info-table td {
-                font-size: 0.95rem;
-            }
-
-            .office-grid {
-                grid-template-columns: 1fr;
+            .president-photo {
+                width: 250px;
+                height: 300px;
             }
         }
     </style>
@@ -363,23 +443,23 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index_fr.html" class="logo"><img src="logo.jpg" alt="DRP International Ltd."></a>
+            <a href="index_it.html" class="logo"><img src="logo.jpg" alt="DRP International Ltd."></a>
             <div class="nav-right">
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index_fr.html">Accueil</a></li>
-                    <li><a href="message_fr.html">Message</a></li>
-                    <li><a href="products_fr.html">Produits</a></li>
-                    <li><a href="company_fr.html" class="active">Entreprise</a></li>
-                    <li><a href="index_fr.html#contact">Contact</a></li>
+                    <li><a href="index_it.html">Home</a></li>
+                    <li><a href="message_it.html" class="active">Messaggio</a></li>
+                    <li><a href="products_it.html">Prodotti</a></li>
+                    <li><a href="company_it.html">Azienda</a></li>
+                    <li><a href="index_it.html#contact">Contatto</a></li>
                 </ul>
                 <div class="lang-switcher">
-                    <select onchange="changeLanguage(this.value)" aria-label="Choisir la langue">
-                        <option value="company.html">🇬🇧 English</option>
-                        <option value="company_de.html">🇩🇪 German</option>
-                        <option value="company_fr.html" selected>🇫🇷 French</option>
-                        <option value="company_it.html">🇮🇹 Italian</option>
-                        <option value="company_ja.html">🇯🇵 Japanese</option>
-                        <option value="company_zh.html">🇨🇳 Chinese</option>
+                    <select onchange="changeLanguage(this.value)" aria-label="Seleziona lingua">
+                        <option value="message.html">🇬🇧 English</option>
+                        <option value="message_de.html">🇩🇪 German</option>
+                        <option value="message_fr.html">🇫🇷 French</option>
+                        <option value="message_it.html" selected>🇮🇹 Italian</option>
+                        <option value="message_ja.html">🇯🇵 Japanese</option>
+                        <option value="message_zh.html">🇨🇳 Chinese</option>
                     </select>
                 </div>
                 <div class="mobile-menu" onclick="toggleMenu()">
@@ -393,90 +473,46 @@
 
     <!-- Header -->
     <header class="page-header">
-        <h1>Présentation de l'Entreprise</h1>
-        <p>Construire la Confiance par l'Excellence</p>
+        <h1>Messaggio del Presidente</h1>
+        <p>Costruire il Futuro Attraverso la Visione e la Partnership</p>
     </header>
 
-    <!-- Company Content -->
-    <div class="company-container">
-        <div class="company-card">
-            <div class="company-info">
-                <div class="info-section">
-                    <h2>Informations sur l'Entreprise</h2>
-                    <table class="info-table">
-                        <tr>
-                            <th>Nom de l'Entreprise</th>
-                            <td>DRP International Ltd.</td>
-                        </tr>
-                        <tr>
-                            <th>Établie</th>
-                            <td>2016</td>
-                        </tr>
-                        <tr>
-                            <th>Président & PDG</th>
-                            <td>Ritesh Singh</td>
-                        </tr>
-                        <tr>
-                            <th>Siège Social</th>
-                            <td>80B-135 James St. S.<br>Hamilton, ON, L8P 2Z6<br>Canada</td>
-                        </tr>
-                        <tr>
-                            <th>Activités Commerciales</th>
-                            <td>
-                                • Commerce multi-produits (Acier)<br>
-                                • Distribution et logistique internationales<br>
-                                • Services de gestion de la chaîne d'approvisionnement
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Zones de Service</th>
-                            <td>AMER (Amérique du Nord, Centrale, du Sud)<br>EMEA (Europe, Moyen-Orient, Afrique)<br>APAC (Asie-Pacifique)</td>
-                        </tr>
-                        <tr>
-                            <th>Email</th>
-                            <td><a href="mailto:info@drpgp.com" style="color: var(--secondary-color);">info@drpgp.com</a></td>
-                        </tr>
-                        <tr>
-                            <th>Site Web</th>
-                            <td><a href="https://www.drpgp.com" target="_blank" style="color: var(--secondary-color);">www.drpgp.com</a></td>
-                        </tr>
-                    </table>
+    <!-- Message Content -->
+    <div class="message-container">
+        <div class="message-card">
+            <div class="president-intro">
+                <div class="president-photo">
+                    <img src="Ritesh_Singh.jpg" alt="Ritesh Singh - Presidente & CEO">
+                </div>
+                <div class="president-info">
+                    <h2>Ritesh Singh</h2>
+                    <p class="title">Presidente & CEO</p>
+                </div>
+            </div>
+
+            <div class="message-content">
+                <div class="message-text">
+                    <h3>Saluto del Presidente</h3>
+                    
+                    <p>Grazie per aver visitato il sito web di DRP International Ltd.</p>
+                    
+                    <p>Sono coinvolto nel commercio globale di commodity e nello sviluppo aziendale da oltre 25 anni. Con questa esperienza, ho fondato DRP International Ltd. in Ontario, Canada nel 2016. La nostra azienda è essenzialmente un'impresa di commercio e distribuzione multi-commodity. Dalla nostra fondazione, siamo diventati un partner affidabile in tre continenti.</p>
+
+                    <p>Il commercio è al centro dell'attività di DRP. Il nostro team è altamente esperto, multilingue e globale. Creiamo transazioni fisiche che supportano le attività dei nostri clienti nelle regioni AMER (Nord, Centro, Sud America), EMEA (Europa, Medio Oriente, Africa) e APAC (Asia-Pacifico).</p>
+
+                    <p>La nostra rete globale e le nostre capacità logistiche consentono l'approvvigionamento di commodity in una località e la consegna in un'altra. Le nostre capacità di stoccaggio e finanziamento ci permettono di eseguire operazioni attraverso fusi orari e periodi di consegna. Ci sforziamo di identificare opportunità di arbitraggio attraverso la nostra vasta conoscenza ed esperienza del mercato.</p>
+
+                    <p>DRP è cresciuta creando valore costruendo attività da zero - alimentate da capitale, relazioni ed esperienza approfondita. La nostra visione di creare valore sostenibile attraverso partnership strategiche continua a far avanzare la nostra missione.</p>
                 </div>
 
-                <div class="info-section">
-                    <h2>Bureaux Mondiaux</h2>
-                    <div class="office-grid">
-                        <div class="office-card">
-                            <h3>🇨🇦 Canada</h3>
-                            <p class="office-type">Siège Social</p>
-                            <p><strong>DRP International Ltd.</strong></p>
-                            <p>80B-135 James St. S.<br>Hamilton, ON, L8P 2Z6</p>
-                            <p>Email : info@drpgp.com</p>
-                        </div>
-
-                        <div class="office-card">
-                            <h3>🇯🇵 Japon</h3>
-                            <p class="office-type">Succursale</p>
-                            <p><strong>DRP International Ltd.</strong></p>
-                            <p>14F Arca Central<br>1-2-1 Kinshi, Sumida-Ku<br>Tokyo, 130-0013</p>
-                            <p>Email : info@drpgp.com</p>
-                        </div>
-
-                        <div class="office-card">
-                            <h3>🇬🇧 Royaume-Uni</h3>
-                            <p class="office-type">Filiale</p>
-                            <p><strong>DRP International (UK) Ltd.</strong></p>
-                            <p>Bray Business Centre<br>Maidenhead, SL6 2ED<br>Berkshire</p>
-                            <p>Email : info@drpgp.com</p>
-                        </div>
-
-                        <div class="office-card">
-                            <h3>🇳🇱 Pays-Bas</h3>
-                            <p class="office-type">Succursale</p>
-                            <p><strong>DRP International (UK) Ltd.</strong></p>
-                            <p>WTC, Zuidplein 36<br>1077XV 562 - Amsterdam</p>
-                            <p>Email : info@drpgp.com</p>
-                        </div>
+                <div class="philosophy">
+                    <h3>Filosofia di Gestione</h3>
+                    <h4>Un'Azienda Che Crea Business da Zero</h4>
+                    <p class="philosophy-text">Creiamo valore costruendo attività da zero, alimentate da capitale, relazioni ed esperienza approfondita. Sfruttando la nostra rete globale e le capacità logistiche, forniamo soluzioni ottimali ai clienti di tutto il mondo e realizziamo una crescita sostenibile.</p>
+                    
+                    <div class="signature">
+                        <p class="name">Ritesh Singh</p>
+                        <p class="position">Presidente & Amministratore Delegato</p>
                     </div>
                 </div>
             </div>
@@ -485,8 +521,8 @@
 
     <!-- Footer -->
     <footer>
-        <p>© DRP. Tous Droits Réservés.</p>
-        <p>Sociétés du Groupe DRP</p>
+        <p>© DRP. Tutti i Diritti Riservati.</p>
+        <p>Società del Gruppo DRP</p>
         <p><a href="https://www.drpgp.com" target="_blank">www.drpgp.com</a></p>
     </footer>
 
