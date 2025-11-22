@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,8 +61,11 @@
         }
 
         .logo img {
-            height: 90px;
+            height: 110px;
             width: auto;
+            background: #ffffff;
+            padding: 5px;
+            border-radius: 8px;
         }
 
         .nav-links {
@@ -359,6 +363,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -374,12 +379,12 @@
                 </ul>
                 <div class="lang-switcher">
                     <select onchange="changeLanguage(this.value)" aria-label="Select Language">
-                        <option value="company.html" selected>🇬🇧 English</option>
-                        <option value="company_de.html">🇩🇪 German</option>
-                        <option value="company_fr.html">🇫🇷 French</option>
-                        <option value="company_it.html">🇮🇹 Italian</option>
-                        <option value="company_ja.html">🇯🇵 Japanese</option>
-                        <option value="company_zh.html">🇨🇳 Chinese</option>
+                        <option value="company.html" selected>🇬🇧 EN</option>
+                        <option value="company_de.html">🇩🇪 DE</option>
+                        <option value="company_fr.html">🇫🇷 FR</option>
+                        <option value="company_it.html">🇮🇹 IT</option>
+                        <option value="company_ja.html">🇯🇵 JP</option>
+                        <option value="company_zh.html">🇨🇳 CN</option>
                     </select>
                 </div>
                 <div class="mobile-menu" onclick="toggleMenu()">
@@ -423,22 +428,25 @@
                         <tr>
                             <th>Business Activities</th>
                             <td>
-                                • Multi-commodity trading (Steel)<br>
+                                • Multi-commodity trading<br>
                                 • International distribution and logistics<br>
                                 • Supply chain management services
                             </td>
                         </tr>
                         <tr>
                             <th>Service Areas</th>
-                            <td>AMER (North, Central, South America)<br>EMEA (Europe, Middle East, Africa)<br>APAC (Asia-Pacific)</td>
+                            <td>AMER (North, Central, South America)<br>EMEA (Europe, Middle East, Africa)<br>APAC
+                                (Asia-Pacific)</td>
                         </tr>
                         <tr>
                             <th>Email</th>
-                            <td><a href="mailto:info@drpgp.com" style="color: var(--secondary-color);">info@drpgp.com</a></td>
+                            <td><a href="mailto:info@drpgp.com"
+                                    style="color: var(--secondary-color);">info@drpgp.com</a></td>
                         </tr>
                         <tr>
                             <th>Website</th>
-                            <td><a href="https://www.drpgp.com" target="_blank" style="color: var(--secondary-color);">www.drpgp.com</a></td>
+                            <td><a href="https://www.drpgp.com" target="_blank"
+                                    style="color: var(--secondary-color);">www.drpgp.com</a></td>
                         </tr>
                     </table>
                 </div>
@@ -448,34 +456,42 @@
                     <div class="office-grid">
                         <div class="office-card">
                             <h3>🇨🇦 Canada</h3>
-                            <p class="office-type">Headquarters</p>
+                            <p class="office-type">Head Office</p>
                             <p><strong>DRP International Ltd.</strong></p>
                             <p>80B-135 James St. S.<br>Hamilton, ON, L8P 2Z6</p>
                             <p>Email: info@drpgp.com</p>
                         </div>
 
                         <div class="office-card">
-                            <h3>🇯🇵 Japan</h3>
-                            <p class="office-type">Branch Office</p>
-                            <p><strong>DRP International Ltd.</strong></p>
-                            <p>14F Arca Central<br>1-2-1 Kinshi, Sumida-Ku<br>Tokyo, 130-0013</p>
-                            <p>Email: info@drpgp.com</p>
-                        </div>
-
-                        <div class="office-card">
                             <h3>🇬🇧 United Kingdom</h3>
-                            <p class="office-type">Subsidiary</p>
-                            <p><strong>DRP International (UK) Ltd.</strong></p>
+                            <p class="office-type">Branch</p>
+                            <p><strong>DRP International Ltd.</strong></p>
                             <p>Bray Business Centre<br>Maidenhead, SL6 2ED<br>Berkshire</p>
                             <p>Email: info@drpgp.com</p>
                         </div>
 
                         <div class="office-card">
                             <h3>🇳🇱 Netherlands</h3>
-                            <p class="office-type">Branch Office</p>
-                            <p><strong>DRP International (UK) Ltd.</strong></p>
-                            <p>WTC, Zuidplein 36<br>1077XV 562 - Amsterdam</p>
+                            <p class="office-type">Branch</p>
+                            <p><strong>DRP International Ltd.</strong></p>
+                            <p>(New office address coming soon)</p>
                             <p>Email: info@drpgp.com</p>
+                        </div>
+
+                        <div class="office-card">
+                            <h3>🇯🇵 Japan</h3>
+                            <p class="office-type">Branch</p>
+                            <p><strong>DRP International Ltd.</strong></p>
+                            <p>14F Arca Central<br>1-2-1 Kinshi, Sumida-Ku<br>Tokyo, 130-0013</p>
+                            <p>Email: info@drpgp.com</p>
+                        </div>
+
+                        <div class="office-card">
+                            <h3>🇭🇰 Hong Kong</h3>
+                            <p class="office-type">Subsidiary</p>
+                            <p><strong>Silver State Limited</strong></p>
+                            <p>RM A&B, 2/F, Lee Kee Commercial Building<br>221-227 Queen's Road Central, Hong Kong</p>
+                            <p>Email: silverstate-hk@drpgp.com</p>
                         </div>
                     </div>
                 </div>
@@ -487,7 +503,6 @@
     <footer>
         <p>© DRP. All Rights Reserved.</p>
         <p>DRP Group companies</p>
-        <p><a href="https://www.drpgp.com" target="_blank">www.drpgp.com</a></p>
     </footer>
 
     <script>
@@ -535,5 +550,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>
