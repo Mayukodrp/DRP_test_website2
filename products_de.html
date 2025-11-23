@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,8 +61,11 @@
         }
 
         .logo img {
-            height: 90px;
+            height: 110px;
             width: auto;
+            background: #ffffff;
+            padding: 5px;
+            border-radius: 8px;
         }
 
         .nav-links {
@@ -172,210 +176,51 @@
             margin-bottom: 1.5rem;
         }
 
-        .page-header p {
-            font-size: 1.2rem;
-            opacity: 0.95;
+        /* Products Selection */
+        .products-selection {
             max-width: 800px;
-        }
-
-        /* Products Section */
-        .products-container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 2rem 5rem;
-        }
-
-        .product-card {
-            background: var(--white);
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            margin-bottom: 3rem;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
-        }
-
-        .product-content {
-            display: grid;
-            grid-template-columns: 400px 1fr;
-            gap: 3rem;
-        }
-
-        .product-image {
-            width: 100%;
-            height: 350px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-image::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent);
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
+            margin: -50px auto 5rem;
+            padding: 0 2rem;
             position: relative;
             z-index: 1;
         }
 
-        /* Tall image for Hat Project */
-        .product-image.tall-image {
-            height: 600px;
+        .selection-card {
             background: var(--white);
-        }
-
-        .product-image.tall-image::before {
-            display: none;
-        }
-
-        .product-image.tall-image img {
-            object-fit: contain;
-        }
-
-        .product-info {
-            padding: 3rem 3rem 3rem 0;
-        }
-
-        .product-category {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: var(--secondary-color);
-            color: var(--white);
             border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .product-info h2 {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .product-info p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-        }
-
-        .product-features {
-            margin-top: 1.5rem;
-        }
-
-        .product-features h3 {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            margin-bottom: 0.75rem;
-        }
-
-        .product-features ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .product-features li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-light);
-        }
-
-        .product-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--secondary-color);
-            font-weight: bold;
-        }
-
-        /* Product Link */
-        .product-link {
-            margin-top: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
             text-align: center;
         }
 
-        .steel-types-link {
-            display: inline-block;
-            padding: 0.75rem 2rem;
-            background: var(--primary-color);
+        .selection-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .product-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .product-button {
+            display: block;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--white);
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .steel-types-link:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(30, 86, 49, 0.3);
-        }
-
-        /* Steel Types Section */
-        .steel-types-section {
-            padding: 3rem 2rem;
-            background: var(--bg-light);
-        }
-
-        .under-construction {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 3rem 2rem;
-            background: var(--white);
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(30, 86, 49, 0.2);
         }
 
-        .under-construction h2 {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .construction-message {
-            font-size: 1.5rem;
-            color: var(--text-light);
-            font-weight: 300;
-        }
-
-        /* Special Project Card */
-        .special-project {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: var(--white);
-        }
-
-        .special-project .product-info {
-            color: var(--white);
-        }
-
-        .special-project .product-info h2,
-        .special-project .product-info p,
-        .special-project .product-features h3,
-        .special-project .product-features li {
-            color: var(--white);
-        }
-
-        .special-project .product-category {
-            background: rgba(255, 255, 255, 0.3);
+        .product-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(30, 86, 49, 0.3);
         }
 
         /* Footer */
@@ -403,16 +248,6 @@
         }
 
         /* Responsive */
-        @media (max-width: 968px) {
-            .product-content {
-                grid-template-columns: 1fr;
-            }
-
-            .product-info {
-                padding: 2rem;
-            }
-        }
-
         @media (max-width: 768px) {
             .nav-right {
                 flex-direction: column;
@@ -447,13 +282,13 @@
                 font-size: 2rem;
             }
 
-            .product-image {
-                height: 250px;
-                font-size: 4rem;
+            .selection-card {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -469,12 +304,12 @@
                 </ul>
                 <div class="lang-switcher">
                     <select onchange="changeLanguage(this.value)" aria-label="Sprache wählen">
-                        <option value="products.html">🇬🇧 English</option>
-                        <option value="products_de.html" selected>🇩🇪 German</option>
-                        <option value="products_fr.html">🇫🇷 French</option>
-                        <option value="products_it.html">🇮🇹 Italian</option>
-                        <option value="products_ja.html">🇯🇵 Japanese</option>
-                        <option value="products_zh.html">🇨🇳 Chinese</option>
+                        <option value="products.html">🇬🇧 EN</option>
+                        <option value="products_de.html" selected>🇩🇪 DE</option>
+                        <option value="products_fr.html">🇫🇷 FR</option>
+                        <option value="products_it.html">🇮🇹 IT</option>
+                        <option value="products_ja.html">🇯🇵 JP</option>
+                        <option value="products_zh.html">🇨🇳 CN</option>
                     </select>
                 </div>
                 <div class="mobile-menu" onclick="toggleMenu()">
@@ -489,46 +324,17 @@
     <!-- Header -->
     <header class="page-header">
         <h1>Unsere Produkte</h1>
-        <p>Hochwertige Rohstoffe aus der ganzen Welt</p>
     </header>
 
-    <!-- Products Content -->
-    <div class="products-container">
-        <!-- Product 1: Recycled Steel -->
-        <div class="product-card">
-            <div class="product-content">
-                <div class="product-image">
-                    <img src="japanese_steel.png" alt="Hochwertiger recycelter Stahl">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Stahlhandel</span>
-                    <h2>Hochwertiger recycelter Stahl</h2>
-                    <p>Wir bieten Premium-Recycling-Stahlprodukte, die internationale Qualitätsstandards erfüllen. Unser recycelter Stahl trägt zu nachhaltigem Bauen und Fertigung bei und bewahrt dabei außergewöhnliche Festigkeit und Langlebigkeit.</p>
-                    <p>Durch rigorose Qualitätskontrollprozesse beschafft, bietet unser recycelter Stahl eine umweltverantwortliche Alternative ohne Kompromisse bei der Leistung.</p>
-                    <div class="product-features">
-                        <h3>Hauptmerkmale</h3>
-                        <ul>
-                            <li>Erfüllt internationale Qualitätsstandards</li>
-                            <li>Umweltfreundliche Beschaffung</li>
-                            <li>Kosteneffektive Alternative zu Neustahl</li>
-                            <li>Mehrere Güteklassen und Spezifikationen verfügbar</li>
-                            <li>Zuverlässige globale Lieferkette</li>
-                        </ul>
-                    </div>
-                    <div class="product-link">
-                        <a href="#steel-types" class="steel-types-link">Stahlsorten, die wir anbieten</a>
-                    </div>
-                </div>
+    <!-- Products Selection -->
+    <div class="products-selection">
+        <div class="selection-card">
+            <h2>Wählen Sie eine Produktkategorie</h2>
+            <div class="product-buttons">
+                    <a href="products_steel_de.html" class="product-button">Stahl</a>
+                <a href="#" class="product-button" onclick="alert('Demnächst verfügbar!'); return false;">Lebensmittel & Getreide</a>
+                <a href="#" class="product-button" onclick="alert('Demnächst verfügbar!'); return false;">Blumen & Pflanzen</a>
             </div>
-        </div>
-
-    </div>
-
-    <!-- Steel Types Section -->
-    <div id="steel-types" class="steel-types-section">
-        <div class="under-construction">
-            <h2>Stahlsorten, die wir anbieten</h2>
-            <p class="construction-message">In Bearbeitung</p>
         </div>
     </div>
 
@@ -536,7 +342,6 @@
     <footer>
         <p>© DRP. Alle Rechte vorbehalten.</p>
         <p>DRP Gruppenunternehmen</p>
-        <p><a href="https://www.drpgp.com" target="_blank">www.drpgp.com</a></p>
     </footer>
 
     <script>
@@ -552,37 +357,7 @@
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
         }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    document.getElementById('navLinks').classList.remove('active');
-                }
-            });
-        });
-
-        // Add scroll effect to navigation
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll > 100) {
-                nav.style.padding = '0.5rem 0';
-            } else {
-                nav.style.padding = '1rem 0';
-            }
-
-            lastScroll = currentScroll;
-        });
     </script>
 </body>
-</html>
 
+</html>

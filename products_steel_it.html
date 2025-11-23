@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Nostri Prodotti - DRP International Ltd.</title>
+    <title>Prodotti in Acciaio - DRP International Ltd.</title>
     <style>
         * {
             margin: 0;
@@ -173,54 +173,115 @@
         .page-header h1 {
             font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        /* Products Selection */
-        .products-selection {
-            max-width: 800px;
-            margin: -50px auto 5rem;
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* Content Container */
+        .content-container {
+            max-width: 1200px;
+            margin: 3rem auto 5rem;
             padding: 0 2rem;
-            position: relative;
-            z-index: 1;
         }
 
-        .selection-card {
+        /* Section Styles */
+        .product-section {
             background: var(--white);
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
             padding: 3rem;
-            text-align: center;
+            margin-bottom: 3rem;
         }
 
-        .selection-card h2 {
-            font-size: 1.8rem;
+        .product-section h2 {
+            font-size: 2.2rem;
             color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .product-section h3 {
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-section p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .features-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 1.5rem 0;
+        }
+
+        .features-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .grades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .grade-item {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .grade-item:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(30, 86, 49, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
             margin-bottom: 2rem;
         }
 
-        .product-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .product-button {
-            display: block;
-            padding: 1.5rem 2rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 10px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(30, 86, 49, 0.2);
-        }
-
-        .product-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(30, 86, 49, 0.3);
+        .back-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 86, 49, 0.3);
         }
 
         /* Footer */
@@ -282,8 +343,16 @@
                 font-size: 2rem;
             }
 
-            .selection-card {
+            .product-section {
                 padding: 2rem 1.5rem;
+            }
+
+            .product-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .grades-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             }
         }
     </style>
@@ -303,13 +372,13 @@
                     <li><a href="index_it.html#contact">Contatto</a></li>
                 </ul>
                 <div class="lang-switcher">
-                    <select onchange="changeLanguage(this.value)" aria-label="Seleziona lingua">
-                        <option value="products.html">🇬🇧 EN</option>
-                        <option value="products_de.html">🇩🇪 DE</option>
-                        <option value="products_fr.html">🇫🇷 FR</option>
-                        <option value="products_it.html" selected>🇮🇹 IT</option>
-                        <option value="products_ja.html">🇯🇵 JP</option>
-                        <option value="products_zh.html">🇨🇳 CN</option>
+                    <select onchange="changeLanguage(this.value)" aria-label="Seleziona Lingua">
+                        <option value="products_steel.html">🇬🇧 EN</option>
+                        <option value="products_steel_de.html">🇩🇪 DE</option>
+                        <option value="products_steel_fr.html">🇫🇷 FR</option>
+                        <option value="products_steel_it.html" selected>🇮🇹 IT</option>
+                        <option value="products_steel_ja.html">🇯🇵 JP</option>
+                        <option value="products_steel_zh.html">🇨🇳 CN</option>
                     </select>
                 </div>
                 <div class="mobile-menu" onclick="toggleMenu()">
@@ -323,24 +392,71 @@
 
     <!-- Header -->
     <header class="page-header">
-        <h1>I Nostri Prodotti</h1>
+        <h1>Prodotti in Acciaio</h1>
+        <p>Materie Prime & Acciaio Prime</p>
     </header>
 
-    <!-- Products Selection -->
-    <div class="products-selection">
-        <div class="selection-card">
-            <h2>Seleziona una categoria di prodotto</h2>
-            <div class="product-buttons">
-                    <a href="products_steel_it.html" class="product-button">Acciaio</a>
-                <a href="#" class="product-button" onclick="alert('Prossimamente!'); return false;">Alimenti & Cereali</a>
-                <a href="#" class="product-button" onclick="alert('Prossimamente!'); return false;">Fiori & Fogliame</a>
+    <!-- Content -->
+    <div class="content-container">
+        <a href="products_it.html" class="back-button">← Torna ai Prodotti</a>
+
+        <!-- Raw Materials Section -->
+        <div class="product-section">
+            <h2>Materie Prime (Metalli Ferrosi e Non Ferrosi Riciclabili)</h2>
+            <p>Forniamo varie qualità di metalli ferrosi e non ferrosi riciclabili selezionati alle fonderie in Europa e in Asia. I nostri prodotti sono forniti secondo specifiche internazionali e standard di qualità.</p>
+            <p>Metalli industriali riciclabili ottenuti attraverso rigorosi processi di controllo qualità. I nostri metalli riciclabili offrono un'alternativa rispettosa dell'ambiente senza compromettere le prestazioni. Le nostre spedizioni provengono dalle regioni AMER, EMEA e APAC.</p>
+
+            <h3>Caratteristiche Principali</h3>
+            <ul class="features-list">
+                <li>Soddisfa le specifiche internazionali e gli standard di qualità</li>
+                <li>Approvvigionamento sostenibile e rispettoso dell'ambiente</li>
+                <li>Alternativa economica all'acciaio vergine</li>
+                <li>Diverse qualità e specifiche disponibili</li>
+                <li>Catena di approvvigionamento globale affidabile</li>
+            </ul>
+
+            <h3>Qualità di Metalli Ferrosi e Non Ferrosi Riciclabili</h3>
+            <div class="grades-grid">
+                <div class="grade-item">HMS & PNS</div>
+                <div class="grade-item">Acciaio Legato & Utensili<br>(Ni-Cr-Mo-V)</div>
+                <div class="grade-item">Acciaio Inossidabile<br>(serie 3xx e 4xx)</div>
+                <div class="grade-item">Rame</div>
+                <div class="grade-item">Alluminio</div>
+            </div>
+        </div>
+
+        <!-- Prime Steel Section -->
+        <div class="product-section">
+            <h2>Acciaio Prime</h2>
+            <p>Forniamo acciaio per utensili legato e acciaio inossidabile importati per la produzione di utensili e stampi da stock ai clienti nel Regno Unito e nell'UE. I nostri acciai sono prodotti da produttori certificati in Europa e in Asia.</p>
+            <p>Manteniamo scorte in varie qualità e dimensioni nel Regno Unito e nell'UE per un rapido time-to-market su base Just-in-Time (JIT).</p>
+
+            <h3>Caratteristiche Principali</h3>
+            <ul class="features-list">
+                <li>Soddisfa le specifiche internazionali e gli standard di qualità</li>
+                <li>Approvvigionamento sostenibile e rispettoso dell'ambiente</li>
+                <li>Diverse qualità e dimensioni disponibili</li>
+                <li>Catena di approvvigionamento globale affidabile</li>
+            </ul>
+
+            <h3>Qualità di Acciaio Prime</h3>
+            <div class="grades-grid">
+                <div class="grade-item">1.2344 (H13)</div>
+                <div class="grade-item">1.2343 (H11)</div>
+                <div class="grade-item">1.2714</div>
+                <div class="grade-item">1.2329</div>
+                <div class="grade-item">1.2379</div>
+                <div class="grade-item">P20</div>
+                <div class="grade-item">15-5ph</div>
+                <div class="grade-item">17-4ph</div>
+                <div class="grade-item">3xx e 4xx</div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>© DRP. Tutti i Diritti Riservati.</p>
+        <p>© DRP. Tutti i diritti riservati.</p>
         <p>Società del Gruppo DRP</p>
     </footer>
 
@@ -361,3 +477,4 @@
 </body>
 
 </html>
+

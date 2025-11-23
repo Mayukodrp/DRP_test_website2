@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>取扱製品 - DRP International Ltd.</title>
+    <title>鉄鋼製品 - DRP International Ltd.</title>
     <style>
         * {
             margin: 0;
@@ -173,54 +173,115 @@
         .page-header h1 {
             font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        /* Products Selection */
-        .products-selection {
-            max-width: 800px;
-            margin: -50px auto 5rem;
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* Content Container */
+        .content-container {
+            max-width: 1200px;
+            margin: 3rem auto 5rem;
             padding: 0 2rem;
-            position: relative;
-            z-index: 1;
         }
 
-        .selection-card {
+        /* Section Styles */
+        .product-section {
             background: var(--white);
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
             padding: 3rem;
-            text-align: center;
+            margin-bottom: 3rem;
         }
 
-        .selection-card h2 {
-            font-size: 1.8rem;
+        .product-section h2 {
+            font-size: 2.2rem;
             color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .product-section h3 {
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-section p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .features-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 1.5rem 0;
+        }
+
+        .features-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .grades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .grade-item {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .grade-item:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(30, 86, 49, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
             margin-bottom: 2rem;
         }
 
-        .product-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .product-button {
-            display: block;
-            padding: 1.5rem 2rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 10px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(30, 86, 49, 0.2);
-        }
-
-        .product-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(30, 86, 49, 0.3);
+        .back-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 86, 49, 0.3);
         }
 
         /* Footer */
@@ -282,8 +343,16 @@
                 font-size: 2rem;
             }
 
-            .selection-card {
+            .product-section {
                 padding: 2rem 1.5rem;
+            }
+
+            .product-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .grades-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             }
         }
     </style>
@@ -304,12 +373,12 @@
                 </ul>
                 <div class="lang-switcher">
                     <select onchange="changeLanguage(this.value)" aria-label="言語を選択">
-                        <option value="products.html">🇬🇧 EN</option>
-                        <option value="products_de.html">🇩🇪 DE</option>
-                        <option value="products_fr.html">🇫🇷 FR</option>
-                        <option value="products_it.html">🇮🇹 IT</option>
-                        <option value="products_ja.html" selected>🇯🇵 JP</option>
-                        <option value="products_zh.html">🇨🇳 CN</option>
+                        <option value="products_steel.html">🇬🇧 EN</option>
+                        <option value="products_steel_de.html">🇩🇪 DE</option>
+                        <option value="products_steel_fr.html">🇫🇷 FR</option>
+                        <option value="products_steel_it.html">🇮🇹 IT</option>
+                        <option value="products_steel_ja.html" selected>🇯🇵 JP</option>
+                        <option value="products_steel_zh.html">🇨🇳 CN</option>
                     </select>
                 </div>
                 <div class="mobile-menu" onclick="toggleMenu()">
@@ -323,17 +392,64 @@
 
     <!-- Header -->
     <header class="page-header">
-        <h1>取扱製品</h1>
+        <h1>鉄鋼製品</h1>
+        <p>原材料・プライム鋼材</p>
     </header>
 
-    <!-- Products Selection -->
-    <div class="products-selection">
-        <div class="selection-card">
-            <h2>製品カテゴリーを選択してください</h2>
-            <div class="product-buttons">
-                    <a href="products_steel_ja.html" class="product-button">鉄鋼</a>
-                <a href="#" class="product-button" onclick="alert('近日公開！'); return false;">食品・穀物</a>
-                <a href="#" class="product-button" onclick="alert('近日公開！'); return false;">花卉・植物</a>
+    <!-- Content -->
+    <div class="content-container">
+        <a href="products_ja.html" class="back-button">← 製品一覧に戻る</a>
+
+        <!-- Raw Materials Section -->
+        <div class="product-section">
+            <h2>原材料（リサイクル可能な鉄・非鉄金属）</h2>
+            <p>欧州およびアジアの溶解炉向けに、様々なグレードの選別されたリサイクル可能な鉄・非鉄金属を供給しています。当社の製品は国際規格および品質基準に準拠して供給されます。</p>
+            <p>厳格な品質管理プロセスを通じて調達された工業用リサイクル可能金属。当社のリサイクル金属は、性能を損なうことなく環境に配慮した代替品を提供します。当社の出荷は、AMER、EMEA、APACの各地域から行われます。</p>
+
+            <h3>主な特徴</h3>
+            <ul class="features-list">
+                <li>国際規格および品質基準を満たします</li>
+                <li>環境に配慮した持続可能な調達</li>
+                <li>バージン鋼材に対する費用対効果の高い代替品</li>
+                <li>複数のグレードおよび仕様が利用可能</li>
+                <li>信頼性の高いグローバルサプライチェーン</li>
+            </ul>
+
+            <h3>リサイクル可能な鉄・非鉄金属のグレード</h3>
+            <div class="grades-grid">
+                <div class="grade-item">HMS & PNS</div>
+                <div class="grade-item">合金工具鋼<br>(Ni-Cr-Mo-V)</div>
+                <div class="grade-item">ステンレス鋼<br>(3xxおよび4xxシリーズ)</div>
+                <div class="grade-item">銅</div>
+                <div class="grade-item">アルミニウム</div>
+            </div>
+        </div>
+
+        <!-- Prime Steel Section -->
+        <div class="product-section">
+            <h2>プライム鋼材</h2>
+            <p>英国およびEUの顧客向けに、工具・金型製造用の輸入合金工具鋼およびステンレス鋼を在庫から供給しています。当社の鋼材は、欧州およびアジアの認定生産者によって製造されています。</p>
+            <p>英国およびEUで様々なグレードとサイズの在庫を保有し、ジャストインタイム（JIT）ベースでの迅速な対応が可能です。</p>
+
+            <h3>主な特徴</h3>
+            <ul class="features-list">
+                <li>国際規格および品質基準を満たします</li>
+                <li>環境に配慮した持続可能な調達</li>
+                <li>複数のグレードおよびサイズが利用可能</li>
+                <li>信頼性の高いグローバルサプライチェーン</li>
+            </ul>
+
+            <h3>プライム鋼材のグレード</h3>
+            <div class="grades-grid">
+                <div class="grade-item">1.2344 (H13)</div>
+                <div class="grade-item">1.2343 (H11)</div>
+                <div class="grade-item">1.2714</div>
+                <div class="grade-item">1.2329</div>
+                <div class="grade-item">1.2379</div>
+                <div class="grade-item">P20</div>
+                <div class="grade-item">15-5ph</div>
+                <div class="grade-item">17-4ph</div>
+                <div class="grade-item">3xxおよび4xx</div>
             </div>
         </div>
     </div>
@@ -361,3 +477,4 @@
 </body>
 
 </html>
+

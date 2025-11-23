@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Nostri Prodotti - DRP International Ltd.</title>
+    <title>钢铁产品 - DRP International Ltd.</title>
     <style>
         * {
             margin: 0;
@@ -23,8 +23,8 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
             color: var(--text-dark);
             overflow-x: hidden;
             background: var(--bg-light);
@@ -173,54 +173,115 @@
         .page-header h1 {
             font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        /* Products Selection */
-        .products-selection {
-            max-width: 800px;
-            margin: -50px auto 5rem;
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* Content Container */
+        .content-container {
+            max-width: 1200px;
+            margin: 3rem auto 5rem;
             padding: 0 2rem;
-            position: relative;
-            z-index: 1;
         }
 
-        .selection-card {
+        /* Section Styles */
+        .product-section {
             background: var(--white);
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
             padding: 3rem;
-            text-align: center;
+            margin-bottom: 3rem;
         }
 
-        .selection-card h2 {
-            font-size: 1.8rem;
+        .product-section h2 {
+            font-size: 2.2rem;
             color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .product-section h3 {
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-section p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .features-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 1.5rem 0;
+        }
+
+        .features-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .grades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .grade-item {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .grade-item:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(30, 86, 49, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
             margin-bottom: 2rem;
         }
 
-        .product-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .product-button {
-            display: block;
-            padding: 1.5rem 2rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 10px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(30, 86, 49, 0.2);
-        }
-
-        .product-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(30, 86, 49, 0.3);
+        .back-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 86, 49, 0.3);
         }
 
         /* Footer */
@@ -282,8 +343,16 @@
                 font-size: 2rem;
             }
 
-            .selection-card {
+            .product-section {
                 padding: 2rem 1.5rem;
+            }
+
+            .product-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .grades-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             }
         }
     </style>
@@ -293,23 +362,23 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index_it.html" class="logo"><img src="logo.jpg" alt="DRP International Ltd."></a>
+            <a href="index_zh.html" class="logo"><img src="logo.jpg" alt="DRP International Ltd."></a>
             <div class="nav-right">
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index_it.html">Home</a></li>
-                    <li><a href="message_it.html">Messaggio</a></li>
-                    <li><a href="products_it.html" class="active">Prodotti</a></li>
-                    <li><a href="company_it.html">Azienda</a></li>
-                    <li><a href="index_it.html#contact">Contatto</a></li>
+                    <li><a href="index_zh.html">主页</a></li>
+                    <li><a href="message_zh.html">信息</a></li>
+                    <li><a href="products_zh.html" class="active">产品</a></li>
+                    <li><a href="company_zh.html">公司</a></li>
+                    <li><a href="index_zh.html#contact">联系我们</a></li>
                 </ul>
                 <div class="lang-switcher">
-                    <select onchange="changeLanguage(this.value)" aria-label="Seleziona lingua">
-                        <option value="products.html">🇬🇧 EN</option>
-                        <option value="products_de.html">🇩🇪 DE</option>
-                        <option value="products_fr.html">🇫🇷 FR</option>
-                        <option value="products_it.html" selected>🇮🇹 IT</option>
-                        <option value="products_ja.html">🇯🇵 JP</option>
-                        <option value="products_zh.html">🇨🇳 CN</option>
+                    <select onchange="changeLanguage(this.value)" aria-label="选择语言">
+                        <option value="products_steel.html">🇬🇧 EN</option>
+                        <option value="products_steel_de.html">🇩🇪 DE</option>
+                        <option value="products_steel_fr.html">🇫🇷 FR</option>
+                        <option value="products_steel_it.html">🇮🇹 IT</option>
+                        <option value="products_steel_ja.html">🇯🇵 JP</option>
+                        <option value="products_steel_zh.html" selected>🇨🇳 CN</option>
                     </select>
                 </div>
                 <div class="mobile-menu" onclick="toggleMenu()">
@@ -323,25 +392,72 @@
 
     <!-- Header -->
     <header class="page-header">
-        <h1>I Nostri Prodotti</h1>
+        <h1>钢铁产品</h1>
+        <p>原材料与优质钢材</p>
     </header>
 
-    <!-- Products Selection -->
-    <div class="products-selection">
-        <div class="selection-card">
-            <h2>Seleziona una categoria di prodotto</h2>
-            <div class="product-buttons">
-                    <a href="products_steel_it.html" class="product-button">Acciaio</a>
-                <a href="#" class="product-button" onclick="alert('Prossimamente!'); return false;">Alimenti & Cereali</a>
-                <a href="#" class="product-button" onclick="alert('Prossimamente!'); return false;">Fiori & Fogliame</a>
+    <!-- Content -->
+    <div class="content-container">
+        <a href="products_zh.html" class="back-button">← 返回产品</a>
+
+        <!-- Raw Materials Section -->
+        <div class="product-section">
+            <h2>原材料（可回收黑色金属和有色金属）</h2>
+            <p>我们向欧洲和亚洲的熔炉供应各种等级的分类可回收黑色金属和有色金属。我们的产品按照国际规格和质量标准供应。</p>
+            <p>通过严格的质量控制流程采购的工业可回收金属。我们的可回收金属在不影响性能的前提下提供环保的替代方案。我们的货物来自美洲、欧洲、中东、非洲和亚太地区。</p>
+
+            <h3>主要特点</h3>
+            <ul class="features-list">
+                <li>符合国际规格和质量标准</li>
+                <li>环境可持续采购</li>
+                <li>相对于原生钢材的成本效益替代方案</li>
+                <li>多种等级和规格可供选择</li>
+                <li>可靠的全球供应链</li>
+            </ul>
+
+            <h3>可回收黑色金属和有色金属等级</h3>
+            <div class="grades-grid">
+                <div class="grade-item">HMS & PNS</div>
+                <div class="grade-item">合金工具钢<br>(Ni-Cr-Mo-V)</div>
+                <div class="grade-item">不锈钢<br>(3xx和4xx系列)</div>
+                <div class="grade-item">铜</div>
+                <div class="grade-item">铝</div>
+            </div>
+        </div>
+
+        <!-- Prime Steel Section -->
+        <div class="product-section">
+            <h2>优质钢材</h2>
+            <p>我们从库存向英国和欧盟的客户供应用于工具和模具生产的进口合金工具钢和不锈钢。我们的钢材由欧洲和亚洲的认证生产商生产。</p>
+            <p>我们在英国和欧盟持有各种等级和尺寸的库存，可在准时制（JIT）基础上快速周转。</p>
+
+            <h3>主要特点</h3>
+            <ul class="features-list">
+                <li>符合国际规格和质量标准</li>
+                <li>环境可持续采购</li>
+                <li>多种等级和尺寸可供选择</li>
+                <li>可靠的全球供应链</li>
+            </ul>
+
+            <h3>优质钢材等级</h3>
+            <div class="grades-grid">
+                <div class="grade-item">1.2344 (H13)</div>
+                <div class="grade-item">1.2343 (H11)</div>
+                <div class="grade-item">1.2714</div>
+                <div class="grade-item">1.2329</div>
+                <div class="grade-item">1.2379</div>
+                <div class="grade-item">P20</div>
+                <div class="grade-item">15-5ph</div>
+                <div class="grade-item">17-4ph</div>
+                <div class="grade-item">3xx和4xx</div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>© DRP. Tutti i Diritti Riservati.</p>
-        <p>Società del Gruppo DRP</p>
+        <p>© DRP. 版权所有。</p>
+        <p>DRP集团公司</p>
     </footer>
 
     <script>
@@ -361,3 +477,4 @@
 </body>
 
 </html>
+

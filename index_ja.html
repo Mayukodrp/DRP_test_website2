@@ -59,8 +59,11 @@
         }
 
         .logo img {
-            height: 90px;
+            height: 110px;
             width: auto;
+            background: #ffffff;
+            padding: 5px;
+            border-radius: 8px;
         }
 
         .nav-links {
@@ -543,12 +546,12 @@
                 </ul>
                 <div class="lang-switcher">
                     <select onchange="changeLanguage(this.value)" aria-label="言語を選択">
-                        <option value="index.html">🇬🇧 English</option>
-                        <option value="index_de.html">🇩🇪 German</option>
-                        <option value="index_fr.html">🇫🇷 French</option>
-                        <option value="index_it.html">🇮🇹 Italian</option>
-                        <option value="index_ja.html" selected>🇯🇵 Japanese</option>
-                        <option value="index_zh.html">🇨🇳 Chinese</option>
+                        <option value="index.html">🇬🇧 EN</option>
+                        <option value="index_de.html">🇩🇪 DE</option>
+                        <option value="index_fr.html">🇫🇷 FR</option>
+                        <option value="index_it.html">🇮🇹 IT</option>
+                        <option value="index_ja.html" selected>🇯🇵 JP</option>
+                        <option value="index_zh.html">🇨🇳 CN</option>
                     </select>
                 </div>
                 <div class="mobile-menu" onclick="toggleMenu()">
@@ -616,13 +619,16 @@
             <h2 class="section-title">事業内容</h2>
             <div class="business-grid">
                 <div class="business-card">
-                    <h3>トレーディング</h3>
-                    <h4>鉄鋼</h4>
-                    <p>様々な鉄鋼製品と等級の専門知識を持ち、グローバル市場における包括的な鉄鋼取引ソリューションを提供します。</p>
+                    <h3>鉄鋼（原材料・プライム材）</h3>
+                    <p>リサイクル用鉄鋼および工業用工具生産用の鉄鋼を、様々な合金工具鋼およびステンレス鋼グレードの専門知識を持って、グローバル市場に提供します。</p>
                 </div>
                 <div class="business-card">
-                    <h3>流通</h3>
-                    <p>当社のグローバルネットワークと物流能力を活用したエンドツーエンドの流通サービスを提供します。複数の大陸にわたるシームレスなサプライチェーンソリューションを実現します。</p>
+                    <h3>食品・穀物</h3>
+                    <p>グローバル市場における食品製造業界向けの複数の製品を取り扱っています。</p>
+                </div>
+                <div class="business-card">
+                    <h3>花卉・植物</h3>
+                    <p>世界中から調達した生花・植物をアジア市場へ供給しています。</p>
                 </div>
             </div>
         </div>
@@ -634,7 +640,7 @@
             <h2 class="section-title">グローバル拠点</h2>
             <div class="companies-grid">
                 <div class="company-card">
-                    <h3>🇨🇦 カナダ</h3>
+                    <h3>🇨🇦 カナダ（本社）</h3>
                     <h4>DRP International Ltd.</h4>
                     <p>
                         80B-135 James St. S.<br>
@@ -643,18 +649,8 @@
                     </p>
                 </div>
                 <div class="company-card">
-                    <h3>🇯🇵 日本（支店）</h3>
+                    <h3>🇬🇧 イギリス（支店）</h3>
                     <h4>DRP International Ltd.</h4>
-                    <p>
-                        東京都墨田区錦糸1-2-1<br>
-                        アルカセントラル14階<br>
-                        〒130-0013<br>
-                        <strong>Email:</strong> info@drpgp.com
-                    </p>
-                </div>
-                <div class="company-card">
-                    <h3>🇬🇧 イギリス</h3>
-                    <h4>DRP International (UK) Ltd.</h4>
                     <p>
                         Bray Business Centre<br>
                         Maidenhead, SL6 2ED<br>
@@ -664,11 +660,29 @@
                 </div>
                 <div class="company-card">
                     <h3>🇳🇱 オランダ（支店）</h3>
-                    <h4>DRP International (UK) Ltd.</h4>
+                    <h4>DRP International Ltd.</h4>
                     <p>
-                        WTC, Zuidplein 36, 1077XV<br>
-                        562 - Amsterdam<br>
+                        （新オフィス住所近日公開）<br>
                         <strong>Email:</strong> info@drpgp.com
+                    </p>
+                </div>
+                <div class="company-card">
+                    <h3>🇯🇵 日本（支店）</h3>
+                    <h4>DRP International Ltd.</h4>
+                    <p>
+                        14F Arca Central<br>
+                        1-2-1 Kinshi, Sumida-Ku<br>
+                        Tokyo, 130-0013<br>
+                        <strong>Email:</strong> info@drpgp.com
+                    </p>
+                </div>
+                <div class="company-card">
+                    <h3>🇭🇰 香港（子会社）</h3>
+                    <h4>Silver State Limited</h4>
+                    <p>
+                        RM A&B, 2/F, Lee Kee Commercial Building<br>
+                        221-227 Queen's Road Central, Hong Kong<br>
+                        <strong>Email:</strong> silverstate-hk@drpgp.com
                     </p>
                 </div>
             </div>
@@ -680,7 +694,6 @@
         <div class="container">
             <h2 class="section-title">いつでもお気軽にご連絡ください！</h2>
             <div class="contact-info">
-                <p>共にビジネス機会を探求する準備はできていますか？</p>
                 <p>Email: <a href="mailto:info@drpgp.com">info@drpgp.com</a></p>
                 <p>Website: <a href="https://www.drpgp.com" target="_blank">www.drpgp.com</a></p>
             </div>
@@ -691,7 +704,6 @@
     <footer>
         <p>© DRP. All Rights Reserved.</p>
         <p>DRP Group companies</p>
-        <p><a href="https://www.drpgp.com" target="_blank">www.drpgp.com</a></p>
     </footer>
 
     <script>

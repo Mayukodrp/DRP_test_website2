@@ -59,8 +59,11 @@
         }
 
         .logo img {
-            height: 90px;
+            height: 110px;
             width: auto;
+            background: #ffffff;
+            padding: 5px;
+            border-radius: 8px;
         }
 
         .nav-links {
@@ -543,12 +546,12 @@
                 </ul>
                 <div class="lang-switcher">
                     <select onchange="changeLanguage(this.value)" aria-label="选择语言">
-                        <option value="index.html">🇬🇧 English</option>
-                        <option value="index_de.html">🇩🇪 German</option>
-                        <option value="index_fr.html">🇫🇷 French</option>
-                        <option value="index_it.html">🇮🇹 Italian</option>
-                        <option value="index_ja.html">🇯🇵 Japanese</option>
-                        <option value="index_zh.html" selected>🇨🇳 Chinese</option>
+                        <option value="index.html">🇬🇧 EN</option>
+                        <option value="index_de.html">🇩🇪 DE</option>
+                        <option value="index_fr.html">🇫🇷 FR</option>
+                        <option value="index_it.html">🇮🇹 IT</option>
+                        <option value="index_ja.html">🇯🇵 JP</option>
+                        <option value="index_zh.html" selected>🇨🇳 CN</option>
                     </select>
                 </div>
                 <div class="mobile-menu" onclick="toggleMenu()">
@@ -616,13 +619,16 @@
             <h2 class="section-title">我们的业务</h2>
             <div class="business-grid">
                 <div class="business-card">
-                    <h3>贸易</h3>
-                    <h4>钢铁</h4>
-                    <p>在全球市场提供全面的钢铁贸易解决方案，专业涵盖各种钢铁产品和等级。</p>
+                    <h3>钢铁（原材料与优质钢材）</h3>
+                    <p>为回收利用和工业工具生产提供钢铁，专业涵盖各种合金工具钢和不锈钢等级，服务全球市场。</p>
                 </div>
                 <div class="business-card">
-                    <h3>分销</h3>
-                    <p>利用我们的全球网络和物流能力提供端到端分销服务。我们提供跨多个大陆的无缝供应链解决方案。</p>
+                    <h3>食品与谷物</h3>
+                    <p>为全球市场的食品制造行业提供多种产品。</p>
+                </div>
+                <div class="business-card">
+                    <h3>鲜花与叶材</h3>
+                    <p>从世界各地采购新鲜切花和叶材，供应亚洲市场。</p>
                 </div>
             </div>
         </div>
@@ -634,7 +640,7 @@
             <h2 class="section-title">我们的全球布局</h2>
             <div class="companies-grid">
                 <div class="company-card">
-                    <h3>🇨🇦 加拿大</h3>
+                    <h3>🇨🇦 加拿大（总部）</h3>
                     <h4>DRP国际有限公司</h4>
                     <p>
                         80B-135 James St. S.<br>
@@ -643,18 +649,8 @@
                     </p>
                 </div>
                 <div class="company-card">
-                    <h3>🇯🇵 日本（分公司）</h3>
+                    <h3>🇬🇧 英国（分公司）</h3>
                     <h4>DRP国际有限公司</h4>
-                    <p>
-                        东京都墨田区锦系1-2-1<br>
-                        Arca Central 14楼<br>
-                        邮编 130-0013<br>
-                        <strong>电子邮件：</strong> info@drpgp.com
-                    </p>
-                </div>
-                <div class="company-card">
-                    <h3>🇬🇧 英国</h3>
-                    <h4>DRP国际（英国）有限公司</h4>
                     <p>
                         Bray Business Centre<br>
                         Maidenhead, SL6 2ED<br>
@@ -664,11 +660,29 @@
                 </div>
                 <div class="company-card">
                     <h3>🇳🇱 荷兰（分公司）</h3>
-                    <h4>DRP国际（英国）有限公司</h4>
+                    <h4>DRP国际有限公司</h4>
                     <p>
-                        WTC, Zuidplein 36, 1077XV<br>
-                        562 - Amsterdam<br>
+                        （新办公地址即将公布）<br>
                         <strong>电子邮件：</strong> info@drpgp.com
+                    </p>
+                </div>
+                <div class="company-card">
+                    <h3>🇯🇵 日本（分公司）</h3>
+                    <h4>DRP国际有限公司</h4>
+                    <p>
+                        14F Arca Central<br>
+                        1-2-1 Kinshi, Sumida-Ku<br>
+                        Tokyo, 130-0013<br>
+                        <strong>电子邮件：</strong> info@drpgp.com
+                    </p>
+                </div>
+                <div class="company-card">
+                    <h3>🇭🇰 香港（子公司）</h3>
+                    <h4>Silver State Limited</h4>
+                    <p>
+                        RM A&B, 2/F, Lee Kee Commercial Building<br>
+                        221-227 Queen's Road Central, Hong Kong<br>
+                        <strong>电子邮件：</strong> silverstate-hk@drpgp.com
                     </p>
                 </div>
             </div>
@@ -680,7 +694,6 @@
         <div class="container">
             <h2 class="section-title">随时欢迎合作！</h2>
             <div class="contact-info">
-                <p>准备一起探索商机了吗？</p>
                 <p>电子邮件：<a href="mailto:info@drpgp.com">info@drpgp.com</a></p>
                 <p>网站：<a href="https://www.drpgp.com" target="_blank">www.drpgp.com</a></p>
             </div>
@@ -691,7 +704,6 @@
     <footer>
         <p>© DRP. 版权所有。</p>
         <p>DRP集团公司</p>
-        <p><a href="https://www.drpgp.com" target="_blank">www.drpgp.com</a></p>
     </footer>
 
     <script>
