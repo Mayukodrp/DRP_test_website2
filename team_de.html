@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unser Team - DRP International Ltd.</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary-color: #1e5631; --secondary-color: #2d7a3e; --accent-color: #52a662; --text-dark: #1e293b; --text-light: #64748b; --bg-light: #f8fafc; --white: #ffffff; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text-dark); overflow-x: hidden; background: var(--bg-light); }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); z-index: 1000; transition: all 0.3s ease; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: var(--primary-color); text-decoration: none; display: flex; align-items: center; }
+        .logo img { height: 110px; width: auto; background: #ffffff; padding: 5px; border-radius: 8px; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s ease; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--secondary-color); transition: width 0.3s ease; }
+        .nav-links a:hover { color: var(--secondary-color); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active::after { width: 100%; }
+        .mobile-menu { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .mobile-menu span { width: 25px; height: 3px; background: var(--primary-color); transition: all 0.3s ease; }
+        .lang-switcher { display: flex; align-items: center; }
+        .lang-switcher select { padding: 0.5rem 2.5rem 0.5rem 1rem; background: var(--primary-color); color: var(--white); border: none; border-radius: 5px; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; appearance: none; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 0.5rem center; background-size: 1rem; }
+        .lang-switcher select:hover { background-color: var(--secondary-color); }
+        .nav-right { display: flex; align-items: center; gap: 2rem; }
+        .page-header { margin-top: 80px; padding: 5rem 2rem 3rem; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: var(--white); text-align: center; min-height: 250px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .page-header h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .page-header p { font-size: 1.2rem; opacity: 0.95; max-width: 800px; }
+        .team-container { max-width: 1200px; margin: -50px auto 0; padding: 0 2rem 5rem; position: relative; z-index: 1; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .team-card { background: var(--white); border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); overflow: hidden; transition: all 0.3s ease; }
+        .team-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); }
+        .team-card-content { display: flex; padding: 2rem; gap: 1.5rem; }
+        .team-photo { width: 120px; height: 150px; border-radius: 10px; overflow: hidden; flex-shrink: 0; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
+        .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+        .team-info { flex: 1; }
+        .team-info h3 { font-size: 1.3rem; color: var(--primary-color); margin-bottom: 0.25rem; }
+        .team-info .role { font-size: 1rem; color: var(--secondary-color); font-weight: 600; margin-bottom: 0.75rem; }
+        .team-info .location { font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .team-info .details { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
+        .team-info .details p { margin-bottom: 0.25rem; }
+        .team-info .languages { margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-light); }
+        .team-info .languages span { display: inline-block; background: var(--bg-light); padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.25rem; margin-bottom: 0.25rem; }
+        footer { background: #0f172a; color: var(--white); text-align: center; padding: 2rem; margin-top: 3rem; }
+        footer p { opacity: 0.8; margin-bottom: 0.5rem; }
+        @media (max-width: 768px) { .nav-right { flex-direction: column; align-items: flex-end; } .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 1rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); } .nav-links.active { display: flex; } .mobile-menu { display: flex; } .lang-switcher { margin-right: 1rem; } .page-header h1 { font-size: 2rem; } .team-grid { grid-template-columns: 1fr; } .team-card-content { flex-direction: column; align-items: center; text-align: center; } .team-info .location { justify-content: center; } }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index_de.html" class="logo"><img src="logo.jpg" alt="DRP International Ltd."></a>
+            <div class="nav-right">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index_de.html">Startseite</a></li>
+                    <li><a href="message_de.html">Botschaft</a></li>
+                    <li><a href="team_de.html" class="active">Team</a></li>
+                    <li><a href="products_de.html">Produkte</a></li>
+                    <li><a href="company_de.html">Unternehmen</a></li>
+                    <li><a href="index_de.html#contact">Kontakt</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <select onchange="changeLanguage(this.value)" aria-label="Sprache wählen">
+                        <option value="team.html">🇬🇧 EN</option>
+                        <option value="team_de.html" selected>🇩🇪 DE</option>
+                        <option value="team_fr.html">🇫🇷 FR</option>
+                        <option value="team_it.html">🇮🇹 IT</option>
+                        <option value="team_ja.html">🇯🇵 JP</option>
+                        <option value="team_zh.html">🇨🇳 CN</option>
+                    </select>
+                </div>
+                <div class="mobile-menu" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Unser Team</h1>
+        <p>Erfahrene, mehrsprachige Fachleute für globalen Erfolg</p>
+    </header>
+
+    <div class="team-container">
+        <div class="team-grid">
+            <div class="team-card"><div class="team-card-content"><div class="team-photo"><img src="Ritesh_Singh.jpg" alt="Ritesh Singh"></div><div class="team-info"><h3>Ritesh Singh</h3><p class="role">Präsident & CEO</p><p class="location">📍 Kanada</p><div class="details"><p>25+ Jahre im internationalen Rohstoffhandel und Geschäftsentwicklung</p></div><div class="languages"><span>Englisch</span><span>Hindi</span></div></div></div></div>
+            <div class="team-card"><div class="team-card-content"><div class="team-photo"><img src="Dolly_Singh.jpg" alt="Dolly Singh"></div><div class="team-info"><h3>Dolly Singh</h3><p class="role">Vizepräsidentin</p><p class="location">📍 Kanada</p><div class="details"><p>15+ Jahre Erfahrung</p></div><div class="languages"><span>Englisch</span><span>Hindi</span></div></div></div></div>
+            <div class="team-card"><div class="team-card-content"><div class="team-photo"><img src="Roger_Jie_Luo.jpg" alt="Roger Jie Luo"></div><div class="team-info"><h3>Roger Jie Luo</h3><p class="role">COO</p><p class="location">📍 Kanada / Japan</p><div class="details"><p>Beijing Forestry University</p><p>University of Toronto</p></div><div class="languages"><span>Englisch</span><span>Chinesisch</span><span>Japanisch</span></div></div></div></div>
+            <div class="team-card"><div class="team-card-content"><div class="team-photo"><img src="Shivam_Sonar.jpg" alt="Shivam Sonar"></div><div class="team-info"><h3>Shivam Sonar</h3><p class="role">Niederlassungsleiter (UK/EU Operations)</p><p class="location">📍 Vereinigtes Königreich</p><div class="details"><p>University of Sussex</p></div><div class="languages"><span>Englisch</span><span>Hindi</span></div></div></div></div>
+            <div class="team-card"><div class="team-card-content"><div class="team-photo"><img src="Benny_Vanderhaeghe.jpg" alt="Eng. Benny Vanderhaeghe"></div><div class="team-info"><h3>Eng. Benny Vanderhaeghe</h3><p class="role">Handel (EU, Rohstoffe & Halbfertigprodukte)</p><p class="location">📍 Europäische Union</p><div class="details"><p>KU Leuven</p></div><div class="languages"><span>Englisch</span><span>Niederländisch</span><span>Französisch</span><span>Deutsch</span></div></div></div></div>
+            <div class="team-card"><div class="team-card-content"><div class="team-photo"><img src="Rostislav_Jezek.jpg" alt="Eng. Rostislav Ježek"></div><div class="team-info"><h3>Eng. Rostislav Ježek</h3><p class="role">Handel (EU, Rohstoffe & Halbfertigprodukte)</p><p class="location">📍 Europäische Union</p><div class="details"><p>Mendel University</p></div><div class="languages"><span>Englisch</span><span>Tschechisch</span><span>Slowakisch</span><span>Polnisch</span><span>Russisch</span></div></div></div></div>
+            <div class="team-card"><div class="team-card-content"><div class="team-photo"><img src="Nizza_Hernandez.jpg" alt="Nizza Hernandez"></div><div class="team-info"><h3>Nizza Hernandez</h3><p class="role">Handel (Japan, Philippinen)</p><p class="location">📍 Japan</p><div class="details"><p>Blumen & Pflanzen Spezialist</p></div><div class="languages"><span>Japanisch</span><span>Tagalog</span><span>Englisch</span></div></div></div></div>
+            <div class="team-card"><div class="team-card-content"><div class="team-photo"><img src="Mayuko_Okada.jpg" alt="Mayuko Okada"></div><div class="team-info"><h3>Mayuko Okada</h3><p class="role">Handel (Japan)</p><p class="location">📍 Japan</p><div class="details"><p>Blumen & Pflanzen Spezialist</p></div><div class="languages"><span>Japanisch</span><span>Englisch</span></div></div></div></div>
+            <div class="team-card"><div class="team-card-content"><div class="team-photo"><img src="Prathna_Singh.jpg" alt="Prathna Singh"></div><div class="team-info"><h3>Prathna Singh</h3><p class="role">Finanzen & Strategie</p><p class="location">📍 Kanada</p><div class="details"><p>CPA</p><p>University of Waterloo</p></div><div class="languages"><span>Englisch</span></div></div></div></div>
+        </div>
+    </div>
+
+    <footer><p>© DRP. Alle Rechte vorbehalten.</p></footer>
+
+    <script>
+        function changeLanguage(url) { if (url) { window.location.href = url; } }
+        function toggleMenu() { const navLinks = document.getElementById('navLinks'); navLinks.classList.toggle('active'); }
+    </script>
+</body>
+
+</html>
+

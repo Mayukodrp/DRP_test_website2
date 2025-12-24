@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食品与谷物 - DRP国际有限公司</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary-color: #1e5631; --secondary-color: #2d7a3e; --accent-color: #52a662; --text-dark: #1e293b; --text-light: #64748b; --bg-light: #f8fafc; --white: #ffffff; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text-dark); overflow-x: hidden; background: var(--bg-light); }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); z-index: 1000; transition: all 0.3s ease; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: var(--primary-color); text-decoration: none; display: flex; align-items: center; }
+        .logo img { height: 110px; width: auto; background: #ffffff; padding: 5px; border-radius: 8px; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s ease; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--secondary-color); transition: width 0.3s ease; }
+        .nav-links a:hover { color: var(--secondary-color); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active::after { width: 100%; }
+        .mobile-menu { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .mobile-menu span { width: 25px; height: 3px; background: var(--primary-color); transition: all 0.3s ease; }
+        .lang-switcher { display: flex; align-items: center; }
+        .lang-switcher select { padding: 0.5rem 2.5rem 0.5rem 1rem; background: var(--primary-color); color: var(--white); border: none; border-radius: 5px; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; appearance: none; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 0.5rem center; background-size: 1rem; }
+        .lang-switcher select:hover { background-color: var(--secondary-color); }
+        .nav-right { display: flex; align-items: center; gap: 2rem; }
+        .page-header { margin-top: 80px; padding: 5rem 2rem 3rem; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: var(--white); text-align: center; min-height: 250px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .page-header h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+        .page-header p { font-size: 1.2rem; opacity: 0.95; }
+        .content-container { max-width: 1200px; margin: 3rem auto 5rem; padding: 0 2rem; }
+        .product-section { background: var(--white); border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); padding: 3rem; margin-bottom: 3rem; }
+        .product-section h2 { font-size: 2.2rem; color: var(--primary-color); margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 3px solid var(--secondary-color); }
+        .product-section h3 { font-size: 1.6rem; color: var(--secondary-color); margin-top: 2rem; margin-bottom: 1rem; }
+        .product-section p { font-size: 1.05rem; line-height: 1.8; color: var(--text-light); margin-bottom: 1rem; }
+        .features-list { list-style: none; padding-left: 0; margin: 1.5rem 0; }
+        .features-list li { padding: 0.75rem 0; padding-left: 2rem; position: relative; color: var(--text-dark); font-size: 1.05rem; }
+        .features-list li::before { content: '✓'; position: absolute; left: 0; color: var(--secondary-color); font-weight: bold; font-size: 1.3rem; }
+        .back-button { display: inline-block; padding: 1rem 2rem; background: var(--primary-color); color: var(--white); text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; margin-bottom: 2rem; }
+        .back-button:hover { background: var(--secondary-color); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(30, 86, 49, 0.3); }
+        footer { background: #0f172a; color: var(--white); text-align: center; padding: 2rem; margin-top: 3rem; }
+        footer p { opacity: 0.8; margin-bottom: 0.5rem; }
+        @media (max-width: 768px) { .nav-right { flex-direction: column; align-items: flex-end; } .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 1rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); } .nav-links.active { display: flex; } .mobile-menu { display: flex; } .lang-switcher { margin-right: 1rem; } .page-header h1 { font-size: 2rem; } .product-section { padding: 2rem 1.5rem; } .product-section h2 { font-size: 1.8rem; } }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index_zh.html" class="logo"><img src="logo.jpg" alt="DRP国际有限公司"></a>
+            <div class="nav-right">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index_zh.html">首页</a></li>
+                    <li><a href="message_zh.html">致辞</a></li>
+                    <li><a href="team_zh.html">团队</a></li>
+                    <li><a href="products_zh.html" class="active">产品</a></li>
+                    <li><a href="company_zh.html">公司</a></li>
+                    <li><a href="index_zh.html#contact">联系我们</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <select onchange="changeLanguage(this.value)" aria-label="选择语言">
+                        <option value="products_food.html">🇬🇧 EN</option>
+                        <option value="products_food_de.html">🇩🇪 DE</option>
+                        <option value="products_food_fr.html">🇫🇷 FR</option>
+                        <option value="products_food_it.html">🇮🇹 IT</option>
+                        <option value="products_food_ja.html">🇯🇵 JP</option>
+                        <option value="products_food_zh.html" selected>🇨🇳 CN</option>
+                    </select>
+                </div>
+                <div class="mobile-menu" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>食品与谷物</h1>
+        <p>优质农产品</p>
+    </header>
+
+    <div class="content-container">
+        <a href="products_zh.html" class="back-button">← 返回产品列表</a>
+
+        <div class="product-section">
+            <h2>芝麻</h2>
+            <p>一种多功能油料作物，以其坚果风味和高油含量而备受推崇。DRP国际从可信赖的种植者处采购优质芝麻，确保为烹饪、糖果和工业应用提供稳定的质量。我们的芝麻符合严格的国际食品安全标准，提供脱壳和天然两种类型。</p>
+            <h3>主要特点</h3>
+            <ul class="features-list">
+                <li>来自可信赖种植者的优质品质</li>
+                <li>提供脱壳和天然两种类型</li>
+                <li>符合国际食品安全标准</li>
+                <li>适用于烹饪、糖果和工业用途</li>
+            </ul>
+        </div>
+
+        <div class="product-section">
+            <h2>鹰嘴豆</h2>
+            <p>一种在世界各地美食中广受欢迎的营养丰富的豆类。我们从主要产区采购高品质鹰嘴豆，满足食品加工商、零售商和餐饮服务商的需求。我们的鹰嘴豆在尺寸、颜色和蛋白质含量方面经过精心筛选。</p>
+            <h3>主要特点</h3>
+            <ul class="features-list">
+                <li>高蛋白含量的营养丰富豆类</li>
+                <li>来自主要产区</li>
+                <li>按尺寸和颜色精心筛选</li>
+                <li>适合食品加工商、零售商和餐饮服务商</li>
+            </ul>
+        </div>
+
+        <div class="product-section">
+            <h2>抹茶</h2>
+            <p>一种由特别种植的绿茶叶制成的细磨粉末。DRP国际与日本著名茶园合作，为饮品、烹饪创作和健康产品提供正宗的高品质抹茶。我们的抹茶采用传统石磨工艺，保留其鲜艳的颜色、鲜味和健康功效。</p>
+            <h3>主要特点</h3>
+            <ul class="features-list">
+                <li>来自日本茶园的正宗高品质抹茶</li>
+                <li>采用传统石磨工艺</li>
+                <li>色泽鲜艳，鲜味浓郁</li>
+                <li>适合饮品、烹饪创作和健康产品</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer><p>© DRP. 版权所有。</p></footer>
+
+    <script>
+        function changeLanguage(url) { if (url) { window.location.href = url; } }
+        function toggleMenu() { const navLinks = document.getElementById('navLinks'); navLinks.classList.toggle('active'); }
+    </script>
+</body>
+
+</html>
+
