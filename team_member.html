@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Member - DRP International Ltd.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1e5631;
+            --secondary-color: #2d7a3e;
+            --accent-color: #52a662;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: var(--bg-light);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 110px;
+            width: auto;
+            background: #ffffff;
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-switcher select {
+            padding: 0.5rem 2.5rem 0.5rem 1rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e');
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1rem;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+
+        /* Member Profile Section */
+        .profile-container {
+            max-width: 1000px;
+            margin: 180px auto 50px;
+            padding: 0 2rem;
+            flex: 1;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        .profile-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .profile-card {
+                flex-direction: row;
+                gap: 3rem;
+                align-items: flex-start;
+            }
+        }
+
+        .profile-image-container {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto 2rem;
+        }
+
+        .profile-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: block;
+        }
+
+        .profile-content {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .profile-role {
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .profile-bio {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+
+        .profile-details {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .profile-detail-item {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .profile-detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .profile-detail-item strong {
+            color: var(--text-dark);
+            display: inline-block;
+            width: 100px;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-right {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .profile-container {
+                margin-top: 140px;
+            }
+
+            .profile-name {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .profile-role {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="logo.jpg" alt="DRP International Ltd."></a>
+            <div class="nav-right">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="message.html">Message</a></li>
+                    <li><a href="team.html" class="active">Team</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="company.html">Company</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <select onchange="changeLanguage(this.value)" aria-label="Select Language">
+                        <option value="team.html" selected>🇬🇧 EN</option>
+                        <!-- Other languages would typically link to their own team pages, but for this detail page we keep it simple or redirect to main team page of that lang -->
+                        <option value="team_de.html">🇩🇪 DE</option>
+                        <option value="team_fr.html">🇫🇷 FR</option>
+                        <option value="team_it.html">🇮🇹 IT</option>
+                        <option value="team_ja.html">🇯🇵 JP</option>
+                        <option value="team_zh.html">🇨🇳 CN</option>
+                    </select>
+                </div>
+                <div class="mobile-menu" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Content -->
+    <div class="profile-container">
+        <a href="team.html" class="back-link">← Back to Team</a>
+
+        <div class="profile-card" id="profileCard">
+            <!-- Content injected via JS -->
+            <div style="text-align: center; width: 100%; padding: 2rem;">Loading profile...</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© DRP. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function changeLanguage(url) {
+            if (url) {
+                // If on a detail page, ideally we'd link to the translated detail page.
+                // For now, redirecting to the main list as requested scope is for English details.
+                window.location.href = url;
+            }
+        }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        const teamData = {
+            'ritesh': {
+                name: 'Ritesh Singh',
+                role: 'President & Chief Executive Officer',
+                image: 'Ritesh_Singh.jpg',
+                desc: `Ritesh Singh is the Founder, President & CEO of DRP International Ltd., bringing over 20 years of experience in international commodity trading and trade finance. Since immigrating from India in 2003, he has lived and worked across Switzerland, the UAE, Luxembourg, Canada, and the United Kingdom, playing a key role in building DRP’s global footprint across multiple continents. A Canadian citizen based in the UK, Ritesh brings deep insight into cross-border markets, global finance, and multicultural business environments.`,
+                edu: 'Formal education from leading private institution in India',
+                lang: 'Hindi, English, Bengali, Italian (beginner)'
+            },
+            'dolly': {
+                name: 'Dolly Singh',
+                role: 'Vice President',
+                image: 'Dolly_Singh.jpg',
+                desc: `Dolly Singh is the Vice President of DRP International Ltd. She has been integral to the group’s growth since its inception, supporting strategy, operations, and the steady expansion of DRP’s international network. Since immigrating from India in 2003, she has lived and worked across Switzerland, the UAE, Luxembourg, Canada, and the United Kingdom, contributing a global perspective and strong people-focused approach to the business. A Canadian citizen based in the UK, she brings long-term organizational insight and international experience to DRP’s leadership.`,
+                edu: 'Formal education from leading private institution in India',
+                lang: 'Hindi, English, Punjabi, Bengali'
+            },
+            'roger': {
+                name: 'Roger Jie Luo',
+                role: 'Chief Operating Officer',
+                image: 'Roger_Jie_Luo.jpg',
+                desc: `Roger Luo has been a key member of the DRP family since 2019 and serves as the COO of DRP International Ltd. He brings extensive hands-on experience in international commodity trading, logistics, banking, and trade finance, and plays a central role in driving the company’s operational performance. Managing DRP’s North American markets while overseeing trades across other regions, he serves as the organization’s operational “go-to” leader. A Chinese citizen based in Ontario, Canada, Roger Luo adds strong cross-border execution and regional market expertise to DRP’s global operations.`,
+                edu: 'Bachelor of Arts, University of International Relations (China)',
+                lang: 'Mandarin, English'
+            },
+            'shivam': {
+                name: 'Shivam Sonar',
+                role: 'Branch Head (UK/EU)',
+                image: 'Shivam_Sonar.jpg',
+                desc: `Shivam Sonar joined the DRP family in early 2025 and plays a key role in managing trades originating from the UK and EU markets. His focus is on trade execution, relationship management, and supporting regional growth across the UK and EU. An Indian citizen based in the United Kingdom, Shivam brings energy, adaptability, and a practical mindset to DRP’s expanding European operations.`,
+                edu: 'Bachelor’s Honours in Business Management, University of Greenwich (UK)',
+                lang: 'Hindi, English, Marathi'
+            },
+            'benny': {
+                name: 'Eng. Benny Vanderhaeghe',
+                role: 'Trade (EU)',
+                image: 'Benny_Vanderhaeghe.jpg',
+                desc: `Benny Vanderhaeghe joined the DRP family in 2020 and brings over 30 years of experience in die and tool making, particularly within the aluminium extrusion industry. His technical expertise and extensive network across Europe have been invaluable to DRP’s business development and customer relationships. A Belgian citizen based in Greece, Benny provides deep industry knowledge and strong European market insight to DRP’s operations.`,
+                edu: 'Mechanical Engineer, Oostende University (Belgium)',
+                lang: 'Dutch, French, English'
+            },
+            'rostislav': {
+                name: 'Eng. Rostislav Ježek',
+                role: 'Trade (EU)',
+                image: 'Rostislav_Jezek.jpg',
+                desc: `Rostislav Ježek joined the DRP family in 2020 and brings over 30 years of experience in ferrous and non-ferrous trading across Europe. His deep market knowledge and extensive network have been instrumental in expanding DRP’s European business. A Czech citizen based in the Czech Republic, Rostislav provides strategic insight and operational expertise that strengthen DRP’s presence across European markets.`,
+                edu: 'Engineering degree, Masaryk University, Faculty of Economics and Administration, Brno (Czech Republic)',
+                lang: 'Czech, German, English'
+            },
+            'nizza': {
+                name: 'Nizza Hernandez',
+                role: 'Trade (Japan, Philippines)',
+                image: 'Nizza_Hernandez.jpg',
+                desc: `Nizza Hernandez joined the DRP family in early 2025 and brings a strong banking background and a natural talent for business development. She manages trades originating from Japan and the Philippines, helping DRP deepen its presence and strengthen partnerships across these markets. A Philippine citizen based in Japan, Nizza contributes regional expertise and cross-cultural insight to DRP’s operations in Asia.`,
+                edu: 'Bachelors in Banking and Finance New Era University (Philippines)',
+                lang: 'Tagalog, Japanese, English'
+            },
+            'mayuko': {
+                name: 'Mayuko Okada',
+                role: 'Trade (Japan)',
+                image: 'Mayuko_Okada.jpg',
+                desc: `Mayuko Okada joined the DRP family in 2025 and brings a unique artistic and cultural perspective to the company’s operations in Japan. She leads new business development with Japanese companies, helping bridge business, culture, and long-term relationships. A Japanese citizen based in Switzerland, Mayuko contributes cross-cultural insight to DRP’s Asian and European operations.`,
+                edu: 'Bachelor of Fine Arts, Kyoto Seika University (Japan)',
+                lang: 'Japanese, English'
+            },
+            'prathna': {
+                name: 'Prathna Singh',
+                role: 'Finance & Strategy',
+                image: 'Prathna_Singh.jpg',
+                desc: `Prathna Singh joined the DRP family in 2025, taking on a role in Finance & Strategy as she continues to build her expertise in financial analysis, strategic planning, and market evaluation. Born in Switzerland and having lived in Dubai, Luxembourg, and Canada, she brings a deep cross-cultural perspective that informs her approach to business and global operations. A Canadian citizen based in Canada, her international experience helps drive informed decision-making as she develops her role in shaping DRP’s future.`,
+                edu: 'Bachelor of Business Management and Organizational studies, Western University (Canada)',
+                lang: 'English, French'
+            }
+        };
+
+        window.onload = function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const memberId = urlParams.get('id');
+            const card = document.getElementById('profileCard');
+
+            if (memberId && teamData[memberId]) {
+                const member = teamData[memberId];
+                card.innerHTML = `
+                    <div class="profile-image-container">
+                        <img src="${member.image}" alt="${member.name}" class="profile-image">
+                    </div>
+                    <div class="profile-content">
+                        <h1 class="profile-name">${member.name}</h1>
+                        <p class="profile-role">${member.role}</p>
+                        <div class="profile-bio">${member.desc}</div>
+                        <div class="profile-details">
+                            <p class="profile-detail-item"><strong>Education:</strong> ${member.edu}</p>
+                            <p class="profile-detail-item"><strong>Languages:</strong> ${member.lang}</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                card.innerHTML = `
+                    <div style="text-align: center; padding: 3rem; width: 100%;">
+                        <h2>Member not found</h2>
+                        <p>The requested team member profile could not be found.</p>
+                        <a href="team.html" style="color: var(--secondary-color); font-weight: bold; margin-top: 1rem; display: inline-block;">Return to Team Page</a>
+                    </div>
+                `;
+            }
+        };
+    </script>
+</body>
+
+</html>

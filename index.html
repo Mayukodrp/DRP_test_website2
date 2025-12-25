@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -309,8 +310,29 @@
         }
 
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .feature-icon-img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .global-network-img {
+            width: 300px;
+            height: auto;
+            max-width: 100%;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover .feature-icon-img,
+        .feature-item:hover .global-network-img {
+            transform: scale(1.1);
         }
 
         .feature-item h3 {
@@ -331,15 +353,42 @@
 
         .business-card {
             background: var(--white);
-            padding: 2.5rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
+            overflow: hidden;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
         }
 
         .business-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .business-card-image {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .business-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .business-card:hover .business-card-image img {
+            transform: scale(1.1);
+        }
+
+        .business-card-content {
+            padding: 2.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .business-card h3 {
@@ -475,6 +524,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -530,6 +580,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -568,7 +619,8 @@
         <div class="hero-content">
             <h1>DRP International Ltd.</h1>
             <p class="tagline">A Company That Creates Businesses From Scratch</p>
-            <p>Multi-commodity trading & distribution business serving AMER, EMEA, and APAC regions. Building value through capital, relationships, and deep expertise.</p>
+            <p>Multi-commodity trading & distribution business serving AMER, EMEA, and APAC regions. Building value
+                through capital, relationships, and deep expertise.</p>
             <a href="#contact" class="cta-button">Get In Touch</a>
         </div>
     </section>
@@ -579,65 +631,47 @@
             <h2 class="section-title">About DRP</h2>
             <div class="about-content">
                 <p class="highlight">Trading is at the heart of DRP's business.</p>
-                <p>DRP International Ltd. is a multi-commodity trading & distribution business incorporated in 2016 in Ontario, Canada.</p>
-                <p>Our team is highly experienced, multi-lingual, and global. We originate physical transactions that support our customers' businesses in AMER (North, Central, South America), EMEA (Europe, Middle East, Africa), and APAC (Asia-Pacific) regions.</p>
-                <p>Our global network and logistics capabilities allow for sourcing of commodities in one location and deliver in another - via sea borne freight, barges, trucks, and rail.</p>
-                <p>Our storage and financing capabilities allows us to execute trades across time zones and delivery periods. We endeavour to identify arbitrage opportunities with our extensive market knowledge and experience.</p>
-                <p>DRP has grown by creating value through building businesses from the ground up - powered by capital, relationships, and deep expertise.</p>
+                <p>DRP International Ltd. is a multi-commodity trading & distribution business incorporated in 2016 in
+                    Ontario, Canada.</p>
+                <p>Our team is highly experienced, multi-lingual, and global. We originate physical transactions that
+                    support our customers' businesses in AMER (North, Central, South America), EMEA (Europe, Middle
+                    East, Africa), and APAC (Asia-Pacific) regions.</p>
+                <p>Our global network and logistics capabilities allow for sourcing of commodities in one location and
+                    deliver in another - via sea borne freight, barges, trucks, and rail.</p>
+                <p>Our storage and financing capabilities allows us to execute trades across time zones and delivery
+                    periods. We endeavour to identify arbitrage opportunities with our extensive market knowledge and
+                    experience.</p>
+                <p>DRP has grown by creating value through building businesses from the ground up - powered by capital,
+                    relationships, and deep expertise.</p>
             </div>
 
             <div class="features-grid">
                 <a href="#companies" class="feature-item-link">
                     <div class="feature-item">
-                        <div class="feature-icon">🌍</div>
+                        <img src="global_network.png" alt="Global Network" class="global-network-img">
                         <h3>Global Network</h3>
-                        <p>Operating across AMER, EMEA, and APAC regions</p>
                     </div>
                 </a>
                 <div class="feature-item">
-                    <div class="feature-icon">🚢</div>
+                    <img src="logistics_icon.png" alt="Logistics Excellence" class="feature-icon-img">
                     <h3>Logistics Excellence</h3>
-                    <p>Multi-modal transportation capabilities</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-icon">💰</div>
+                    <img src="trade_finance_icon.png" alt="Trade Finance" class="feature-icon-img">
                     <h3>Trade Finance</h3>
-                    <p>Delivering competitive, cross-border financing solutions for our customers.<br>Expert team and market knowledge</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-icon">💼</div>
+                    <img src="expert_team_icon.png" alt="Expert Team" class="feature-icon-img">
                     <h3>Expert Team</h3>
-                    <p>Experienced, multi-lingual professionals</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-icon">📊</div>
+                    <img src="market_knowledge_icon.png" alt="Market Knowledge" class="feature-icon-img">
                     <h3>Market Knowledge</h3>
-                    <p>Identifying arbitrage opportunities</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Business Section -->
-    <section id="business">
-        <div class="container">
-            <h2 class="section-title">Our Business</h2>
-            <div class="business-grid">
-                <div class="business-card">
-                    <h3>Steel (Raw Materials & Prime)</h3>
-                    <p>Steel for recycling and industrial tools production across global markets with expertise in various Alloy Tool Steel and Stainless-steel grades.</p>
-                </div>
-                <div class="business-card">
-                    <h3>Food & Grains</h3>
-                    <p>Multiple products for food manufacturing industries across global markets.</p>
-                </div>
-                <div class="business-card">
-                    <h3>Flowers & Foliage</h3>
-                    <p>Fresh cut flowers and foliage from around the world for the Asian markets.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Companies Section -->
     <section id="companies">
@@ -645,7 +679,7 @@
             <h2 class="section-title">Our Global Presence</h2>
             <div class="companies-grid">
                 <div class="company-card">
-                    <h3>🇨🇦 Canada (Head Office)</h3>
+                    <h3> Canada (Head Office)</h3>
                     <h4>DRP International Ltd.</h4>
                     <p>
                         80B-135 James St. S.<br>
@@ -654,7 +688,7 @@
                     </p>
                 </div>
                 <div class="company-card">
-                    <h3>🇬🇧 United Kingdom</h3>
+                    <h3> United Kingdom</h3>
                     <p style="margin-bottom: 0.5rem; opacity: 0.9;">(Branch)</p>
                     <h4>DRP International Ltd.</h4>
                     <p>
@@ -665,7 +699,7 @@
                     </p>
                 </div>
                 <div class="company-card">
-                    <h3>🇯🇵 Japan (Branch)</h3>
+                    <h3> Japan (Branch)</h3>
                     <h4>DRP International Ltd.</h4>
                     <p>
                         14F Arca Central<br>
@@ -692,7 +726,7 @@
     <!-- Footer -->
     <footer>
         <p>© DRP. All Rights Reserved.</p>
-        
+
     </footer>
 
     <script>
@@ -741,5 +775,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>

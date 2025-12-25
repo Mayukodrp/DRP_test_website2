@@ -285,6 +285,73 @@
                 padding: 2rem 1.5rem;
             }
         }
+
+        /* Business Cards Grid */
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: -50px auto 5rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .business-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .business-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .business-card-image {
+            height: 250px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .business-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .business-card:hover .business-card-image img {
+            transform: scale(1.1);
+        }
+
+        .business-card-content {
+            padding: 2.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .business-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .business-card p {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
     </style>
 </head>
 
@@ -327,15 +394,36 @@
     </header>
 
     <!-- Products Selection -->
-    <div class="products-selection">
-        <div class="selection-card">
-            <h2>Sélectionnez une catégorie de produit</h2>
-            <div class="product-buttons">
-                <a href="products_steel_fr.html" class="product-button">Acier (Secondary Raw Materials & Prime)</a>
-                <a href="products_food_fr.html" class="product-button">Aliments & Céréales</a>
-                <a href="products_flowers_fr.html" class="product-button">Fleurs & Feuillage</a>
+    <!-- Products Selection -->
+    <div class="business-grid">
+        <a href="products_steel_fr.html" class="business-card">
+            <div class="business-card-image">
+                <img src="japanese_steel.png" alt="Produits en Acier">
             </div>
-        </div>
+            <div class="business-card-content">
+                <h3>Acier (Secondary Raw Materials & Prime)</h3>
+                <p>Acier pour le recyclage et la production d'outils industriels sur les marchés mondiaux avec expertise
+                    dans divers grades d'acier à outils alliés et d'acier inoxydable.</p>
+            </div>
+        </a>
+        <a href="products_food_fr.html" class="business-card">
+            <div class="business-card-image">
+                <img src="canada_edamame.png" alt="Aliments & Céréales">
+            </div>
+            <div class="business-card-content">
+                <h3>Aliments & Céréales</h3>
+                <p>Plusieurs produits pour les industries de fabrication alimentaire sur les marchés mondiaux.</p>
+            </div>
+        </a>
+        <a href="products_flowers_fr.html" class="business-card">
+            <div class="business-card-image">
+                <img src="africa_bara.png" alt="Fleurs & Feuillage">
+            </div>
+            <div class="business-card-content">
+                <h3>Fleurs & Feuillage</h3>
+                <p>Fleurs coupées fraîches et feuillage du monde entier pour les marchés asiatiques.</p>
+            </div>
+        </a>
     </div>
 
     <!-- Footer -->
