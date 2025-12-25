@@ -35,8 +35,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: #ffffff;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             transition: all 0.3s ease;
@@ -286,79 +285,149 @@
                 padding: 2rem 1.5rem;
             }
         }
+
+        /* Business Cards Grid */
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: -50px auto 5rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .business-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .business-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .business-card-image {
+            height: 250px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .business-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .business-card:hover .business-card-image img {
+            transform: scale(1.1);
+        }
+
+        .business-card-content {
+            padding: 2.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .business-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .business-card p {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
     </style>
+
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo"><img src="logo.jpg" alt="DRP International Ltd."></a>
-            <div class="nav-right">
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="message.html">Message</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="products.html" class="active">Products</a></li>
-                    <li><a href="company.html">Company</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-                <div class="lang-switcher">
-                    <select onchange="changeLanguage(this.value)" aria-label="Select Language">
-                        <option value="products.html" selected>🇬🇧 EN</option>
-                        <option value="products_de.html">🇩🇪 DE</option>
-                        <option value="products_fr.html">🇫🇷 FR</option>
-                        <option value="products_it.html">🇮🇹 IT</option>
-                        <option value="products_ja.html">🇯🇵 JP</option>
-                        <option value="products_zh.html">🇨🇳 CN</option>
-                    </select>
-                </div>
-                <div class="mobile-menu" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+    < !-- Navigation -->
+        <nav>
+            <div class="nav-container"><a href="index.html" class="logo"><img src="logo.jpg"
+                        alt="DRP International Ltd."></a>
+                <div class="nav-right">
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="message.html">Message</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="products.html" class="active">Products</a></li>
+                        <li><a href="company.html">Company</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                    <div class="lang-switcher"><select onchange="changeLanguage(this.value)"
+                            aria-label="Select Language">
+                            <option value="products.html" selected>🇬🇧 EN</option>
+                            <option value="products_de.html">🇩🇪 DE</option>
+                            <option value="products_fr.html">🇫🇷 FR</option>
+                            <option value="products_it.html">🇮🇹 IT</option>
+                            <option value="products_ja.html">🇯🇵 JP</option>
+                            <option value="products_zh.html">🇨🇳 CN</option>
+                        </select></div>
+                    <div class="mobile-menu" onclick="toggleMenu()"><span></span><span></span><span></span></div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+        < !-- Header -->
+            <header class="page-header">
+                <h1>Our Products</h1>
+            </header>
+            < !-- Products Selection -->
+                < !-- Products Selection -->
+                    <div class="business-grid"><a href="products_steel.html" class="business-card">
+                            <div class="business-card-image"><img src="japanese_steel.png" alt="Steel Products"></div>
+                            <div class="business-card-content">
+                                <h3>Steel (Secondary Raw Materials & Prime)</h3>
+                                <p>Steel for recycling and industrial tools production across global markets with
+                                    expertise in various Alloy Tool Steel and Stainless-steel grades.</p>
+                            </div>
+                        </a><a href="products_food.html" class="business-card">
+                            <div class="business-card-image"><img src="canada_edamame.png" alt="Food & Grains"></div>
+                            <div class="business-card-content">
+                                <h3>Food & Grains</h3>
+                                <p>Multiple products for food manufacturing industries across global markets.</p>
+                            </div>
+                        </a><a href="products_flowers.html" class="business-card">
+                            <div class="business-card-image"><img src="africa_bara.png" alt="Flowers & Foliage"></div>
+                            <div class="business-card-content">
+                                <h3>Flowers & Foliage</h3>
+                                <p>Fresh cut flowers and foliage from around the world for the Asian markets.</p>
+                            </div>
+                        </a></div>
+                    < !-- Footer -->
+                        <footer>
+                            <p>© DRP. All Rights Reserved.</p>
+                        </footer>
+                        <script> // Language change function
 
-    <!-- Header -->
-    <header class="page-header">
-        <h1>Our Products</h1>
-    </header>
+                            function changeLanguage(url) {
+                                if (url) {
+                                    window.location.href = url;
+                                }
+                            }
 
-    <!-- Products Selection -->
-    <div class="products-selection">
-        <div class="selection-card">
-            <h2>Select a Product Category</h2>
-            <div class="product-buttons">
-                <a href="products_steel.html" class="product-button">Steel (Secondary Raw Materials & Prime)</a>
-                <a href="products_food.html" class="product-button">Food & Grains</a>
-                <a href="products_flowers.html" class="product-button">Flowers & Foliage</a>
-            </div>
-        </div>
-    </div>
+                            // Mobile menu toggle
+                            function toggleMenu() {
+                                const navLinks = document.getElementById('navLinks');
+                                navLinks.classList.toggle('active');
+                            }
 
-    <!-- Footer -->
-    <footer>
-        <p>© DRP. All Rights Reserved.</p>
-        
-    </footer>
-
-    <script>
-        // Language change function
-        function changeLanguage(url) {
-            if (url) {
-                window.location.href = url;
-            }
-        }
-
-        // Mobile menu toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-    </script>
+                        </script>
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,8 +34,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: #ffffff;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             transition: all 0.3s ease;
@@ -310,8 +310,29 @@
         }
 
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .feature-icon-img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .global-network-img {
+            width: 300px;
+            height: auto;
+            max-width: 100%;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover .feature-icon-img,
+        .feature-item:hover .global-network-img {
+            transform: scale(1.1);
         }
 
         .feature-item h3 {
@@ -332,15 +353,42 @@
 
         .business-card {
             background: var(--white);
-            padding: 2.5rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
+            overflow: hidden;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
         }
 
         .business-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .business-card-image {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .business-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .business-card:hover .business-card-image img {
+            transform: scale(1.1);
+        }
+
+        .business-card-content {
+            padding: 2.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .business-card h3 {
@@ -476,6 +524,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -531,6 +580,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -581,7 +631,8 @@
             <div class="about-content">
                 <p class="highlight">トレーディングはDRPのビジネスの中核です。</p>
                 <p>DRP International Ltd.は、2016年にカナダ・オンタリオ州で設立された総合商品取引・流通企業です。</p>
-                <p>当社のチームは豊富な経験を持ち、多言語対応可能で、グローバルに活動しています。AMER（北米・中南米）、EMEA（欧州・中東・アフリカ）、APAC（アジア太平洋）地域のお客様のビジネスを支援する実物取引を創出しています。</p>
+                <p>当社のチームは豊富な経験を持ち、多言語対応可能で、グローバルに活動しています。AMER（北米・中南米）、EMEA（欧州・中東・アフリカ）、APAC（アジア太平洋）地域のお客様のビジネスを支援する実物取引を創出しています。
+                </p>
                 <p>当社のグローバルネットワークと物流能力により、ある地域で商品を調達し、別の地域へ海上貨物、はしけ、トラック、鉄道を通じて配送することが可能です。</p>
                 <p>当社の保管・融資能力により、異なるタイムゾーンや配送期間をまたいで取引を実行できます。豊富な市場知識と経験により、裁定取引の機会を特定することに努めています。</p>
                 <p>DRPは、資本、関係性、深い専門知識を活用し、ビジネスをゼロから構築することで価値を創造し、成長してきました。</p>
@@ -590,55 +641,30 @@
             <div class="features-grid">
                 <a href="#companies" class="feature-item-link">
                     <div class="feature-item">
-                        <div class="feature-icon">🌍</div>
+                        <img src="global_network.png" alt="グローバルネットワーク" class="global-network-img">
                         <h3>グローバルネットワーク</h3>
-                        <p>AMER、EMEA、APAC地域での事業展開</p>
                     </div>
                 </a>
                 <div class="feature-item">
-                    <div class="feature-icon">🚢</div>
+                    <img src="logistics_icon.png" alt="物流の卓越性" class="feature-icon-img">
                     <h3>物流の卓越性</h3>
-                    <p>マルチモーダル輸送能力</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-icon">💰</div>
+                    <img src="trade_finance_icon.png" alt="Trade Finance" class="feature-icon-img">
                     <h3>Trade Finance</h3>
-                    <p>Delivering competitive, cross-border financing solutions for our customers.<br>Expert team and market knowledge</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-icon">💼</div>
+                    <img src="expert_team_icon.png" alt="専門チーム" class="feature-icon-img">
                     <h3>専門チーム</h3>
-                    <p>経験豊富な多言語対応プロフェッショナル</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-icon">📊</div>
+                    <img src="market_knowledge_icon.png" alt="市場知識" class="feature-icon-img">
                     <h3>市場知識</h3>
-                    <p>裁定取引の機会の特定</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Business Section -->
-    <section id="business">
-        <div class="container">
-            <h2 class="section-title">事業内容</h2>
-            <div class="business-grid">
-                <div class="business-card">
-                    <h3>鉄鋼（原材料・プライム材）</h3>
-                    <p>リサイクル用鉄鋼および工業用工具生産用の鉄鋼を、様々な合金工具鋼およびステンレス鋼グレードの専門知識を持って、グローバル市場に提供します。</p>
-                </div>
-                <div class="business-card">
-                    <h3>食品・穀物</h3>
-                    <p>グローバル市場における食品製造業界向けの複数の製品を取り扱っています。</p>
-                </div>
-                <div class="business-card">
-                    <h3>花卉・植物</h3>
-                    <p>世界中から調達した生花・植物をアジア市場へ供給しています。</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Companies Section -->
     <section id="companies">
@@ -646,7 +672,7 @@
             <h2 class="section-title">グローバル拠点</h2>
             <div class="companies-grid">
                 <div class="company-card">
-                    <h3>🇨🇦 カナダ（本社）</h3>
+                    <h3> カナダ（本社）</h3>
                     <h4>DRP International Ltd.</h4>
                     <p>
                         80B-135 James St. S.<br>
@@ -655,7 +681,7 @@
                     </p>
                 </div>
                 <div class="company-card">
-                    <h3>🇬🇧 イギリス</h3>
+                    <h3> イギリス</h3>
                     <h4>（支店）</h4>
                     <h4>DRP International Ltd.</h4>
                     <p>
@@ -666,7 +692,7 @@
                     </p>
                 </div>
                 <div class="company-card">
-                    <h3>🇯🇵 日本（支店）</h3>
+                    <h3> 日本（支店）</h3>
                     <h4>DRP International Ltd.</h4>
                     <p>
                         14F Arca Central<br>
@@ -693,7 +719,7 @@
     <!-- Footer -->
     <footer>
         <p>© DRP. All Rights Reserved.</p>
-        
+
     </footer>
 
     <script>
@@ -742,5 +768,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>

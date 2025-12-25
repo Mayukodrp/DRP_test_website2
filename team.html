@@ -35,8 +35,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: #ffffff;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             transition: all 0.3s ease;
@@ -223,6 +222,19 @@
             overflow: hidden;
             flex-shrink: 0;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-photo a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
         }
 
         .team-photo img {
@@ -405,17 +417,19 @@
             <div class="team-card">
                 <div class="team-card-content">
                     <div class="team-photo">
-                        <img src="Ritesh_Singh.jpg" alt="Ritesh Singh">
+                        <a href="team_member.html?id=ritesh">
+                            <img src="Ritesh_Singh.jpg" alt="Ritesh Singh">
+                        </a>
                     </div>
                     <div class="team-info">
                         <h3>Ritesh Singh</h3>
                         <p class="role">President & CEO</p>
-                        <p class="location">📍 Canada</p>
+                        <p class="location">📍 United Kingdom</p>
                         <div class="details">
                             <p>25+ years in international commodity trading and business development</p>
                         </div>
                         <div class="languages">
-                            <span>English</span><span>Hindi</span>
+                            <span>Hindi</span><span>English</span><span>Bengali</span><span>Italian (beginner)</span>
                         </div>
                     </div>
                 </div>
@@ -425,17 +439,19 @@
             <div class="team-card">
                 <div class="team-card-content">
                     <div class="team-photo">
-                        <img src="Dolly_Singh.jpg" alt="Dolly Singh">
+                        <a href="team_member.html?id=dolly">
+                            <img src="Dolly_Singh.jpg" alt="Dolly Singh">
+                        </a>
                     </div>
                     <div class="team-info">
                         <h3>Dolly Singh</h3>
                         <p class="role">Vice President</p>
-                        <p class="location">📍 Canada</p>
+                        <p class="location">📍 United Kingdom</p>
                         <div class="details">
                             <p>15+ years of experience</p>
                         </div>
                         <div class="languages">
-                            <span>English</span><span>Hindi</span>
+                            <span>Hindi</span><span>English</span><span>Punjabi</span><span>Bengali</span>
                         </div>
                     </div>
                 </div>
@@ -445,18 +461,19 @@
             <div class="team-card">
                 <div class="team-card-content">
                     <div class="team-photo">
-                        <img src="Roger_Jie_Luo.jpg" alt="Roger Jie Luo">
+                        <a href="team_member.html?id=roger">
+                            <img src="Roger_Jie_Luo.jpg" alt="Roger Jie Luo">
+                        </a>
                     </div>
                     <div class="team-info">
                         <h3>Roger Jie Luo</h3>
                         <p class="role">COO</p>
-                        <p class="location">📍 Canada / Japan</p>
+                        <p class="location">📍 Canada</p>
                         <div class="details">
-                            <p>Beijing Forestry University</p>
-                            <p>University of Toronto</p>
+                            <p>University of International Relations</p>
                         </div>
                         <div class="languages">
-                            <span>English</span><span>Chinese</span><span>Japanese</span>
+                            <span>Mandarin</span><span>English</span>
                         </div>
                     </div>
                 </div>
@@ -466,17 +483,19 @@
             <div class="team-card">
                 <div class="team-card-content">
                     <div class="team-photo">
-                        <img src="Shivam_Sonar.jpg" alt="Shivam Sonar">
+                        <a href="team_member.html?id=shivam">
+                            <img src="Shivam_Sonar.jpg" alt="Shivam Sonar">
+                        </a>
                     </div>
                     <div class="team-info">
                         <h3>Shivam Sonar</h3>
-                        <p class="role">Branch Head (UK/EU Operations)</p>
+                        <p class="role">Branch Head (United Kingdom/EU Operations)</p>
                         <p class="location">📍 United Kingdom</p>
                         <div class="details">
-                            <p>University of Sussex</p>
+                            <p>University of Greenwich</p>
                         </div>
                         <div class="languages">
-                            <span>English</span><span>Hindi</span>
+                            <span>Hindi</span><span>English</span><span>Marathi</span>
                         </div>
                     </div>
                 </div>
@@ -486,17 +505,19 @@
             <div class="team-card">
                 <div class="team-card-content">
                     <div class="team-photo">
-                        <img src="Benny_Vanderhaeghe.jpg" alt="Eng. Benny Vanderhaeghe">
+                        <a href="team_member.html?id=benny">
+                            <img src="Benny_Vanderhaeghe.jpg" alt="Eng. Benny Vanderhaeghe">
+                        </a>
                     </div>
                     <div class="team-info">
                         <h3>Eng. Benny Vanderhaeghe</h3>
                         <p class="role">Trade (EU, Raw Materials & Semi-Finished)</p>
                         <p class="location">📍 European Union</p>
                         <div class="details">
-                            <p>KU Leuven</p>
+                            <p>Oostende University</p>
                         </div>
                         <div class="languages">
-                            <span>English</span><span>Dutch</span><span>French</span><span>German</span>
+                            <span>Dutch</span><span>French</span><span>English</span>
                         </div>
                     </div>
                 </div>
@@ -506,17 +527,19 @@
             <div class="team-card">
                 <div class="team-card-content">
                     <div class="team-photo">
-                        <img src="Rostislav_Jezek.jpg" alt="Eng. Rostislav Ježek">
+                        <a href="team_member.html?id=rostislav">
+                            <img src="Rostislav_Jezek.jpg" alt="Eng. Rostislav Ježek">
+                        </a>
                     </div>
                     <div class="team-info">
                         <h3>Eng. Rostislav Ježek</h3>
                         <p class="role">Trade (EU, Raw Materials & Semi-Finished)</p>
                         <p class="location">📍 European Union</p>
                         <div class="details">
-                            <p>Mendel University</p>
+                            <p>Masaryk University</p>
                         </div>
                         <div class="languages">
-                            <span>English</span><span>Czech</span><span>Slovak</span><span>Polish</span><span>Russian</span>
+                            <span>Czech</span><span>German</span><span>English</span>
                         </div>
                     </div>
                 </div>
@@ -526,14 +549,16 @@
             <div class="team-card">
                 <div class="team-card-content">
                     <div class="team-photo">
-                        <img src="Nizza_Hernandez.jpg" alt="Nizza Hernandez">
+                        <a href="team_member.html?id=nizza">
+                            <img src="Nizza_Hernandez.jpg" alt="Nizza Hernandez">
+                        </a>
                     </div>
                     <div class="team-info">
                         <h3>Nizza Hernandez</h3>
                         <p class="role">Trade (Japan, Philippines)</p>
                         <p class="location">📍 Japan</p>
                         <div class="details">
-                            <p>Flowers & Foliage specialist</p>
+                            <p>New Era University</p>
                         </div>
                         <div class="languages">
                             <span>Japanese</span><span>Tagalog</span><span>English</span>
@@ -546,14 +571,16 @@
             <div class="team-card">
                 <div class="team-card-content">
                     <div class="team-photo">
-                        <img src="Mayuko_Okada.jpg" alt="Mayuko Okada">
+                        <a href="team_member.html?id=mayuko">
+                            <img src="Mayuko_Okada.jpg" alt="Mayuko Okada">
+                        </a>
                     </div>
                     <div class="team-info">
                         <h3>Mayuko Okada</h3>
                         <p class="role">Trade (Japan)</p>
                         <p class="location">📍 Switzerland</p>
                         <div class="details">
-                            <p>Flowers & Foliage specialist</p>
+                            <p>Kyoto Seika University</p>
                         </div>
                         <div class="languages">
                             <span>Japanese</span><span>English</span>
@@ -566,18 +593,20 @@
             <div class="team-card">
                 <div class="team-card-content">
                     <div class="team-photo">
-                        <img src="Prathna_Singh.jpg" alt="Prathna Singh">
+                        <a href="team_member.html?id=prathna">
+                            <img src="Prathna_Singh.jpg" alt="Prathna Singh">
+                        </a>
                     </div>
                     <div class="team-info">
                         <h3>Prathna Singh</h3>
                         <p class="role">Finance & Strategy</p>
-                        <p class="location">📍 Canada</p>
+                        <p class="location">📍 United Kingdom</p>
                         <div class="details">
                             <p>CPA</p>
                             <p>University of Waterloo</p>
                         </div>
                         <div class="languages">
-                            <span>English</span>
+                            <span>English</span><span>French</span>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,8 +34,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: #ffffff;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             transition: all 0.3s ease;
@@ -310,8 +310,29 @@
         }
 
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .feature-icon-img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .global-network-img {
+            width: 300px;
+            height: auto;
+            max-width: 100%;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover .feature-icon-img,
+        .feature-item:hover .global-network-img {
+            transform: scale(1.1);
         }
 
         .feature-item h3 {
@@ -332,15 +353,42 @@
 
         .business-card {
             background: var(--white);
-            padding: 2.5rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
+            overflow: hidden;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
         }
 
         .business-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .business-card-image {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .business-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .business-card:hover .business-card-image img {
+            transform: scale(1.1);
+        }
+
+        .business-card-content {
+            padding: 2.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .business-card h3 {
@@ -476,6 +524,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -531,6 +580,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -590,55 +640,30 @@
             <div class="features-grid">
                 <a href="#companies" class="feature-item-link">
                     <div class="feature-item">
-                        <div class="feature-icon">🌍</div>
+                        <img src="global_network.png" alt="全球网络" class="global-network-img">
                         <h3>全球网络</h3>
-                        <p>业务遍及美洲、欧洲中东非洲和亚太地区</p>
                     </div>
                 </a>
                 <div class="feature-item">
-                    <div class="feature-icon">🚢</div>
+                    <img src="logistics_icon.png" alt="物流卓越" class="feature-icon-img">
                     <h3>物流卓越</h3>
-                    <p>多式联运能力</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-icon">💰</div>
+                    <img src="trade_finance_icon.png" alt="Trade Finance" class="feature-icon-img">
                     <h3>Trade Finance</h3>
-                    <p>Delivering competitive, cross-border financing solutions for our customers.<br>Expert team and market knowledge</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-icon">💼</div>
+                    <img src="expert_team_icon.png" alt="专家团队" class="feature-icon-img">
                     <h3>专家团队</h3>
-                    <p>经验丰富的多语种专业人士</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-icon">📊</div>
+                    <img src="market_knowledge_icon.png" alt="市场洞察" class="feature-icon-img">
                     <h3>市场洞察</h3>
-                    <p>识别套利机会</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Business Section -->
-    <section id="business">
-        <div class="container">
-            <h2 class="section-title">我们的业务</h2>
-            <div class="business-grid">
-                <div class="business-card">
-                    <h3>钢铁（原材料与优质钢材）</h3>
-                    <p>为回收利用和工业工具生产提供钢铁，专业涵盖各种合金工具钢和不锈钢等级，服务全球市场。</p>
-                </div>
-                <div class="business-card">
-                    <h3>食品与谷物</h3>
-                    <p>为全球市场的食品制造行业提供多种产品。</p>
-                </div>
-                <div class="business-card">
-                    <h3>鲜花与叶材</h3>
-                    <p>从世界各地采购新鲜切花和叶材，供应亚洲市场。</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Companies Section -->
     <section id="companies">
@@ -646,7 +671,7 @@
             <h2 class="section-title">我们的全球布局</h2>
             <div class="companies-grid">
                 <div class="company-card">
-                    <h3>🇨🇦 加拿大（总部）</h3>
+                    <h3> 加拿大（总部）</h3>
                     <h4>DRP国际有限公司</h4>
                     <p>
                         80B-135 James St. S.<br>
@@ -655,7 +680,7 @@
                     </p>
                 </div>
                 <div class="company-card">
-                    <h3>🇬🇧 英国</h3>
+                    <h3> 英国</h3>
                     <p style="margin-bottom: 0.5rem; opacity: 0.9;">（分公司）</p>
                     <h4>DRP国际有限公司</h4>
                     <p>
@@ -666,7 +691,7 @@
                     </p>
                 </div>
                 <div class="company-card">
-                    <h3>🇯🇵 日本（分公司）</h3>
+                    <h3> 日本（分公司）</h3>
                     <h4>DRP国际有限公司</h4>
                     <p>
                         14F Arca Central<br>
@@ -741,5 +766,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>
