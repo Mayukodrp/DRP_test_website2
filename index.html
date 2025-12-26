@@ -578,6 +578,111 @@
                 padding: 3rem 1.5rem;
             }
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideIn 0.3s;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1
+            }
+        }
+
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: var(--primary-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #0b4619;
+        }
     </style>
 </head>
 
@@ -593,7 +698,7 @@
                     <li><a href="team.html">Team</a></li>
                     <li><a href="products.html">Products</a></li>
                     <li><a href="company.html">Company</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="javascript:void(0)" onclick="openContactModal()">Contact</a></li>
                 </ul>
                 <div class="lang-switcher">
                     <select onchange="changeLanguage(this.value)" aria-label="Select Language">
@@ -621,7 +726,7 @@
             <p class="tagline">A Company That Creates Businesses From Scratch</p>
             <p>Multi-commodity trading & distribution business serving AMER, EMEA, and APAC regions. Building value
                 through capital, relationships, and deep expertise.</p>
-            <a href="#contact" class="cta-button">Get In Touch</a>
+            <a href="javascript:void(0)" onclick="openContactModal()" class="cta-button">Get In Touch</a>
         </div>
     </section>
 
@@ -729,7 +834,55 @@
 
     </footer>
 
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeContactModal()">&times;</span>
+            <h2 style="margin-bottom: 1.5rem; text-align: center; color: var(--primary-color);">Contact Us</h2>
+            <form class="contact-form" action="mailto:info@drpinternational.ca" method="post" enctype="text/plain">
+                <label for="name">Name <span style="color:red">*</span></label>
+                <input type="text" id="name" name="Name" required>
+
+                <label for="company">Company Name</label>
+                <input type="text" id="company" name="Company">
+
+                <label for="dept">Department</label>
+                <input type="text" id="dept" name="Department">
+
+                <label for="email">Email <span style="color:red">*</span></label>
+                <input type="email" id="email" name="Email" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="Phone">
+
+                <label for="website">Website</label>
+                <input type="url" id="website" name="Website">
+
+                <label for="message">Inquiry Content <span style="color:red">*</span></label>
+                <textarea id="message" name="Message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
     <script>
+        // Modal functions
+        function openContactModal() {
+            document.getElementById('contactModal').style.display = 'block';
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
         // Language change function
         function changeLanguage(url) {
             if (url) {
