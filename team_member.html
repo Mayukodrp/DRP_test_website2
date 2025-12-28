@@ -361,121 +361,170 @@
     </footer>
 
     <script>
-        function changeLanguage(url) {
-            if (url) {
-                // If on a detail page, ideally we'd link to the translated detail page.
-                // For now, redirecting to the main list as requested scope is for English details.
-                window.location.href = url;
-            }
-        }
-
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
+        const uiStrings = {
+            'en': { backParams: '', backText: '← Back to Team', eduLabel: 'Education:', langLabel: 'Languages:', notFoundTitle: 'Member not found', notFoundDesc: 'The requested team member profile could not be found.', returnLink: 'Return to Team Page' },
+            'ja': { backParams: '?lang=ja', backText: '← チームに戻る', eduLabel: '学歴:', langLabel: '言語:', notFoundTitle: 'メンバーが見つかりません', notFoundDesc: 'リクエストされたチームメンバーのプロフィールは見つかりませんでした。', returnLink: 'チームページに戻る' },
+            'fr': { backParams: '?lang=fr', backText: '← Retour à l\'équipe', eduLabel: 'Éducation :', langLabel: 'Langues :', notFoundTitle: 'Membre introuvable', notFoundDesc: 'Le profil du membre de l\'équipe demandé est introuvable.', returnLink: 'Retour à la page de l\'équipe' },
+            'de': { backParams: '?lang=de', backText: '← Zurück zum Team', eduLabel: 'Ausbildung:', langLabel: 'Sprachen:', notFoundTitle: 'Mitglied nicht gefunden', notFoundDesc: 'Das angeforderte Teammitgliedsprofil wurde nicht gefunden.', returnLink: 'Zurück zur Teamseite' },
+            'it': { backParams: '?lang=it', backText: '← Torna al Team', eduLabel: 'Istruzione:', langLabel: 'Lingue:', notFoundTitle: 'Membro non trovato', notFoundDesc: 'Il profilo del membro del team richiesto non è stato trovato.', returnLink: 'Torna alla pagina del Team' },
+            'zh': { backParams: '?lang=zh', backText: '← 返回团队', eduLabel: '教育背景：', langLabel: '语言：', notFoundTitle: '未找到成员', notFoundDesc: '未找到请求的团队成员资料。', returnLink: '返回团队页面' }
+        };
 
         const teamData = {
             'ritesh': {
-                name: 'Ritesh Singh',
-                role: 'President & Chief Executive Officer',
                 image: 'Ritesh_Singh.jpg',
-                desc: `Ritesh Singh is the Founder, President & CEO of DRP International Ltd., bringing over 20 years of experience in international commodity trading and trade finance. Since immigrating from India in 2003, he has lived and worked across Switzerland, the UAE, Luxembourg, Canada, and the United Kingdom, playing a key role in building DRP’s global footprint across multiple continents. A Canadian citizen based in the UK, Ritesh brings deep insight into cross-border markets, global finance, and multicultural business environments.`,
-                edu: 'Formal education from leading private institution in India',
-                lang: 'Hindi, English, Bengali, Italian (beginner)'
+                en: { name: 'Ritesh Singh', role: 'President & Chief Executive Officer', desc: 'Ritesh Singh is the Founder, President & CEO of DRP International Ltd., bringing over 20 years of experience in international commodity trading and trade finance. Since immigrating from India in 2003, he has lived and worked across Switzerland, the UAE, Luxembourg, Canada, and the United Kingdom, playing a key role in building DRP’s global footprint across multiple continents. A Canadian citizen based in the UK, Ritesh brings deep insight into cross-border markets, global finance, and multicultural business environments.', edu: 'Formal education from leading private institution in India', lang: 'Hindi, English, Bengali' },
+                ja: { name: 'Ritesh Singh', role: '社長 & CEO', desc: 'Ritesh SinghはDRP International Ltd.の創設者であり、社長兼CEOです。国際商品取引と貿易金融において20年以上の経験を持っています。2003年にインドから移住して以来、スイス、UAE、ルクセンブルク、カナダ、イギリスで生活し働き、DRPのグローバルな拠点を複数の大陸に築く上で重要な役割を果たしてきました。イギリスを拠点とするカナダ市民として、国境を越えた市場、グローバル金融、多文化ビジネス環境への深い洞察を提供します。', edu: 'インドの主要私立機関による正規教育', lang: 'ヒンディー語、英語、ベンガル語' },
+                fr: { name: 'Ritesh Singh', role: 'Président & PDG', desc: 'Ritesh Singh est le fondateur, président et PDG de DRP International Ltd., apportant plus de 20 ans d\'expérience dans le commerce international de matières premières et le financement du commerce. Depuis son immigration d\'Inde en 2003, il a vécu et travaillé en Suisse, aux EAU, au Luxembourg, au Canada et au Royaume-Uni, jouant un rôle clé dans la construction de l\'empreinte mondiale de DRP sur plusieurs continents. Citoyen canadien basé au Royaume-Uni, Ritesh apporte une connaissance approfondie des marchés transfrontaliers, de la finance mondiale et des environnements commerciaux multiculturels.', edu: 'Éducation formelle d\'une institution privée de premier plan en Inde', lang: 'Hindi, Anglais, Bengali' },
+                de: { name: 'Ritesh Singh', role: 'Präsident & CEO', desc: 'Ritesh Singh ist Gründer, Präsident und CEO von DRP International Ltd. und verfügt über mehr als 20 Jahre Erfahrung im internationalen Rohstoffhandel und in der Handelsfinanzierung. Seit seiner Einwanderung aus Indien im Jahr 2003 hat er in der Schweiz, den VAE, Luxemburg, Kanada und Großbritannien gelebt und gearbeitet und eine Schlüsselrolle beim Aufbau der globalen Präsenz von DRP auf mehreren Kontinenten gespielt. Als kanadischer Staatsbürger mit Sitz in Großbritannien bringt Ritesh tiefe Einblicke in grenzüberschreitende Märkte, globale Finanzen und multikulturelle Geschäftsumgebungen mit.', edu: 'Formale Ausbildung an einer führenden privaten Einrichtung in Indien', lang: 'Hindi, Englisch, Bengali' },
+                it: { name: 'Ritesh Singh', role: 'Presidente & CEO', desc: 'Ritesh Singh è il fondatore, presidente e CEO di DRP International Ltd., con oltre 20 anni di esperienza nel commercio internazionale di materie prime e nella finanza commerciale. Dalla sua immigrazione dall\'India nel 2003, ha vissuto e lavorato in Svizzera, Emirati Arabi Uniti, Lussemburgo, Canada e Regno Unito, svolgendo un ruolo chiave nella costruzione dell\'impronta globale di DRP in più continenti. Cittadino canadese con sede nel Regno Unito, Ritesh porta una profonda conoscenza dei mercati transfrontalieri, della finanza globale e degli ambienti aziendali multiculturali.', edu: 'Istruzione formale presso un importante istituto privato in India', lang: 'Hindi, Inglese, Bengalese' },
+                zh: { name: 'Ritesh Singh', role: '总裁兼首席执行官', desc: 'Ritesh Singh是DRP国际有限公司的创始人、总裁兼首席执行官，在国际商品贸易和贸易融资方面拥有超过20年的经验。自2003年从印度移民以来，他曾在瑞士、阿联酋、卢森堡、加拿大和英国生活和工作，在建立DRP跨多大洲的全球足迹方面发挥了关键作用。作为常驻英国的加拿大公民，Ritesh对跨境市场、全球金融和多元文化商业环境有着深刻的见解。', edu: '印度著名私立机构的正规教育', lang: '印地语、英语、孟加拉语' }
             },
             'dolly': {
-                name: 'Dolly Singh',
-                role: 'Vice President',
                 image: 'Dolly_Singh.jpg',
-                desc: `Dolly Singh is the Vice President of DRP International Ltd. She has been integral to the group’s growth since its inception, supporting strategy, operations, and the steady expansion of DRP’s international network. Since immigrating from India in 2003, she has lived and worked across Switzerland, the UAE, Luxembourg, Canada, and the United Kingdom, contributing a global perspective and strong people-focused approach to the business. A Canadian citizen based in the UK, she brings long-term organizational insight and international experience to DRP’s leadership.`,
-                edu: 'Formal education from leading private institution in India',
-                lang: 'Hindi, English, Punjabi, Bengali'
+                en: { name: 'Dolly Singh', role: 'Vice President', desc: 'Dolly Singh is the Vice President of DRP International Ltd. She has been integral to the group’s growth since its inception, supporting strategy, operations, and the steady expansion of DRP’s international network. Since immigrating from India in 2003, she has lived and worked across Switzerland, the UAE, Luxembourg, Canada, and the United Kingdom, contributing a global perspective and strong people-focused approach to the business. A Canadian citizen based in the UK, she brings long-term organizational insight and international experience to DRP’s leadership.', edu: 'Formal education from leading private institution in India', lang: 'Hindi, English, Punjabi, Bengali' },
+                ja: { name: 'Dolly Singh', role: '副社長', desc: 'Dolly SinghはDRP International Ltd.の副社長です。設立当初からグループの成長に不可欠な存在であり、戦略、運営、およびDRPの国際ネットワークの着実な拡大を支援してきました。2003年にインドから移住して以来、スイス、UAE、ルクセンブルク、カナダ、イギリスで生活し働き、ビジネスにグローバルな視点と強力な人間中心のアプローチをもたらしています。イギリスを拠点とするカナダ市民として、長期的組織的洞察と国際経験をDRPのリーダーシップにもたらします。', edu: 'インドの主要私立機関による正規教育', lang: 'ヒンディー語、英語、パンジャブ語、ベンガル語' },
+                fr: { name: 'Dolly Singh', role: 'Vice-présidente', desc: 'Dolly Singh est la vice-présidente de DRP International Ltd. Elle a joué un rôle essentiel dans la croissance du groupe depuis sa création, soutenant la stratégie, les opérations et l\'expansion constante du réseau international de DRP. Depuis son immigration d\'Inde en 2003, elle a vécu et travaillé en Suisse, aux EAU, au Luxembourg, au Canada et au Royaume-Uni, apportant une perspective mondiale et une forte approche axée sur les personnes à l\'entreprise. Citoyenne canadienne basée au Royaume-Uni, elle apporte une vision organisationnelle à long terme et une expérience internationale à la direction de DRP.', edu: 'Éducation formelle d\'une institution privée de premier plan en Inde', lang: 'Hindi, Anglais, Pendjabi, Bengali' },
+                de: { name: 'Dolly Singh', role: 'Vizepräsidentin', desc: 'Dolly Singh ist Vizepräsidentin von DRP International Ltd. Sie ist seit der Gründung maßgeblich am Wachstum der Gruppe beteiligt und unterstützt die Strategie, den Betrieb und die stetige Erweiterung des internationalen Netzwerks von DRP. Seit ihrer Einwanderung aus Indien im Jahr 2003 hat sie in der Schweiz, den VAE, Luxemburg, Kanada und Großbritannien gelebt und gearbeitet und eine globale Perspektive sowie einen stark auf Menschen ausgerichteten Ansatz in das Unternehmen eingebracht. Als kanadische Staatsbürgerin mit Sitz in Großbritannien bringt sie langfristige organisatorische Einblicke und internationale Erfahrung in die Führung von DRP ein.', edu: 'Formale Ausbildung an einer führenden privaten Einrichtung in Indien', lang: 'Hindi, Englisch, Panjabi, Bengali' },
+                it: { name: 'Dolly Singh', role: 'Vicepresidente', desc: 'Dolly Singh è il vicepresidente di DRP International Ltd. È stata parte integrante della crescita del gruppo sin dal suo inizio, supportando la strategia, le operazioni e la costante espansione della rete internazionale di DRP. Dalla sua immigrazione dall\'India nel 2003, ha vissuto e lavorato in Svizzera, Emirati Arabi Uniti, Lussemburgo, Canada e Regno Unito, contribuendo con una prospettiva globale e un forte approccio incentrato sulle persone al business. Cittadina canadese con sede nel Regno Unito, porta una visione organizzativa a lungo termine ed esperienza internazionale alla leadership di DRP.', edu: 'Istruzione formale presso un importante istituto privato in India', lang: 'Hindi, Inglese, Punjabi, Bengalese' },
+                zh: { name: 'Dolly Singh', role: '副总裁', desc: 'Dolly Singh是DRP国际有限公司的副总裁。自集团成立以来，她一直是集团发展的核心，支持战略、运营以及DRP国际网络的稳步扩张。自2003年从印度移民以来，她曾在瑞士、阿联酋、卢森堡、加拿大和英国生活和工作，为企业贡献了全球视野和以人为本的强力方针。作为常驻英国的加拿大公民，她为DRP的领导层带来了长期的组织洞察力和国际经验。', edu: '印度著名私立机构的正规教育', lang: '印地语、英语、旁遮普语、孟加拉语' }
             },
             'roger': {
-                name: 'Roger Jie Luo',
-                role: 'Chief Operating Officer',
                 image: 'Roger_Jie_Luo.jpg',
-                desc: `Roger Luo has been a key member of the DRP family since 2019 and serves as the COO of DRP International Ltd. He brings extensive hands-on experience in international commodity trading, logistics, banking, and trade finance, and plays a central role in driving the company’s operational performance. Managing DRP’s North American markets while overseeing trades across other regions, he serves as the organization’s operational “go-to” leader. A Chinese citizen based in Ontario, Canada, Roger Luo adds strong cross-border execution and regional market expertise to DRP’s global operations.`,
-                edu: 'Bachelor of Arts, University of International Relations (China)',
-                lang: 'Mandarin, English'
+                en: { name: 'Roger Jie Luo', role: 'Chief Operating Officer', desc: 'Roger Luo has been a key member of the DRP family since 2019 and serves as the COO of DRP International Ltd. He brings extensive hands-on experience in international commodity trading, logistics, banking, and trade finance, and plays a central role in driving the company’s operational performance. Managing DRP’s North American markets while overseeing trades across other regions, he serves as the organization’s operational “go-to” leader. A Chinese citizen based in Ontario, Canada, Roger Luo adds strong cross-border execution and regional market expertise to DRP’s global operations.', edu: 'Bachelor of Arts, University of International Relations (China)', lang: 'Mandarin, English' },
+                ja: { name: 'Roger Jie Luo', role: '最高執行責任者 (COO)', desc: 'Roger Luoは2019年からDRPファミリーの主要メンバーであり、DRP International Ltd.のCOOを務めています。国際商品取引、物流、銀行業務、貿易金融における豊富な実務経験を持ち、会社の運営実績を推進する中心的な役割を果たしています。DRPの北米市場を管理しながら他の地域の取引も監督し、組織の運営上の「頼りになる」リーダーとして機能しています。カナダのオンタリオ州を拠点とする中国市民として、Roger Luoは強力な国境を越えた実行力と地域市場の専門知識をDRPのグローバル事業に加えます。', edu: '国際関係学院 文学士（中国）', lang: '中国語、英語' },
+                fr: { name: 'Roger Jie Luo', role: 'Directeur des Opérations (COO)', desc: 'Roger Luo est un membre clé de la famille DRP depuis 2019 et occupe le poste de COO de DRP International Ltd. Il apporte une vaste expérience pratique dans le commerce international de matières premières, la logistique, la banque et le financement du commerce, et joue un rôle central dans la performance opérationnelle de l\'entreprise. Gérant les marchés nord-américains de DRP tout en supervisant les transactions dans d\'autres régions, il est le leader opérationnel « incontournable » de l\'organisation. Citoyen chinois basé en Ontario, Canada, Roger Luo ajoute une forte expertise en exécution transfrontalière et en marché régional aux opérations mondiales de DRP.', edu: 'Bachelor of Arts, Université des Relations Internationales (Chine)', lang: 'Mandarin, Anglais' },
+                de: { name: 'Roger Jie Luo', role: 'Chief Operating Officer (COO)', desc: 'Roger Luo ist seit 2019 ein wichtiges Mitglied der DRP-Familie und fungiert als COO von DRP International Ltd. Er bringt umfangreiche praktische Erfahrung in den Bereichen internationaler Rohstoffhandel, Logistik, Bankwesen und Handelsfinanzierung mit und spielt eine zentrale Rolle bei der Steigerung der operativen Leistung des Unternehmens. Er leitet die nordamerikanischen Märkte von DRP und beaufsichtigt gleichzeitig den Handel in anderen Regionen und fungiert als operative Führungskraft der Organisation. Als chinesischer Staatsbürger mit Sitz in Ontario, Kanada, bringt Roger Luo starke grenzüberschreitende Ausführungs- und regionale Marktexpertise in die globalen Operationen von DRP ein.', edu: 'Bachelor of Arts, Universität für Internationale Beziehungen (China)', lang: 'Mandarin, Englisch' },
+                it: { name: 'Roger Jie Luo', role: 'Direttore Operativo (COO)', desc: 'Roger Luo è un membro chiave della famiglia DRP dal 2019 e ricopre il ruolo di COO di DRP International Ltd. Porta una vasta esperienza pratica nel commercio internazionale di materie prime, logistica, banche e finanza commerciale e svolge un ruolo centrale nel guidare le prestazioni operative dell\'azienda. Gestendo i mercati nordamericani di DRP mentre supervisiona le operazioni in altre regioni, funge da leader operativo "di riferimento" dell\'organizzazione. Cittadino cinese con sede in Ontario, Canada, Roger Luo aggiunge una forte esecuzione transfrontaliera e competenza nel mercato regionale alle operazioni globali di DRP.', edu: 'Laurea in Lettere, Università di Relazioni Internazionali (Cina)', lang: 'Mandarino, Inglese' },
+                zh: { name: 'Roger Jie Luo', role: '首席运营官', desc: 'Roger Luo自2019年以来一直是DRP大家庭的重要成员，现任DRP国际有限公司首席运营官。他在国际大宗商品贸易、物流、银行和贸易融资方面拥有丰富的实践经验，在推动公司运营绩效方面发挥着核心作用。他在管理DRP北美市场的同时监督其他地区的贸易，是该组织运营方面的核心领导。作为常驻加拿大安大略省的中国公民，Roger Luo为DRP的全球业务增添了强大的跨境执行力和区域市场专业知识。', edu: '国际关系学院学士（中国）', lang: '普通话、英语' }
             },
             'shivam': {
-                name: 'Shivam Sonar',
-                role: 'Branch Head (UK/EU)',
                 image: 'Shivam_Sonar.jpg',
-                desc: `Shivam Sonar joined the DRP family in early 2025 and plays a key role in managing trades originating from the UK and EU markets. His focus is on trade execution, relationship management, and supporting regional growth across the UK and EU. An Indian citizen based in the United Kingdom, Shivam brings energy, adaptability, and a practical mindset to DRP’s expanding European operations.`,
-                edu: 'Bachelor’s Honours in Business Management, University of Greenwich (UK)',
-                lang: 'Hindi, English, Marathi'
+                en: { name: 'Shivam Sonar', role: 'Branch Head (UK/EU)', desc: 'Shivam Sonar joined the DRP family in early 2025 and plays a key role in managing trades originating from the UK and EU markets. His focus is on trade execution, relationship management, and supporting regional growth across the UK and EU. An Indian citizen based in the United Kingdom, Shivam brings energy, adaptability, and a practical mindset to DRP’s expanding European operations.', edu: 'Bachelor’s Honours in Business Management, University of Greenwich (UK)', lang: 'Hindi, English, Marathi' },
+                ja: { name: 'Shivam Sonar', role: '支店長 (UK/EU)', desc: 'Shivam Sonarは2025年初頭にDRPファミリーに加わり、イギリスおよびEU市場からの取引を管理する重要な役割を果たしています。彼の焦点は、取引実行、関係管理、およびUKとEU全体の地域成長の支援にあります。イギリスを拠点とするインド市民として、Shivamはエネルギー、適応力、そして実践的な考え方をDRPの拡大するヨーロッパ事業にもたらします。', edu: 'グリニッジ大学 ビジネス管理学士（優等）（イギリス）', lang: 'ヒンディー語、英語、マラーティー語' },
+                fr: { name: 'Shivam Sonar', role: 'Directeur de Succursale (UK/UE)', desc: 'Shivam Sonar a rejoint la famille DRP début 2025 et joue un rôle clé dans la gestion des transactions provenant des marchés du Royaume-Uni et de l\'UE. Il se concentre sur l\'exécution des transactions, la gestion des relations et le soutien à la croissance régionale au Royaume-Uni et dans l\'UE. Citoyen indien basé au Royaume-Uni, Shivam apporte énergie, adaptabilité et un esprit pratique aux opérations européennes en pleine expansion de DRP.', edu: 'Licence avec mention en gestion d\'entreprise, Université de Greenwich (Royaume-Uni)', lang: 'Hindi, Anglais, Marathi' },
+                de: { name: 'Shivam Sonar', role: 'Niederlassungsleiter (UK/EU)', desc: 'Shivam Sonar trat Anfang 2025 der DRP-Familie bei und spielt eine Schlüsselrolle bei der Verwaltung von Geschäften aus den Märkten in Großbritannien und der EU. Sein Fokus liegt auf der Handelsausführung, dem Beziehungsmanagement und der Unterstützung des regionalen Wachstums in Großbritannien und der EU. Als indischer Staatsbürger mit Sitz in Großbritannien bringt Shivam Energie, Anpassungsfähigkeit und eine praktische Denkweise in die expandierenden europäischen Aktivitäten von DRP ein.', edu: 'Bachelor of Honours in Business Management, University of Greenwich (UK)', lang: 'Hindi, Englisch, Marathi' },
+                it: { name: 'Shivam Sonar', role: 'Capo Filiale (UK/UE)', desc: 'Shivam Sonar si è unito alla famiglia DRP all\'inizio del 2025 e svolge un ruolo chiave nella gestione delle operazioni provenienti dai mercati del Regno Unito e dell\'UE. Il suo focus è sull\'esecuzione commerciale, la gestione delle relazioni e il supporto alla crescita regionale nel Regno Unito e nell\'UE. Cittadino indiano con sede nel Regno Unito, Shivam porta energia, adattabilità e una mentalità pratica alle operazioni europee in espansione di DRP.', edu: 'Laurea con lode in Gestione Aziendale, Università di Greenwich (Regno Unito)', lang: 'Hindi, Inglese, Marathi' },
+                zh: { name: 'Shivam Sonar', role: '分公司负责人 (英国/欧盟)', desc: 'Shivam Sonar于2025年初加入DRP大家庭，在管理来自英国和欧盟市场的贸易方面发挥着关键作用。他的重点是贸易执行、关系管理以及支持英国和欧盟的区域增长。作为常驻英国的印度公民，Shivam为DRP不断扩大的欧洲业务带来了活力、适应能力和务实的心态。', edu: '格林威治大学商业管理荣誉学士（英国）', lang: '印地语、英语、马拉地语' }
             },
             'benny': {
-                name: 'Eng. Benny Vanderhaeghe',
-                role: 'Trade (EU)',
                 image: 'Benny_Vanderhaeghe.jpg',
-                desc: `Benny Vanderhaeghe joined the DRP family in 2020 and brings over 30 years of experience in die and tool making, particularly within the aluminium extrusion industry. His technical expertise and extensive network across Europe have been invaluable to DRP’s business development and customer relationships. A Belgian citizen based in Greece, Benny provides deep industry knowledge and strong European market insight to DRP’s operations.`,
-                edu: 'Mechanical Engineer, Oostende University (Belgium)',
-                lang: 'Dutch, French, English'
+                en: { name: 'Eng. Benny Vanderhaeghe', role: 'Trade (EU)', desc: 'Benny Vanderhaeghe joined the DRP family in 2020 and brings over 30 years of experience in die and tool making, particularly within the aluminium extrusion industry. His technical expertise and extensive network across Europe have been invaluable to DRP’s business development and customer relationships. A Belgian citizen based in Greece, Benny provides deep industry knowledge and strong European market insight to DRP’s operations.', edu: 'Mechanical Engineer, Oostende University (Belgium)', lang: 'Dutch, French, English' },
+                ja: { name: 'Eng. Benny Vanderhaeghe', role: '貿易担当 (EU)', desc: 'Benny Vanderhaegheは2020年にDRPファミリーに加わり、特にアルミニウム押出産業における金型および工具製造で30年以上の経験を持っています。彼の技術的専門知識とヨーロッパ全土にわたる広範なネットワークは、DRPの事業開発と顧客関係にとって非常に貴重です。ギリシャを拠点とするベルギー市民として、Bennyは深い業界知識と強力なヨーロッパ市場への洞察をDRPの事業に提供します。', edu: 'オーステンデ大学 機械工学（ベルギー）', lang: 'オランダ語、フランス語、英語' },
+                fr: { name: 'Ing. Benny Vanderhaeghe', role: 'Commerce (UE)', desc: 'Benny Vanderhaeghe a rejoint la famille DRP en 2020 et apporte plus de 30 ans d\'expérience dans la fabrication de moules et d\'outils, en particulier dans l\'industrie de l\'extrusion d\'aluminium. Son expertise technique et son vaste réseau à travers l\'Europe ont été inestimables pour le développement commercial et les relations clients de DRP. Citoyen belge basé en Grèce, Benny apporte une connaissance approfondie de l\'industrie et une forte vision du marché européen aux opérations de DRP.', edu: 'Ingénieur mécanicien, Université d\'Ostende (Belgique)', lang: 'Néerlandais, Français, Anglais' },
+                de: { name: 'Ing. Benny Vanderhaeghe', role: 'Handel (EU)', desc: 'Benny Vanderhaeghe trat 2020 der DRP-Familie bei und bringt über 30 Jahre Erfahrung im Werkzeug- und Formenbau mit, insbesondere in der Aluminium-Extrusionsindustrie. Sein technisches Fachwissen und sein umfangreiches Netzwerk in ganz Europa waren für die Geschäftsentwicklung und Kundenbeziehungen von DRP von unschätzbarem Wert. Als belgischer Staatsbürger mit Sitz in Griechenland bringt Benny fundierte Branchenkenntnisse und starke Einblicke in den europäischen Markt in die Aktivitäten von DRP ein.', edu: 'Maschinenbauingenieur, Universität Oostende (Belgien)', lang: 'Niederländisch, Französisch, Englisch' },
+                it: { name: 'Ing. Benny Vanderhaeghe', role: 'Commercio (UE)', desc: 'Benny Vanderhaeghe si è unito alla famiglia DRP nel 2020 e porta oltre 30 anni di esperienza nella costruzione di stampi e utensili, in particolare nel settore dell\'estrusione dell\'alluminio. La sua competenza tecnica e la vasta rete in tutta Europa sono state inestimabili per lo sviluppo del business e le relazioni con i clienti di DRP. Cittadino belga con sede in Grecia, Benny fornisce una profonda conoscenza del settore e una forte visione del mercato europeo alle operazioni di DRP.', edu: 'Ingegnere Meccanico, Università di Ostenda (Belgio)', lang: 'Olandese, Francese, Inglese' },
+                zh: { name: 'Eng. Benny Vanderhaeghe', role: '贸易 (欧盟)', desc: 'Benny Vanderhaeghe于2020年加入DRP大家庭，在模具制造方面拥有30多年的经验，特别是在铝挤压行业。他的技术专长和遍布欧洲的广泛网络对DRP的业务发展和客户关系具有不可估量的价值。作为常驻希腊的比利时公民，Benny为DRP的运营提供了深厚的行业知识和强大的欧洲市场洞察力。', edu: '奥斯坦德大学机械工程师（比利时）', lang: '荷兰语、法语、英语' }
             },
             'rostislav': {
-                name: 'Eng. Rostislav Ježek',
-                role: 'Trade (EU)',
                 image: 'Rostislav_Jezek.jpg',
-                desc: `Rostislav Ježek joined the DRP family in 2020 and brings over 30 years of experience in ferrous and non-ferrous trading across Europe. His deep market knowledge and extensive network have been instrumental in expanding DRP’s European business. A Czech citizen based in the Czech Republic, Rostislav provides strategic insight and operational expertise that strengthen DRP’s presence across European markets.`,
-                edu: 'Engineering degree, Masaryk University, Faculty of Economics and Administration, Brno (Czech Republic)',
-                lang: 'Czech, German, English'
+                en: { name: 'Eng. Rostislav Ježek', role: 'Trade (EU)', desc: 'Rostislav Ježek joined the DRP family in 2020 and brings over 30 years of experience in ferrous and non-ferrous trading across Europe. His deep market knowledge and extensive network have been instrumental in expanding DRP’s European business. A Czech citizen based in the Czech Republic, Rostislav provides strategic insight and operational expertise that strengthen DRP’s presence across European markets.', edu: 'Engineering degree, Masaryk University, Faculty of Economics and Administration, Brno (Czech Republic)', lang: 'Czech, German, English' },
+                ja: { name: 'Eng. Rostislav Ježek', role: '貿易担当 (EU)', desc: 'Rostislav Ježekは2020年にDRPファミリーに加わり、ヨーロッパ全土での鉄および非鉄金属取引において30年以上の経験を持っています。彼の深い市場知識と広範なネットワークは、DRPのヨーロッパ事業拡大に貢献してきました。チェコ共和国を拠点とするチェコ市民として、RostislavはDRPのヨーロッパ市場におけるプレゼンスを強化する戦略的洞察と運営上の専門知識を提供します。', edu: 'マサリク大学 経済行政学部 工学学位、ブルノ（チェコ共和国）', lang: 'チェコ語、ドイツ語、英語' },
+                fr: { name: 'Ing. Rostislav Ježek', role: 'Commerce (UE)', desc: 'Rostislav Ježek a rejoint la famille DRP en 2020 et apporte plus de 30 ans d\'expérience dans le commerce de métaux ferreux et non ferreux à travers l\'Europe. Sa connaissance approfondie du marché et son vaste réseau ont joué un rôle déterminant dans l\'expansion des activités européennes de DRP. Citoyen tchèque basé en République tchèque, Rostislav fournit des informations stratégiques et une expertise opérationnelle qui renforcent la présence de DRP sur les marchés européens.', edu: 'Diplôme d\'ingénieur, Université Masaryk, Faculté d\'économie et d\'administration, Brno (République tchèque)', lang: 'Tchèque, Allemand, Anglais' },
+                de: { name: 'Ing. Rostislav Ježek', role: 'Handel (EU)', desc: 'Rostislav Ježek trat 2020 der DRP-Familie bei und bringt über 30 Jahre Erfahrung im Handel mit Eisen- und Nichteisenmetallen in ganz Europa mit. Seine fundierten Marktkenntnisse und sein umfangreiches Netzwerk waren maßgeblich am Ausbau des europäischen Geschäfts von DRP beteiligt. Als tschechischer Staatsbürger mit Sitz in der Tschechischen Republik bietet Rostislav strategische Einblicke und operative Expertise, die die Präsenz von DRP auf den europäischen Märkten stärken.', edu: 'Ingenieurabschluss, Masaryk-Universität, Fakultät für Wirtschaft und Verwaltung, Brünn (Tschechische Republik)', lang: 'Tschechisch, Deutsch, Englisch' },
+                it: { name: 'Ing. Rostislav Ježek', role: 'Commercio (UE)', desc: 'Rostislav Ježek si è unito alla famiglia DRP nel 2020 e porta oltre 30 anni di esperienza nel commercio di metalli ferrosi e non ferrosi in tutta Europa. La sua profonda conoscenza del mercato e la sua vasta rete sono state determinanti per l\'espansione del business europeo di DRP. Cittadino ceco con sede nella Repubblica Ceca, Rostislav fornisce approfondimenti strategici e competenze operative che rafforzano la presenza di DRP nei mercati europei.', edu: 'Laurea in Ingegneria, Università Masaryk, Facoltà di Economia e Amministrazione, Brno (Repubblica Ceca)', lang: 'Ceco, Tedesco, Inglese' },
+                zh: { name: 'Eng. Rostislav Ježek', role: '贸易 (欧盟)', desc: 'Rostislav Ježek于2020年加入DRP大家庭，在欧洲黑色和有色金属贸易方面拥有30多年的经验。他深厚的市场知识和广泛的网络在拓展DRP欧洲业务方面发挥了重要作用。作为常驻捷克共和国的捷克公民，Rostislav提供的战略洞察力和运营专长加强了DRP在欧洲市场的影响力。', edu: '马萨里克大学经济与管理学院工程学位，布尔诺（捷克共和国）', lang: '捷克语、德语、英语' }
             },
             'nizza': {
-                name: 'Nizza Hernandez',
-                role: 'Trade (Japan, Philippines)',
                 image: 'Nizza_Hernandez.jpg',
-                desc: `Nizza Hernandez joined the DRP family in early 2025 and brings a strong banking background and a natural talent for business development. She manages trades originating from Japan and the Philippines, helping DRP deepen its presence and strengthen partnerships across these markets. A Philippine citizen based in Japan, Nizza contributes regional expertise and cross-cultural insight to DRP’s operations in Asia.`,
-                edu: 'Bachelors in Banking and Finance New Era University (Philippines)',
-                lang: 'Tagalog, Japanese, English'
+                en: { name: 'Nizza Hernandez', role: 'Trade (Japan, Philippines)', desc: 'Nizza Hernandez joined the DRP family in early 2025 and brings a strong banking background and a natural talent for business development. She manages trades originating from Japan and the Philippines, helping DRP deepen its presence and strengthen partnerships across these markets. A Philippine citizen based in Japan, Nizza contributes regional expertise and cross-cultural insight to DRP’s operations in Asia.', edu: 'Bachelors in Banking and Finance New Era University (Philippines)', lang: 'Tagalog, Japanese, English' },
+                ja: { name: 'Nizza Hernandez', role: '貿易担当 (日本、フィリピン)', desc: 'Nizza Hernandezは2025年初頭にDRPファミリーに加わり、強力な銀行業務のバックグラウンドとビジネス開発の天賦の才能をもたらしました。彼女は日本とフィリピンからの取引を管理し、これらの市場全体でDRPのプレゼンスを深め、パートナーシップを強化するのを支援しています。日本を拠点とするフィリピン市民として、NizzaはDRPのアジア事業に地域的な専門知識と異文化間の洞察をもたらします。', edu: 'ニューエラ大学 銀行・金融学士（フィリピン）', lang: 'タガログ語、日本語、英語' },
+                fr: { name: 'Nizza Hernandez', role: 'Commerce (Japon, Philippines)', desc: 'Nizza Hernandez a rejoint la famille DRP début 2025 et apporte une solide expérience bancaire et un talent naturel pour le développement commercial. Elle gère les transactions en provenance du Japon et des Philippines, aidant DRP à renforcer sa présence et ses partenariats sur ces marchés. Citoyenne philippine basée au Japon, Nizza apporte une expertise régionale et une vision interculturelle aux opérations de DRP en Asie.', edu: 'Licence en banque et finance, Université New Era (Philippines)', lang: 'Tagalog, Japonais, Anglais' },
+                de: { name: 'Nizza Hernandez', role: 'Handel (Japan, Philippinen)', desc: 'Nizza Hernandez trat Anfang 2025 der DRP-Familie bei und bringt einen starken Hintergrund im Bankwesen und ein natürliches Talent für Geschäftsentwicklung mit. Sie verwaltet Geschäfte aus Japan und den Philippinen und hilft DRP, seine Präsenz zu vertiefen und Partnerschaften in diesen Märkten zu stärken. Als philippinische Staatsbürgerin mit Sitz in Japan bringt Nizza regionale Expertise und interkulturelle Einblicke in die Aktivitäten von DRP in Asien ein.', edu: 'Bachelor in Bank- und Finanzwesen, New Era University (Philippinen)', lang: 'Tagalog, Japanisch, Englisch' },
+                it: { name: 'Nizza Hernandez', role: 'Commercio (Giappone, Filippine)', desc: 'Nizza Hernandez si è unita alla famiglia DRP all\'inizio del 2025 e porta un forte background bancario e un talento naturale per lo sviluppo aziendale. Gestisce le operazioni provenienti dal Giappone e dalle Filippine, aiutando DRP ad approfondire la sua presenza e rafforzare le partnership in questi mercati. Cittadina filippina con sede in Giappone, Nizza contribuisce con competenze regionali e intuizioni interculturali alle operazioni di DRP in Asia.', edu: 'Laurea in Banche e Finanza, New Era University (Filippine)', lang: 'Tagalog, Giapponese, Inglese' },
+                zh: { name: 'Nizza Hernandez', role: '贸易 (日本, 菲律宾)', desc: 'Nizza Hernandez于2025年初加入DRP大家庭，带来了深厚的银行业背景和业务发展的过人天赋。她负责管理来自日本和菲律宾的贸易，帮助DRP深化在这两个市场的业务并加强合作伙伴关系。作为常驻日本的菲律宾公民，Nizza为DRP在亚洲的运营贡献了区域专业知识和跨文化洞察力。', edu: '新埃拉大学银行与金融学士（菲律宾）', lang: '他加禄语、日语、英语' }
             },
             'mayuko': {
-                name: 'Mayuko Okada',
-                role: 'Trade (Japan)',
                 image: 'Mayuko_Okada.jpg',
-                desc: `Mayuko Okada joined the DRP family in 2025 and brings a unique artistic and cultural perspective to the company’s operations in Japan. She leads new business development with Japanese companies, helping bridge business, culture, and long-term relationships. A Japanese citizen based in Switzerland, Mayuko contributes cross-cultural insight to DRP’s Asian and European operations.`,
-                edu: 'Bachelor of Fine Arts, Kyoto Seika University (Japan)',
-                lang: 'Japanese, English'
+                en: { name: 'Mayuko Okada', role: 'Trade (Japan)', desc: 'Mayuko Okada joined the DRP family in 2025 and brings a unique artistic and cultural perspective to the company’s operations in Japan. She leads new business development with Japanese companies, helping bridge business, culture, and long-term relationships. A Japanese citizen based in Switzerland, Mayuko contributes cross-cultural insight to DRP’s Asian and European operations.', edu: 'Bachelor of Fine Arts, Kyoto Seika University (Japan)', lang: 'Japanese, English' },
+                ja: { name: 'Mayuko Okada', role: '貿易担当 (日本)', desc: 'Mayuko Okadaは2025年にDRPファミリーに加わり、日本での事業にユニークな芸術的および文化的視点をもたらしました。彼女は日本企業との新規事業開発を主導し、ビジネスと文化の架け橋となり、長期的な関係を築く支援をしています。スイスを拠点とする日本市民として、MayukoはDRPのアジアおよびヨーロッパ事業に異文化間の洞察をもたらします。', edu: '京都精華大学 芸術学部（日本）', lang: '日本語、英語' },
+                fr: { name: 'Mayuko Okada', role: 'Commerce (Japon)', desc: 'Mayuko Okada a rejoint la famille DRP en 2025 et apporte une perspective artistique et culturelle unique aux opérations de l\'entreprise au Japon. Elle dirige le développement de nouvelles affaires avec des entreprises japonaises, contribuant à faire le lien entre les affaires, la culture et les relations à long terme. Citoyenne japonaise basée en Suisse, Mayuko apporte une vision interculturelle aux opérations asiatiques et européennes de DRP.', edu: 'Bachelor of Fine Arts, Université Kyoto Seika (Japon)', lang: 'Japonais, Anglais' },
+                de: { name: 'Mayuko Okada', role: 'Handel (Japan)', desc: 'Mayuko Okada trat 2025 der DRP-Familie bei und bringt eine einzigartige künstlerische und kulturelle Perspektive in die Aktivitäten des Unternehmens in Japan ein. Sie leitet die Neugeschäftsentwicklung mit japanischen Unternehmen und hilft dabei, Brücken zwischen Geschäft, Kultur und langfristigen Beziehungen zu bauen. Als japanische Staatsbürgerin mit Sitz in der Schweiz bringt Mayuko interkulturelle Einblicke in die asiatischen und europäischen Aktivitäten von DRP ein.', edu: 'Bachelor of Fine Arts, Kyoto Seika University (Japan)', lang: 'Japanisch, Englisch' },
+                it: { name: 'Mayuko Okada', role: 'Commercio (Giappone)', desc: 'Mayuko Okada si è unita alla famiglia DRP nel 2025 e porta una prospettiva artistica e culturale unica alle operazioni dell\'azienda in Giappone. Guida lo sviluppo di nuovi affari con le aziende giapponesi, aiutando a colmare il divario tra business, cultura e relazioni a lungo termine. Cittadina giapponese con sede in Svizzera, Mayuko contribuisce con intuizioni interculturali alle operazioni asiatiche ed europee di DRP.', edu: 'Bachelor of Fine Arts, Kyoto Seika University (Giappone)', lang: 'Giapponese, Inglese' },
+                zh: { name: 'Mayuko Okada', role: '贸易 (日本)', desc: 'Mayuko Okada于2025年加入DRP大家庭，为公司在日本的运营带来了独特的艺术和文化视角。她负责与日本公司的新业务开发，帮助架起商业、文化和长期关系的桥梁。作为常驻瑞士的日本公民，Mayuko为DRP的亚洲和欧洲业务贡献了跨文化洞察力。', edu: '京都精华大学美术学士（日本）', lang: '日语、英语' }
             },
             'prathna': {
-                name: 'Prathna Singh',
-                role: 'Finance & Strategy',
                 image: 'Prathna_Singh.jpg',
-                desc: `Prathna Singh joined the DRP family in 2025, taking on a role in Finance & Strategy as she continues to build her expertise in financial analysis, strategic planning, and market evaluation. Born in Switzerland and having lived in Dubai, Luxembourg, and Canada, she brings a deep cross-cultural perspective that informs her approach to business and global operations. A Canadian citizen based in Canada, her international experience helps drive informed decision-making as she develops her role in shaping DRP’s future.`,
-                edu: 'Bachelor of Business Management and Organizational studies, Western University (Canada)',
-                lang: 'English, French'
+                en: { name: 'Prathna Singh', role: 'Finance & Strategy', desc: 'Prathna Singh joined the DRP family in 2025, taking on a role in Finance & Strategy as she continues to build her expertise in financial analysis, strategic planning, and market evaluation. Born in Switzerland and having lived in Dubai, Luxembourg, and Canada, she brings a deep cross-cultural perspective that informs her approach to business and global operations. A Canadian citizen based in Canada, her international experience helps drive informed decision-making as she develops her role in shaping DRP’s future.', edu: 'Bachelor of Business Management and Organizational studies, Western University (Canada)', lang: 'English, French' },
+                ja: { name: 'Prathna Singh', role: '財務 & 戦略', desc: 'Prathna Singhは2025年にDRPファミリーに加わり、財務分析、戦略的計画、市場評価の専門知識を深めながら、財務および戦略の役割を担っています。スイスで生まれ、ドバイ、ルクセンブルク、カナダで生活した経験から、ビジネスやグローバルな運営に対するアプローチに深い異文化間の視点をもたらしています。カナダを拠点とするカナダ市民として、彼女の国際的な経験は、DRPの将来を形成する役割を発展させる中で、情報に基づいた意思決定を推進するのに役立っています。', edu: 'ウェスタン大学 ビジネス管理および組織研究学士（カナダ）', lang: '英語、フランス語' },
+                fr: { name: 'Prathna Singh', role: 'Finance & Stratégie', desc: 'Prathna Singh a rejoint la famille DRP en 2025, assumant un rôle dans la finance et la stratégie tout en continuant à développer son expertise en analyse financière, planification stratégique et évaluation de marché. Née en Suisse et ayant vécu à Dubaï, au Luxembourg et au Canada, elle apporte une profonde perspective interculturelle qui éclaire son approche des affaires et des opérations mondiales. Citoyenne canadienne basée au Canada, son expérience internationale aide à prendre des décisions éclairées alors qu\'elle développe son rôle dans le façonnement de l\'avenir de DRP.', edu: 'Bachelor en gestion d\'entreprise et études organisationnelles, Western University (Canada)', lang: 'Anglais, Français' },
+                de: { name: 'Prathna Singh', role: 'Finanzen & Strategie', desc: 'Prathna Singh trat 2025 der DRP-Familie bei und übernahm eine Rolle im Bereich Finanzen & Strategie, während sie ihre Expertise in Finanzanalyse, strategischer Planung und Marktbewertung weiter ausbaut. In der Schweiz geboren und in Dubai, Luxemburg und Kanada gelebt, bringt sie eine tiefe interkulturelle Perspektive ein, die ihren Ansatz für Geschäfte und globale Operationen prägt. Als kanadische Staatsbürgerin mit Sitz in Kanada hilft ihre internationale Erfahrung dabei, fundierte Entscheidungen zu treffen, während sie ihre Rolle bei der Gestaltung der Zukunft von DRP entwickelt.', edu: 'Bachelor of Business Management und Organisationsstudien, Western University (Kanada)', lang: 'Englisch, Französisch' },
+                it: { name: 'Prathna Singh', role: 'Finanza & Strategia', desc: 'Prathna Singh si è unita alla famiglia DRP nel 2025, assumendo un ruolo in Finanza & Strategia mentre continua a costruire la sua esperienza nell\'analisi finanziaria, nella pianificazione strategica e nella valutazione del mercato. Nata in Svizzera e dopo aver vissuto a Dubai, Lussemburgo e Canada, porta una profonda prospettiva interculturale che informa il suo approccio al business e alle operazioni globali. Cittadina canadese con sede in Canada, la sua esperienza internazionale aiuta a guidare un processo decisionale informato mentre sviluppa il suo ruolo nel plasmare il futuro di DRP.', edu: 'Laurea in Gestione Aziendale e Studi Organizzativi, Western University (Canada)', lang: 'Inglese, Francese' },
+                zh: { name: 'Prathna Singh', role: '财务与战略', desc: 'Prathna Singh于2025年加入DRP大家庭，担任财务与战略职务，同时继续在财务分析、战略规划和市场评估方面积累专业知识。她出生于瑞士，曾在迪拜、卢森堡和加拿大生活，带来了深刻的跨文化视角，这也影响了她的商业和全球运营方式。作为常驻加拿大的加拿大公民，她的国际经验有助于在塑造DRP未来的过程中推动明智的决策。', edu: '韦斯特大学商业管理与组织研究学士（加拿大）', lang: '英语、法语' }
             }
         };
 
         window.onload = function () {
             const urlParams = new URLSearchParams(window.location.search);
             const memberId = urlParams.get('id');
+            const lang = urlParams.get('lang') || 'en'; // Default to English
             const card = document.getElementById('profileCard');
+            const backLink = document.querySelector('.back-link');
+
+            // Set UI strings based on language
+            const strings = uiStrings[lang] || uiStrings['en'];
+
+            // Update Back Link text and href (if simple param append logic works for team page)
+            // Ideally we redirect to team.html for EN, team_ja.html for JA etc.
+            // Let's create a map for team page URLs
+            const teamPages = {
+                'en': 'team.html',
+                'ja': 'team_ja.html',
+                'fr': 'team_fr.html',
+                'de': 'team_de.html',
+                'it': 'team_it.html',
+                'zh': 'team_zh.html'
+            };
+
+            backLink.href = teamPages[lang] || 'team.html';
+            backLink.innerText = strings.backText;
+
+            // Update language switcher current selection
+            const langSelect = document.querySelector('.lang-switcher select');
+            if (langSelect) {
+                // We need to update values to point to current member with different lang
+                // e.g. team_member.html?id=ritesh&lang=ja
+                const options = langSelect.options;
+                for (let i = 0; i < options.length; i++) {
+                    const optLang = options[i].innerText.split(' ')[1]; // Extract EN, DE, FR...
+                    // Map generic labels to lang codes
+                    const langMap = { 'EN': 'en', 'DE': 'de', 'FR': 'fr', 'IT': 'it', 'JP': 'ja', 'CN': 'zh' };
+                    const code = langMap[optLang];
+                    if (code) {
+                        options[i].value = `team_member.html?id=${memberId}&lang=${code}`;
+                        if (code === lang) options[i].selected = true;
+                    }
+                }
+                // Override onchange to just go to value URL
+                langSelect.onchange = function () { window.location.href = this.value; };
+            }
+
 
             if (memberId && teamData[memberId]) {
                 const member = teamData[memberId];
+                // Get localized data
+                const data = member[lang] || member['en'];
+
                 card.innerHTML = `
                     <div class="profile-image-container">
-                        <img src="${member.image}" alt="${member.name}" class="profile-image">
+                        <img src="${member.image}" alt="${data.name}" class="profile-image">
                     </div>
                     <div class="profile-content">
-                        <h1 class="profile-name">${member.name}</h1>
-                        <p class="profile-role">${member.role}</p>
-                        <div class="profile-bio">${member.desc}</div>
+                        <h1 class="profile-name">${data.name}</h1>
+                        <p class="profile-role">${data.role}</p>
+                        <div class="profile-bio">${data.desc}</div>
                         <div class="profile-details">
-                            <p class="profile-detail-item"><strong>Education:</strong> ${member.edu}</p>
-                            <p class="profile-detail-item"><strong>Languages:</strong> ${member.lang}</p>
+                            <p class="profile-detail-item"><strong>${strings.eduLabel}</strong> ${data.edu}</p>
+                            <p class="profile-detail-item"><strong>${strings.langLabel}</strong> ${data.lang}</p>
                         </div>
                     </div>
                 `;
             } else {
                 card.innerHTML = `
                     <div style="text-align: center; padding: 3rem; width: 100%;">
-                        <h2>Member not found</h2>
-                        <p>The requested team member profile could not be found.</p>
-                        <a href="team.html" style="color: var(--secondary-color); font-weight: bold; margin-top: 1rem; display: inline-block;">Return to Team Page</a>
+                        <h2>${strings.notFoundTitle}</h2>
+                        <p>${strings.notFoundDesc}</p>
+                        <a href="${teamPages[lang]}" style="color: var(--secondary-color); font-weight: bold; margin-top: 1rem; display: inline-block;">${strings.returnLink}</a>
                     </div>
                 `;
             }
