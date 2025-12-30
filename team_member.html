@@ -362,12 +362,12 @@
 
     <script>
         const uiStrings = {
-            'en': { backParams: '', backText: '← Back to Team', eduLabel: 'Education:', langLabel: 'Languages:', notFoundTitle: 'Member not found', notFoundDesc: 'The requested team member profile could not be found.', returnLink: 'Return to Team Page' },
-            'ja': { backParams: '?lang=ja', backText: '← チームに戻る', eduLabel: '学歴:', langLabel: '言語:', notFoundTitle: 'メンバーが見つかりません', notFoundDesc: 'リクエストされたチームメンバーのプロフィールは見つかりませんでした。', returnLink: 'チームページに戻る' },
-            'fr': { backParams: '?lang=fr', backText: '← Retour à l\'équipe', eduLabel: 'Éducation :', langLabel: 'Langues :', notFoundTitle: 'Membre introuvable', notFoundDesc: 'Le profil du membre de l\'équipe demandé est introuvable.', returnLink: 'Retour à la page de l\'équipe' },
-            'de': { backParams: '?lang=de', backText: '← Zurück zum Team', eduLabel: 'Ausbildung:', langLabel: 'Sprachen:', notFoundTitle: 'Mitglied nicht gefunden', notFoundDesc: 'Das angeforderte Teammitgliedsprofil wurde nicht gefunden.', returnLink: 'Zurück zur Teamseite' },
-            'it': { backParams: '?lang=it', backText: '← Torna al Team', eduLabel: 'Istruzione:', langLabel: 'Lingue:', notFoundTitle: 'Membro non trovato', notFoundDesc: 'Il profilo del membro del team richiesto non è stato trovato.', returnLink: 'Torna alla pagina del Team' },
-            'zh': { backParams: '?lang=zh', backText: '← 返回团队', eduLabel: '教育背景：', langLabel: '语言：', notFoundTitle: '未找到成员', notFoundDesc: '未找到请求的团队成员资料。', returnLink: '返回团队页面' }
+            'en': { backParams: '', backText: '← Back to Team', eduLabel: 'Education:', langLabel: 'Languages:', notFoundTitle: 'Member not found', notFoundDesc: 'The requested team member profile could not be found.', returnLink: 'Return to Team Page', navHome: 'Home', navMessage: 'Message', navTeam: 'Team', navProducts: 'Products', navCompany: 'Company', navContact: 'Contact' },
+            'ja': { backParams: '?lang=ja', backText: '← チームに戻る', eduLabel: '学歴:', langLabel: '言語:', notFoundTitle: 'メンバーが見つかりません', notFoundDesc: 'リクエストされたチームメンバーのプロフィールは見つかりませんでした。', returnLink: 'チームページに戻る', navHome: 'ホーム', navMessage: '社長メッセージ', navTeam: 'チーム', navProducts: '取扱製品', navCompany: '会社概要', navContact: 'お問い合わせ' },
+            'fr': { backParams: '?lang=fr', backText: '← Retour à l\'équipe', eduLabel: 'Éducation :', langLabel: 'Langues :', notFoundTitle: 'Membre introuvable', notFoundDesc: 'Le profil du membre de l\'équipe demandé est introuvable.', returnLink: 'Retour à la page de l\'équipe', navHome: 'Accueil', navMessage: 'Message', navTeam: 'Équipe', navProducts: 'Produits', navCompany: 'Entreprise', navContact: 'Contact' },
+            'de': { backParams: '?lang=de', backText: '← Zurück zum Team', eduLabel: 'Ausbildung:', langLabel: 'Sprachen:', notFoundTitle: 'Mitglied nicht gefunden', notFoundDesc: 'Das angeforderte Teammitgliedsprofil wurde nicht gefunden.', returnLink: 'Zurück zur Teamseite', navHome: 'Startseite', navMessage: 'Botschaft', navTeam: 'Team', navProducts: 'Produkte', navCompany: 'Unternehmen', navContact: 'Kontakt' },
+            'it': { backParams: '?lang=it', backText: '← Torna al Team', eduLabel: 'Istruzione:', langLabel: 'Lingue:', notFoundTitle: 'Membro non trovato', notFoundDesc: 'Il profilo del membro del team richiesto non è stato trovato.', returnLink: 'Torna alla pagina del Team', navHome: 'Home', navMessage: 'Messaggio', navTeam: 'Team', navProducts: 'Prodotti', navCompany: 'Azienda', navContact: 'Contatti' },
+            'zh': { backParams: '?lang=zh', backText: '← 返回团队', eduLabel: '教育背景：', langLabel: '语言：', notFoundTitle: '未找到成员', notFoundDesc: '未找到请求的团队成员资料。', returnLink: '返回团队页面', navHome: '首页', navMessage: '总裁致辞', navTeam: '团队介绍', navProducts: '产品中心', navCompany: '公司简介', navContact: '联系我们' }
         };
 
         const teamData = {
@@ -463,6 +463,20 @@
 
             // Set UI strings based on language
             const strings = uiStrings[lang] || uiStrings['en'];
+
+            // Generate Nav Links dynamically
+            const navSuffix = lang === 'en' ? '' : '_' + lang;
+            const homeLink = 'index' + navSuffix + '.html';
+            const navLinksContainer = document.getElementById('navLinks');
+
+            navLinksContainer.innerHTML = `
+                <li><a href="${homeLink}">${strings.navHome}</a></li>
+                <li><a href="message${navSuffix}.html">${strings.navMessage}</a></li>
+                <li><a href="team${navSuffix}.html" class="active">${strings.navTeam}</a></li>
+                <li><a href="products${navSuffix}.html">${strings.navProducts}</a></li>
+                <li><a href="company${navSuffix}.html">${strings.navCompany}</a></li>
+                <li><a href="${homeLink}#contact">${strings.navContact}</a></li>
+            `;
 
             // Update Back Link text and href (if simple param append logic works for team page)
             // Ideally we redirect to team.html for EN, team_ja.html for JA etc.

@@ -849,7 +849,9 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeContactModal()">&times;</span>
             <h2 style="margin-bottom: 1.5rem; text-align: center; color: var(--primary-color);">Contact Us</h2>
-            <form class="contact-form" action="mailto:info@drpinternational.ca" method="post" enctype="text/plain">
+            <form class="contact-form" action="https://formsubmit.co/info@drpinternational.ca" method="POST">
+                <input type="hidden" name="_cc" value="roger@drpinternational.ca">
+                <input type="hidden" name="_subject" value="New Submission from DRP Website (EN)">
                 <label for="name">Name <span style="color:red">*</span></label>
                 <input type="text" id="name" name="Name" required>
 
