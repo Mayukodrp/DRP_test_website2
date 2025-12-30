@@ -852,6 +852,13 @@
             <form class="contact-form" action="https://formsubmit.co/info@drpinternational.ca" method="POST">
                 <input type="hidden" name="_cc" value="roger@drpinternational.ca">
                 <input type="hidden" name="_subject" value="New Submission from DRP Website (EN)">
+                <input type="hidden" name="_autoresponse" value="Thank you for contacting DRP International.
+
+We have received your message and will get back to you as soon as possible.
+A confirmation email will be sent to the email address you provided.
+
+Best regards,  
+DRP International">
                 <label for="name">Name <span style="color:red">*</span></label>
                 <input type="text" id="name" name="Name" required>
 
@@ -865,7 +872,20 @@
                 <input type="email" id="email" name="Email" required>
 
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="Phone">
+                <div style="display: flex; gap: 10px;">
+                    <select name="Country Code"
+                        style="width: auto; padding: 10px; border: 1px solid #ddd; border-radius: 5px; background: #fff;">
+                        <option value="+1">🇺🇸/🇨🇦 +1</option>
+                        <option value="+44">🇬🇧 +44</option>
+                        <option value="+81">🇯🇵 +81</option>
+                        <option value="+86">🇨🇳 +86</option>
+                        <option value="+33">🇫🇷 +33</option>
+                        <option value="+49">🇩🇪 +49</option>
+                        <option value="+39">🇮🇹 +39</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="tel" id="phone" name="Phone" style="flex: 1;">
+                </div>
 
                 <label for="website">Website</label>
                 <input type="url" id="website" name="Website">

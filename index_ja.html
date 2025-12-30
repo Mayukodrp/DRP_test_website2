@@ -847,6 +847,13 @@
             <form class="contact-form" action="https://formsubmit.co/info@drpinternational.ca" method="POST">
                 <input type="hidden" name="_cc" value="roger@drpinternational.ca">
                 <input type="hidden" name="_subject" value="New Submission from DRP Website (JA)">
+                <input type="hidden" name="_autoresponse" value="Thank you for contacting DRP International.
+
+We have received your message and will get back to you as soon as possible.
+A confirmation email will be sent to the email address you provided.
+
+Best regards,  
+DRP International">
                 <label for="name">名前 <span style="color:red">*</span></label>
                 <input type="text" id="name" name="名前 (Name)" required>
 
@@ -860,7 +867,20 @@
                 <input type="email" id="email" name="メール (Email)" required>
 
                 <label for="phone">電話番号</label>
-                <input type="tel" id="phone" name="電話番号 (Phone)">
+                <div style="display: flex; gap: 10px;">
+                    <select name="Country Code"
+                        style="width: auto; padding: 10px; border: 1px solid #ddd; border-radius: 5px; background: #fff;">
+                        <option value="+1">🇺🇸/🇨🇦 +1</option>
+                        <option value="+44">🇬🇧 +44</option>
+                        <option value="+81">🇯🇵 +81</option>
+                        <option value="+86">🇨🇳 +86</option>
+                        <option value="+33">🇫🇷 +33</option>
+                        <option value="+49">🇩🇪 +49</option>
+                        <option value="+39">🇮🇹 +39</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="tel" id="phone" name="電話番号 (Phone)" style="flex: 1;">
+                </div>
 
                 <label for="website">ウェブサイト</label>
                 <input type="url" id="website" name="ウェブサイト (Website)">
