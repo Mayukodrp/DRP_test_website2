@@ -1,16 +1,382 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fleurs & Feuillage - DRP International Ltd.</title>
-</head>
-<body>
-    <nav><div class="nav-container"><a href="index_fr.html" class="logo"><img src="logo.jpg" alt="DRP International Ltd."></a><div class="nav-right"><ul class="nav-links" id="navLinks"><li><a href="index_fr.html">Accueil</a></li><li><a href="message_fr.html">Message</a></li><li><a href="team_fr.html">Équipe</a></li><li><a href="products_fr.html" class="active">Produits</a></li><li><a href="company_fr.html">Entreprise</a></li><li><a href="index_fr.html#contact">Contact</a></li></ul><div class="lang-switcher"><select onchange="changeLanguage(this.value)"><option value="products_flowers.html">🇬🇧 EN</option><option value="products_flowers_de.html">🇩🇪 DE</option><option value="products_flowers_fr.html" selected>🇫🇷 FR</option><option value="products_flowers_it.html">🇮🇹 IT</option><option value="products_flowers_ja.html">🇯🇵 JP</option><option value="products_flowers_zh.html">🇨🇳 CN</option></select></div><div class="mobile-menu" onclick="toggleMenu()"><span></span><span></span><span></span></div></div></div></nav>
-    <header class="page-header"><h1>Fleurs & Feuillage</h1><p>Fleurs coupées et verdure fraîche de qualité premium</p></header>
-    <div class="content-container"><a href="products_fr.html" class="back-button">← Retour aux produits</a><div class="product-section"><h2>Activité d'Import de Roses & Fleurs Coupées</h2><p>DRP Japan Branch est engagé dans l'import et la distribution de roses et fleurs coupées premium provenant des principaux producteurs internationaux. Nous sommes spécialisés dans l'approvisionnement de fleurs de haute qualité répondant aux normes exigeantes du marché japonais.</p><p>Notre équipe dédiée travaille en étroite collaboration avec les producteurs des principales régions pour assurer un approvisionnement constant en fleurs fraîches et durables.</p><h3>Nos Services</h3><ul class="features-list"><li>Import direct des fermes florales internationales</li><li>Roses et fleurs coupées de qualité premium</li><li>Gestion logistique de la chaîne du froid</li><li>Calendriers d'approvisionnement réguliers et fiables</li><li>Inspection qualité à chaque étape</li></ul><h3>Gamme de Produits</h3><ul class="features-list"><li>Roses premium - diverses couleurs et variétés</li><li>Fleurs coupées de saison</li><li>Verdure et feuillage frais</li><li>Arrangements pour occasions spéciales</li></ul><h3>Marchés Cibles</h3><ul class="features-list"><li>Marchés de gros de fleurs</li><li>Fleuristes et boutiques de fleurs</li><li>Organisateurs d'événements et de mariages</li><li>Hôtels et industrie hôtelière</li></ul></div></div>
-    <footer><p>© DRP. Tous Droits Réservés.</p></footer>
-    <script>function changeLanguage(url) { if (url) { window.location.href = url; } } function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }</script>
-</body>
-</html>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary-color: #1e5631;
+            --secondary-color: #2d7a3e;
+            --accent-color: #52a662;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: var(--bg-light);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 110px;
+            width: auto;
+            background: #ffffff;
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-switcher select {
+            padding: 0.5rem 2.5rem 0.5rem 1rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e');
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1rem;
+        }
+
+        .lang-switcher select:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .page-header {
+            margin-top: 80px;
+            padding: 5rem 2rem 3rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 3rem auto 5rem;
+            padding: 0 2rem;
+        }
+
+        .product-section {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-section h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .product-section h3 {
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-section p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .features-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 1.5rem 0;
+        }
+
+        .features-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 86, 49, 0.3);
+        }
+
+        footer {
+            background: #0f172a;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-right {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .lang-switcher {
+                margin-right: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .product-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .product-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index_fr.html" class="logo"><img src="logo.jpg" alt="DRP International Ltd."></a>
+            <div class="nav-right">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index_fr.html">Accueil</a></li>
+                    <li><a href="message_fr.html">Message</a></li>
+                    <li><a href="team_fr.html">Équipe</a></li>
+                    <li><a href="products_fr.html" class="active">Produits</a></li>
+                    <li><a href="company_fr.html">Entreprise</a></li>
+                    <li><a href="index_fr.html#contact">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <select onchange="changeLanguage(this.value)" aria-label="Select Language">
+                        <option value="products_flowers.html">🇬🇧 EN</option>
+                        <option value="products_flowers_de.html">🇩🇪 DE</option>
+                        <option value="products_flowers_fr.html" selected>🇫🇷 FR</option>
+                        <option value="products_flowers_it.html">🇮🇹 IT</option>
+                        <option value="products_flowers_ja.html">🇯🇵 JP</option>
+                        <option value="products_flowers_zh.html">🇨🇳 CN</option>
+                    </select>
+                </div>
+                <div class="mobile-menu" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Fleurs & Feuillage</h1>
+        <p>Fleurs coupées et verdure fraîche de qualité premium</p>
+    </header>
+
+    <div class="content-container">
+        <a href="products_fr.html" class="back-button">← Retour aux produits</a>
+
+        <div class="product-section">
+            <h2>Activité d'Import de Roses & Fleurs Coupées</h2>
+            <p>DRP Japan Branch est engagé dans l'import et la distribution de roses et fleurs coupées premium provenant
+                des principaux producteurs internationaux. Nous sommes spécialisés dans l'approvisionnement de fleurs de
+                haute qualité répondant aux normes exigeantes du marché japonais.</p>
+            <p>Notre équipe dédiée travaille en étroite collaboration avec les producteurs des principales régions pour
+                assurer un approvisionnement constant en fleurs fraîches et durables.</p>
+
+            <h3>Nos Services</h3>
+            <ul class="features-list">
+                <li>Import direct des fermes florales internationales</li>
+                <li>Roses et fleurs coupées de qualité premium</li>
+                <li>Gestion logistique de la chaîne du froid</li>
+                <li>Calendriers d'approvisionnement réguliers et fiables</li>
+                <li>Inspection qualité à chaque étape</li>
+            </ul>
+
+            <h3>Gamme de Produits</h3>
+            <ul class="features-list">
+                <li>Roses premium - diverses couleurs et variétés</li>
+                <li>Fleurs coupées de saison</li>
+                <li>Verdure et feuillage frais</li>
+                <li>Arrangements pour occasions spéciales</li>
+            </ul>
+
+            <h3>Marchés Cibles</h3>
+            <ul class="features-list">
+                <li>Marchés de gros de fleurs</li>
+                <li>Fleuristes et boutiques de fleurs</li>
+                <li>Organisateurs d'événements et de mariages</li>
+                <li>Hôtels et industrie hôtelière</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© DRP. Tous Droits Réservés.</p>
+    </footer>
+
+    <script>
+        function changeLanguage(url) { if (url) { window.location.href = url; } }
+        function toggleMenu() { const navLinks = document.getElementById('navLinks'); navLinks.classList.toggle('active'); }
+    </script>
+</body>
+
+</html>
