@@ -298,6 +298,11 @@
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .feature-item:hover {
@@ -313,20 +318,12 @@
             display: none;
         }
 
-        .feature-icon-img {
-            width: 150px;
-            height: 150px;
-            object-fit: contain;
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
+        .feature-icon-img,
         .global-network-img {
-            width: auto;
-            height: 150px;
-            max-width: 100%;
+            width: 100%;
+            height: 60%;
             object-fit: contain;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             transition: transform 0.3s ease;
         }
 
@@ -781,10 +778,7 @@
                     <img src="expert_team_icon.png" alt="Expertenteam" class="feature-icon-img">
                     <h3>Expertenteam</h3>
                 </div>
-                <div class="feature-item">
-                    <img src="market_knowledge_icon.png" alt="Marktkenntnisse" class="feature-icon-img">
-                    <h3>Marktkenntnisse</h3>
-                </div>
+
             </div>
         </div>
     </section>
