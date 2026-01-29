@@ -71,7 +71,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1rem;
         }
 
         .nav-links a {
@@ -80,17 +80,20 @@
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
+            padding: 0.5rem 1rem;
+            display: inline-block;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
             height: 2px;
             background: var(--secondary-color);
             transition: width 0.3s ease;
+            width: 0;
         }
 
         .nav-links a:hover {
@@ -98,11 +101,11 @@
         }
 
         .nav-links a:hover::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .nav-links a.active::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .mobile-menu {
@@ -110,6 +113,7 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            padding: 10px;
         }
 
         .mobile-menu span {
@@ -478,7 +482,7 @@
 
     <!-- Header -->
     <header class="page-header">
-        <h1>President's Message</h1>
+        <h1>Founder's Message</h1>
         <p>Building the Future Through Vision and Partnership</p>
     </header>
 
@@ -487,22 +491,22 @@
         <div class="message-card">
             <div class="president-intro">
                 <div class="president-photo">
-                    <img src="Ritesh_Singh.jpg" alt="Ritesh Singh - President & CEO">
+                    <img src="Ritesh_Singh.jpg" alt="Ritesh Singh - Founder">
                 </div>
                 <div class="president-info">
                     <h2>Ritesh Singh</h2>
-                    <p class="title">President & CEO</p>
+                    <p class="title">Founder</p>
                 </div>
             </div>
 
             <div class="message-content">
                 <div class="message-text">
-                    <h3>President's Message</h3>
+                    <h3>Founder's Message</h3>
 
                     <p>Thank you for visiting!</p>
 
                     <p>I have been involved in global commodity trading and business development for over 25 years.
-                        Drawing on this experience, I established DRP International Ltd. in Ontario, Canada in 2016. Our
+                        Drawing on this experience, I founded DRP International Ltd. in Ontario, Canada in 2016. Our
                         company is a multi-commodity trading business at its core. Since our founding, we have grown
                         into a trusted partner across three continents.</p>
 
@@ -531,7 +535,7 @@
 
                     <div class="signature">
                         <p class="name">Ritesh Singh</p>
-                        <p class="position">President & Chief Executive Officer</p>
+                        <p class="position">Founder</p>
                     </div>
                 </div>
             </div>
@@ -541,7 +545,7 @@
     <!-- Footer -->
     <footer>
         <p>© DRP. All Rights Reserved.</p>
-        
+
     </footer>
 
     <script>

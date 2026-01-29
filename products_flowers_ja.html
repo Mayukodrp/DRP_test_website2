@@ -59,7 +59,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1rem;
         }
 
         .nav-links a {
@@ -68,17 +68,20 @@
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
+            padding: 0.5rem 1rem;
+            display: inline-block;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
             height: 2px;
             background: var(--secondary-color);
             transition: width 0.3s ease;
+            width: 0;
         }
 
         .nav-links a:hover {
@@ -86,11 +89,11 @@
         }
 
         .nav-links a:hover::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .nav-links a.active::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .mobile-menu {
@@ -98,6 +101,7 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            padding: 10px;
         }
 
         .mobile-menu span {
@@ -335,7 +339,7 @@
         <a href="products_ja.html" class="back-button">← 製品一覧に戻る</a>
 
         <div class="product-section">
-            <h2>バラ・生花輸入事業</h2>
+            <h2>バラと切り花</h2>
             <p>DRP日本支店は、世界有数の生産者からプレミアムバラと切り花の輸入・流通事業を展開しています。日本市場の厳格な基準を満たす高品質の花卉の調達を専門としています。</p>
             <p>当社の専門チームは、主要生産地域の生産者と緊密に連携し、新鮮で長持ちする花の安定供給を確保しています。農場からお客様までの物流チェーン全体を管理し、最適なコールドチェーンを維持しています。</p>
 

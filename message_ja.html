@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,7 +71,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1rem;
         }
 
         .nav-links a {
@@ -79,17 +80,20 @@
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
+            padding: 0.5rem 1rem;
+            display: inline-block;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
             height: 2px;
             background: var(--secondary-color);
             transition: width 0.3s ease;
+            width: 0;
         }
 
         .nav-links a:hover {
@@ -97,11 +101,11 @@
         }
 
         .nav-links a:hover::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .nav-links a.active::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .mobile-menu {
@@ -109,6 +113,7 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            padding: 10px;
         }
 
         .mobile-menu span {
@@ -440,6 +445,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -475,7 +481,7 @@
 
     <!-- Header -->
     <header class="page-header">
-        <h1>社長メッセージ</h1>
+        <h1>創業者メッセージ</h1>
         <p>ビジョンとパートナーシップで未来を築く</p>
     </header>
 
@@ -484,37 +490,43 @@
         <div class="message-card">
             <div class="president-intro">
                 <div class="president-photo">
-                    <img src="Ritesh_Singh.jpg" alt="リテシュ・シン - 代表取締役社長 兼 CEO">
+                    <img src="Ritesh_Singh.jpg" alt="リテシュ・シン - 創業者">
                 </div>
                 <div class="president-info">
                     <h2>リテシュ・シン</h2>
-                    <p class="title">代表取締役社長 兼 CEO</p>
+                    <p class="title">創業者</p>
                 </div>
             </div>
 
             <div class="message-content">
                 <div class="message-text">
-                    <h3>社長挨拶</h3>
-                    
+                    <h3>創業者挨拶</h3>
+
                     <p>DRP International Ltd.のウェブサイトをご覧いただき、誠にありがとうございます。</p>
-                    
-                    <p>私は25年以上にわたりグローバルなコモディティ取引とビジネス開発に携わってまいりました。その経験を活かし、2016年にカナダ・オンタリオ州でDRP International Ltd.を設立いたしました。当社は総合商品取引・流通を事業の中核とする企業です。創業以来、3大陸にわたる信頼されるパートナーへと成長を遂げることができました。</p>
 
-                    <p>トレーディングはDRPのビジネスの心臓部です。当社のチームは豊富な経験を持ち、多言語対応が可能で、グローバルに活動しています。私たちはAMER（北米・中南米）、EMEA（欧州・中東・アフリカ）、APAC（アジア太平洋）地域のお客様のビジネスを支援する実物取引を創出しています。</p>
+                    <p>私は25年以上にわたりグローバルなコモディティ取引とビジネス開発に携わってまいりました。その経験を活かし、2016年にカナダ・オンタリオ州でDRP International
+                        Ltd.を創業いたしました。当社は総合商品取引・流通を事業の中核とする企業です。創業以来、3大陸にわたる信頼されるパートナーへと成長を遂げることができました。</p>
 
-                    <p>当社のグローバルネットワークと物流能力により、ある地域で商品を調達し、別の地域へ配送することが可能です。保管・融資能力により、異なるタイムゾーンや配送期間をまたいで取引を実行できます。豊富な市場知識と経験により、裁定取引の機会を特定することに努めています。</p>
+                    <p>トレーディングはDRPのビジネスの心臓部です。当社のチームは豊富な経験を持ち、多言語対応が可能で、グローバルに活動しています。私たちはAMER（北米・中南米）、EMEA（欧州・中東・アフリカ）、APAC（アジア太平洋）地域のお客様のビジネスを支援する実物取引を創出しています。
+                    </p>
 
-                    <p>DRPは、ビジネスをゼロから構築することで価値を創造し、成長してきました。それを支えるのは、資本、関係性、そして深い専門知識です。戦略的パートナーシップを通じて持続可能な価値を創造するという私たちのビジョンが、今後も使命の前進を支え続けてまいります。</p>
+                    <p>当社のグローバルネットワークと物流能力により、ある地域で商品を調達し、別の地域へ配送することが可能です。保管・融資能力により、異なるタイムゾーンや配送期間をまたいで取引を実行できます。豊富な市場知識と経験により、裁定取引の機会を特定することに努めています。
+                    </p>
+
+                    <p>DRPは、ビジネスをゼロから構築することで価値を創造し、成長してきました。それを支えるのは、資本、関係性、そして深い専門知識です。戦略的パートナーシップを通じて持続可能な価値を創造するという私たちのビジョンが、今後も使命の前進を支え続けてまいります。
+                    </p>
                 </div>
 
                 <div class="philosophy">
                     <h3>経営理念</h3>
                     <h4>ゼロからビジネスを創造する会社</h4>
-                    <p class="philosophy-text">私たちは、資本、関係性、深い専門知識を活用し、ビジネスをゼロから構築することで価値を創造します。グローバルネットワークと物流能力を駆使し、世界中のお客様に最適なソリューションを提供することで、持続可能な成長を実現します。</p>
-                    
+                    <p class="philosophy-text">
+                        私たちは、資本、関係性、深い専門知識を活用し、ビジネスをゼロから構築することで価値を創造します。グローバルネットワークと物流能力を駆使し、世界中のお客様に最適なソリューションを提供することで、持続可能な成長を実現します。
+                    </p>
+
                     <div class="signature">
                         <p class="name">リテシュ・シン</p>
-                        <p class="position">代表取締役社長 兼 最高経営責任者</p>
+                        <p class="position">創業者</p>
                     </div>
                 </div>
             </div>
@@ -524,7 +536,7 @@
     <!-- Footer -->
     <footer>
         <p>© DRP. All Rights Reserved.</p>
-        
+
         <p><a href="https://www.drpinternational.ca" target="_blank">www.drpinternational.ca</a></p>
     </footer>
 
@@ -573,5 +585,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>

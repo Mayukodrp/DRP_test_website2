@@ -73,7 +73,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1rem;
         }
 
         .nav-links a {
@@ -82,17 +82,20 @@
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
+            padding: 0.5rem 1rem;
+            display: inline-block;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
             height: 2px;
             background: var(--secondary-color);
             transition: width 0.3s ease;
+            width: 0;
         }
 
         .nav-links a:hover {
@@ -100,11 +103,11 @@
         }
 
         .nav-links a:hover::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .nav-links a.active::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .mobile-menu {
@@ -112,6 +115,7 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            padding: 10px;
         }
 
         .mobile-menu span {
@@ -391,12 +395,12 @@
             },
             'roger': {
                 image: 'Roger_Jie_Luo.jpg',
-                en: { name: 'Roger Jie Luo', role: 'Chief Operating Officer', desc: 'Roger Luo has been a key member of the DRP family since 2019 and serves as the COO of DRP International Ltd. He brings extensive hands-on experience in international commodity trading, logistics, banking, and trade finance, and plays a central role in driving the company’s operational performance. Managing DRP’s North American markets while overseeing trades across other regions, he serves as the organization’s operational “go-to” leader. A Chinese citizen based in Ontario, Canada, Roger Luo adds strong cross-border execution and regional market expertise to DRP’s global operations.', edu: 'Bachelor of Arts, University of International Relations (China)', lang: 'Mandarin, English' },
-                ja: { name: 'Roger Jie Luo', role: '最高執行責任者 (COO)', desc: 'Roger Luoは2019年からDRPファミリーの主要メンバーであり、DRP International Ltd.のCOOを務めています。国際商品取引、物流、銀行業務、貿易金融における豊富な実務経験を持ち、会社の運営実績を推進する中心的な役割を果たしています。DRPの北米市場を管理しながら他の地域の取引も監督し、組織の運営上の「頼りになる」リーダーとして機能しています。カナダのオンタリオ州を拠点とする中国市民として、Roger Luoは強力な国境を越えた実行力と地域市場の専門知識をDRPのグローバル事業に加えます。', edu: '国際関係学院 文学士（中国）', lang: '中国語、英語' },
-                fr: { name: 'Roger Jie Luo', role: 'Directeur des Opérations (COO)', desc: 'Roger Luo est un membre clé de la famille DRP depuis 2019 et occupe le poste de COO de DRP International Ltd. Il apporte une vaste expérience pratique dans le commerce international de matières premières, la logistique, la banque et le financement du commerce, et joue un rôle central dans la performance opérationnelle de l\'entreprise. Gérant les marchés nord-américains de DRP tout en supervisant les transactions dans d\'autres régions, il est le leader opérationnel « incontournable » de l\'organisation. Citoyen chinois basé en Ontario, Canada, Roger Luo ajoute une forte expertise en exécution transfrontalière et en marché régional aux opérations mondiales de DRP.', edu: 'Bachelor of Arts, Université des Relations Internationales (Chine)', lang: 'Mandarin, Anglais' },
-                de: { name: 'Roger Jie Luo', role: 'Chief Operating Officer (COO)', desc: 'Roger Luo ist seit 2019 ein wichtiges Mitglied der DRP-Familie und fungiert als COO von DRP International Ltd. Er bringt umfangreiche praktische Erfahrung in den Bereichen internationaler Rohstoffhandel, Logistik, Bankwesen und Handelsfinanzierung mit und spielt eine zentrale Rolle bei der Steigerung der operativen Leistung des Unternehmens. Er leitet die nordamerikanischen Märkte von DRP und beaufsichtigt gleichzeitig den Handel in anderen Regionen und fungiert als operative Führungskraft der Organisation. Als chinesischer Staatsbürger mit Sitz in Ontario, Kanada, bringt Roger Luo starke grenzüberschreitende Ausführungs- und regionale Marktexpertise in die globalen Operationen von DRP ein.', edu: 'Bachelor of Arts, Universität für Internationale Beziehungen (China)', lang: 'Mandarin, Englisch' },
-                it: { name: 'Roger Jie Luo', role: 'Direttore Operativo (COO)', desc: 'Roger Luo è un membro chiave della famiglia DRP dal 2019 e ricopre il ruolo di COO di DRP International Ltd. Porta una vasta esperienza pratica nel commercio internazionale di materie prime, logistica, banche e finanza commerciale e svolge un ruolo centrale nel guidare le prestazioni operative dell\'azienda. Gestendo i mercati nordamericani di DRP mentre supervisiona le operazioni in altre regioni, funge da leader operativo "di riferimento" dell\'organizzazione. Cittadino cinese con sede in Ontario, Canada, Roger Luo aggiunge una forte esecuzione transfrontaliera e competenza nel mercato regionale alle operazioni globali di DRP.', edu: 'Laurea in Lettere, Università di Relazioni Internazionali (Cina)', lang: 'Mandarino, Inglese' },
-                zh: { name: 'Roger Jie Luo', role: '首席运营官', desc: 'Roger Luo自2019年以来一直是DRP大家庭的重要成员，现任DRP国际有限公司首席运营官。他在国际大宗商品贸易、物流、银行和贸易融资方面拥有丰富的实践经验，在推动公司运营绩效方面发挥着核心作用。他在管理DRP北美市场的同时监督其他地区的贸易，是该组织运营方面的核心领导。作为常驻加拿大安大略省的中国公民，Roger Luo为DRP的全球业务增添了强大的跨境执行力和区域市场专业知识。', edu: '国际关系学院学士（中国）', lang: '普通话、英语' }
+                en: { name: 'Roger Jie Luo', role: 'Managing Director', desc: 'Roger Luo has been a key member of the DRP family since 2019 and serves as the Managing Director of DRP International Ltd. He brings extensive hands-on experience in international commodity trading, logistics, banking, and trade finance, and plays a central role in driving the company’s operational performance. Managing DRP’s North American markets while overseeing trades across other regions, he serves as the organization’s operational “go-to” leader. A Chinese citizen based in Ontario, Canada, Roger Luo adds strong cross-border execution and regional market expertise to DRP’s global operations.', edu: 'Bachelor of Arts, University of International Relations (China)', lang: 'Mandarin, English' },
+                ja: { name: 'Roger Jie Luo', role: '常務取締役', desc: 'Roger Luoは2019年からDRPファミリーの主要メンバーであり、DRP International Ltd.の常務取締役を務めています。国際商品取引、物流、銀行業務、貿易金融における豊富な実務経験を持ち、会社の運営実績を推進する中心的な役割を果たしています。DRPの北米市場を管理しながら他の地域の取引も監督し、組織の運営上の「頼りになる」リーダーとして機能しています。カナダのオンタリオ州を拠点とする中国市民として、Roger Luoは強力な国境を越えた実行力と地域市場の専門知識をDRPのグローバル事業に加えます。', edu: '国際関係学院 文学士（中国）', lang: '中国語、英語' },
+                fr: { name: 'Roger Jie Luo', role: 'Directeur Général', desc: 'Roger Luo est un membre clé de la famille DRP depuis 2019 et occupe le poste de Directeur Général de DRP International Ltd. Il apporte une vaste expérience pratique dans le commerce international de matières premières, la logistique, la banque et le financement du commerce, et joue un rôle central dans la performance opérationnelle de l\'entreprise. Gérant les marchés nord-américains de DRP tout en supervisant les transactions dans d\'autres régions, il est le leader opérationnel « incontournable » de l\'organisation. Citoyen chinois basé en Ontario, Canada, Roger Luo ajoute une forte expertise en exécution transfrontalière et en marché régional aux opérations mondiales de DRP.', edu: 'Bachelor of Arts, Université des Relations Internationales (Chine)', lang: 'Mandarin, Anglais' },
+                de: { name: 'Roger Jie Luo', role: 'Geschäftsführer', desc: 'Roger Luo ist seit 2019 ein wichtiges Mitglied der DRP-Familie und fungiert als Geschäftsführer von DRP International Ltd. Er bringt umfangreiche praktische Erfahrung in den Bereichen internationaler Rohstoffhandel, Logistik, Bankwesen und Handelsfinanzierung mit und spielt eine zentrale Rolle bei der Steigerung der operativen Leistung des Unternehmens. Er leitet die nordamerikanischen Märkte von DRP und beaufsichtigt gleichzeitig den Handel in anderen Regionen und fungiert als operative Führungskraft der Organisation. Als chinesischer Staatsbürger mit Sitz in Ontario, Kanada, bringt Roger Luo starke grenzüberschreitende Ausführungs- und regionale Marktexpertise in die globalen Operationen von DRP ein.', edu: 'Bachelor of Arts, Universität für Internationale Beziehungen (China)', lang: 'Mandarin, Englisch' },
+                it: { name: 'Roger Jie Luo', role: 'Direttore Generale', desc: 'Roger Luo è un membro chiave della famiglia DRP dal 2019 e ricopre il ruolo di Direttore Generale di DRP International Ltd. Porta una vasta esperienza pratica nel commercio internazionale di materie prime, logistica, banche e finanza commerciale e svolge un ruolo centrale nel guidare le prestazioni operative dell\'azienda. Gestendo i mercati nordamericani di DRP mentre supervisiona le operazioni in altre regioni, funge da leader operativo "di riferimento" dell\'organizzazione. Cittadino cinese con sede in Ontario, Canada, Roger Luo aggiunge una forte esecuzione transfrontaliera e competenza nel mercato regionale alle operazioni globali di DRP.', edu: 'Laurea in Lettere, Università di Relazioni Internazionali (Cina)', lang: 'Mandarino, Inglese' },
+                zh: { name: 'Roger Jie Luo', role: '常务董事', desc: 'Roger Luo自2019年以来一直是DRP大家庭的重要成员，现任DRP国际有限公司常务董事。他在国际大宗商品贸易、物流、银行和贸易融资方面拥有丰富的实践经验，在推动公司运营绩效方面发挥着核心作用。他在管理DRP北美市场的同时监督其他地区的贸易，是该组织运营方面的核心领导。作为常驻加拿大安大略省的中国公民，Roger Luo为DRP的全球业务增添了强大的跨境执行力和区域市场专业知识。', edu: '国际关系学院学士（中国）', lang: '普通话、英语' }
             },
             'shivam': {
                 image: 'Shivam_Sonar.jpg',
@@ -445,12 +449,12 @@
             },
             'prathna': {
                 image: 'Prathna_Singh.jpg',
-                en: { name: 'Prathna Singh', role: 'Finance & Strategy', desc: 'Prathna Singh joined the DRP family in 2025, taking on a role in Finance & Strategy as she continues to build her expertise in financial analysis, strategic planning, and market evaluation. Born in Switzerland and having lived in Dubai, Luxembourg, and Canada, she brings a deep cross-cultural perspective that informs her approach to business and global operations. A Canadian citizen based in Canada, her international experience helps drive informed decision-making as she develops her role in shaping DRP’s future.', edu: 'Bachelor of Business Management and Organizational studies, Western University (Canada)', lang: 'English, French' },
-                ja: { name: 'Prathna Singh', role: '財務 & 戦略', desc: 'Prathna Singhは2025年にDRPファミリーに加わり、財務分析、戦略的計画、市場評価の専門知識を深めながら、財務および戦略の役割を担っています。スイスで生まれ、ドバイ、ルクセンブルク、カナダで生活した経験から、ビジネスやグローバルな運営に対するアプローチに深い異文化間の視点をもたらしています。カナダを拠点とするカナダ市民として、彼女の国際的な経験は、DRPの将来を形成する役割を発展させる中で、情報に基づいた意思決定を推進するのに役立っています。', edu: 'ウェスタン大学 ビジネス管理および組織研究学士（カナダ）', lang: '英語、フランス語' },
-                fr: { name: 'Prathna Singh', role: 'Finance & Stratégie', desc: 'Prathna Singh a rejoint la famille DRP en 2025, assumant un rôle dans la finance et la stratégie tout en continuant à développer son expertise en analyse financière, planification stratégique et évaluation de marché. Née en Suisse et ayant vécu à Dubaï, au Luxembourg et au Canada, elle apporte une profonde perspective interculturelle qui éclaire son approche des affaires et des opérations mondiales. Citoyenne canadienne basée au Canada, son expérience internationale aide à prendre des décisions éclairées alors qu\'elle développe son rôle dans le façonnement de l\'avenir de DRP.', edu: 'Bachelor en gestion d\'entreprise et études organisationnelles, Western University (Canada)', lang: 'Anglais, Français' },
-                de: { name: 'Prathna Singh', role: 'Finanzen & Strategie', desc: 'Prathna Singh trat 2025 der DRP-Familie bei und übernahm eine Rolle im Bereich Finanzen & Strategie, während sie ihre Expertise in Finanzanalyse, strategischer Planung und Marktbewertung weiter ausbaut. In der Schweiz geboren und in Dubai, Luxemburg und Kanada gelebt, bringt sie eine tiefe interkulturelle Perspektive ein, die ihren Ansatz für Geschäfte und globale Operationen prägt. Als kanadische Staatsbürgerin mit Sitz in Kanada hilft ihre internationale Erfahrung dabei, fundierte Entscheidungen zu treffen, während sie ihre Rolle bei der Gestaltung der Zukunft von DRP entwickelt.', edu: 'Bachelor of Business Management und Organisationsstudien, Western University (Kanada)', lang: 'Englisch, Französisch' },
-                it: { name: 'Prathna Singh', role: 'Finanza & Strategia', desc: 'Prathna Singh si è unita alla famiglia DRP nel 2025, assumendo un ruolo in Finanza & Strategia mentre continua a costruire la sua esperienza nell\'analisi finanziaria, nella pianificazione strategica e nella valutazione del mercato. Nata in Svizzera e dopo aver vissuto a Dubai, Lussemburgo e Canada, porta una profonda prospettiva interculturale che informa il suo approccio al business e alle operazioni globali. Cittadina canadese con sede in Canada, la sua esperienza internazionale aiuta a guidare un processo decisionale informato mentre sviluppa il suo ruolo nel plasmare il futuro di DRP.', edu: 'Laurea in Gestione Aziendale e Studi Organizzativi, Western University (Canada)', lang: 'Inglese, Francese' },
-                zh: { name: 'Prathna Singh', role: '财务与战略', desc: 'Prathna Singh于2025年加入DRP大家庭，担任财务与战略职务，同时继续在财务分析、战略规划和市场评估方面积累专业知识。她出生于瑞士，曾在迪拜、卢森堡和加拿大生活，带来了深刻的跨文化视角，这也影响了她的商业和全球运营方式。作为常驻加拿大的加拿大公民，她的国际经验有助于在塑造DRP未来的过程中推动明智的决策。', edu: '加拿大西安大略大学工商管理与组织研究学士', lang: '英语、法语' }
+                en: { name: 'Prathna Singh', role: 'Director (Business Development)', desc: 'Prathna Singh joined the DRP family in 2025, taking on a role in Business Development as she continues to build her expertise in financial analysis, strategic planning, and market evaluation. Born in Switzerland and having lived in Dubai, Luxembourg, and Canada, she brings a deep cross-cultural perspective that informs her approach to business and global operations. A Canadian citizen based in Canada, her international experience helps drive informed decision-making as she develops her role in shaping DRP’s future.', edu: 'Bachelor of Business Management and Organizational studies, Western University (Canada)', lang: 'English, French' },
+                ja: { name: 'Prathna Singh', role: '取締役 (事業開発)', desc: 'Prathna Singhは2025年にDRPファミリーに加わり、財務分析、戦略的計画、市場評価の専門知識を深めながら、事業開発の役割を担っています。スイスで生まれ、ドバイ、ルクセンブルク、カナダで生活した経験から、ビジネスやグローバルな運営に対するアプローチに深い異文化間の視点をもたらしています。カナダを拠点とするカナダ市民として、彼女の国際的な経験は、DRPの将来を形成する役割を発展させる中で、情報に基づいた意思決定を推進するのに役立っています。', edu: 'ウェスタン大学 ビジネス管理および組織研究学士（カナダ）', lang: '英語、フランス語' },
+                fr: { name: 'Prathna Singh', role: 'Directrice (Développement Commercial)', desc: 'Prathna Singh a rejoint la famille DRP en 2025, assumant un rôle dans le développement commercial tout en continuant à développer son expertise en analyse financière, planification stratégique et évaluation de marché. Née en Suisse et ayant vécu à Dubaï, au Luxembourg et au Canada, elle apporte une profonde perspective interculturelle qui éclaire son approche des affaires et des opérations mondiales. Citoyenne canadienne basée au Canada, son expérience internationale aide à prendre des décisions éclairées alors qu\'elle développe son rôle dans le façonnement de l\'avenir de DRP.', edu: 'Bachelor en gestion d\'entreprise et études organisationnelles, Western University (Canada)', lang: 'Anglais, Français' },
+                de: { name: 'Prathna Singh', role: 'Direktorin (Geschäftsentwicklung)', desc: 'Prathna Singh trat 2025 der DRP-Familie bei und übernahm eine Rolle im Bereich Geschäftsentwicklung, während sie ihre Expertise in Finanzanalyse, strategischer Planung und Marktbewertung weiter ausbaut. In der Schweiz geboren und in Dubai, Luxemburg und Kanada gelebt, bringt sie eine tiefe interkulturelle Perspektive ein, die ihren Ansatz für Geschäfte und globale Operationen prägt. Als kanadische Staatsbürgerin mit Sitz in Kanada hilft ihre internationale Erfahrung dabei, fundierte Entscheidungen zu treffen, während sie ihre Rolle bei der Gestaltung der Zukunft von DRP entwickelt.', edu: 'Bachelor of Business Management und Organisationsstudien, Western University (Kanada)', lang: 'Englisch, Französisch' },
+                it: { name: 'Prathna Singh', role: 'Direttrice (Sviluppo Commerciale)', desc: 'Prathna Singh si è unita alla famiglia DRP nel 2025, assumendo un ruolo nello Sviluppo Commerciale mentre continua a costruire la sua esperienza nell\'analisi finanziaria, nella pianificazione strategica e nella valutazione del mercato. Nata in Svizzera e dopo aver vissuto a Dubai, Lussemburgo e Canada, porta una profonda prospettiva interculturale che informa il suo approccio al business e alle operazioni globali. Cittadina canadese con sede in Canada, la sua esperienza internazionale aiuta a guidare un processo decisionale informato mentre sviluppa il suo ruolo nel plasmare il futuro di DRP.', edu: 'Laurea in Gestione Aziendale e Studi Organizzativi, Western University (Canada)', lang: 'Inglese, Francese' },
+                zh: { name: 'Prathna Singh', role: '董事 (业务发展)', desc: 'Prathna Singh于2025年加入DRP大家庭，担任业务发展职务，同时继续在财务分析、战略规划和市场评估方面积累专业知识。她出生于瑞士，曾在迪拜、卢森堡和加拿大生活，带来了深刻的跨文化视角，这也影响了她的商业和全球运营方式。作为常驻加拿大的加拿大公民，她的国际经验有助于在塑造DRP未来的过程中推动明智的决策。', edu: '加拿大西安大略大学工商管理与组织研究学士', lang: '英语、法语' }
 
             }
         };

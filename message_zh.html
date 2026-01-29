@@ -71,7 +71,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1rem;
         }
 
         .nav-links a {
@@ -80,17 +80,20 @@
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
+            padding: 0.5rem 1rem;
+            display: inline-block;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
             height: 2px;
             background: var(--secondary-color);
             transition: width 0.3s ease;
+            width: 0;
         }
 
         .nav-links a:hover {
@@ -98,11 +101,11 @@
         }
 
         .nav-links a:hover::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .nav-links a.active::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .mobile-menu {
@@ -110,6 +113,7 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            padding: 10px;
         }
 
         .mobile-menu span {
@@ -478,7 +482,7 @@
 
     <!-- Header -->
     <header class="page-header">
-        <h1>总裁致辞</h1>
+        <h1>创始人致辞</h1>
         <p>通过愿景和伙伴关系构建未来</p>
     </header>
 
@@ -487,17 +491,17 @@
         <div class="message-card">
             <div class="president-intro">
                 <div class="president-photo">
-                    <img src="Ritesh_Singh.jpg" alt="Ritesh Singh - 总裁兼首席执行官">
+                    <img src="Ritesh_Singh.jpg" alt="Ritesh Singh - 创始人">
                 </div>
                 <div class="president-info">
                     <h2>Ritesh Singh</h2>
-                    <p class="title">总裁兼首席执行官</p>
+                    <p class="title">创始人</p>
                 </div>
             </div>
 
             <div class="message-content">
                 <div class="message-text">
-                    <h3>总裁致辞</h3>
+                    <h3>创始人致辞</h3>
 
                     <p>感谢您访问DRP国际有限公司网站。</p>
 
@@ -518,7 +522,7 @@
 
                     <div class="signature">
                         <p class="name">Ritesh Singh</p>
-                        <p class="position">总裁兼首席执行官</p>
+                        <p class="position">创始人</p>
                     </div>
                 </div>
             </div>

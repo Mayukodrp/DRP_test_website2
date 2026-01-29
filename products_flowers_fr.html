@@ -59,7 +59,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1rem;
         }
 
         .nav-links a {
@@ -68,17 +68,20 @@
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
+            padding: 0.5rem 1rem;
+            display: inline-block;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
             height: 2px;
             background: var(--secondary-color);
             transition: width 0.3s ease;
+            width: 0;
         }
 
         .nav-links a:hover {
@@ -86,11 +89,11 @@
         }
 
         .nav-links a:hover::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .nav-links a.active::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .mobile-menu {
@@ -98,6 +101,7 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            padding: 10px;
         }
 
         .mobile-menu span {
@@ -335,7 +339,7 @@
         <a href="products_fr.html" class="back-button">← Retour aux produits</a>
 
         <div class="product-section">
-            <h2>Activité d'Import de Roses & Fleurs Coupées</h2>
+            <h2>Roses & Fleurs Coupées</h2>
             <p>DRP Japan Branch est engagé dans l'import et la distribution de roses et fleurs coupées premium provenant
                 des principaux producteurs internationaux. Nous sommes spécialisés dans l'approvisionnement de fleurs de
                 haute qualité répondant aux normes exigeantes du marché japonais.</p>

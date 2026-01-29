@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,7 +71,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1rem;
         }
 
         .nav-links a {
@@ -79,17 +80,20 @@
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
+            padding: 0.5rem 1rem;
+            display: inline-block;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
             height: 2px;
             background: var(--secondary-color);
             transition: width 0.3s ease;
+            width: 0;
         }
 
         .nav-links a:hover {
@@ -97,11 +101,11 @@
         }
 
         .nav-links a:hover::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .nav-links a.active::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .mobile-menu {
@@ -109,6 +113,7 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            padding: 10px;
         }
 
         .mobile-menu span {
@@ -441,6 +446,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -476,7 +482,7 @@
 
     <!-- Header -->
     <header class="page-header">
-        <h1>Messaggio del Presidente</h1>
+        <h1>Messaggio del Fondatore</h1>
         <p>Costruire il Futuro Attraverso la Visione e la Partnership</p>
     </header>
 
@@ -485,37 +491,52 @@
         <div class="message-card">
             <div class="president-intro">
                 <div class="president-photo">
-                    <img src="Ritesh_Singh.jpg" alt="Ritesh Singh - Presidente & CEO">
+                    <img src="Ritesh_Singh.jpg" alt="Ritesh Singh - Fondatore">
                 </div>
                 <div class="president-info">
                     <h2>Ritesh Singh</h2>
-                    <p class="title">Presidente & CEO</p>
+                    <p class="title">Fondatore</p>
                 </div>
             </div>
 
             <div class="message-content">
                 <div class="message-text">
-                    <h3>Saluto del Presidente</h3>
-                    
+                    <h3>Saluto del Fondatore</h3>
+
                     <p>Grazie per aver visitato il sito web di DRP International Ltd.</p>
-                    
-                    <p>Sono coinvolto nel commercio globale di commodity e nello sviluppo aziendale da oltre 25 anni. Con questa esperienza, ho fondato DRP International Ltd. in Ontario, Canada nel 2016. La nostra azienda è essenzialmente un'impresa di commercio e distribuzione multi-commodity. Dalla nostra fondazione, siamo diventati un partner affidabile in tre continenti.</p>
 
-                    <p>Il commercio è al centro dell'attività di DRP. Il nostro team è altamente esperto, multilingue e globale. Creiamo transazioni fisiche che supportano le attività dei nostri clienti nelle regioni AMER (Nord, Centro, Sud America), EMEA (Europa, Medio Oriente, Africa) e APAC (Asia-Pacifico).</p>
+                    <p>Sono coinvolto nel commercio globale di commodity e nello sviluppo aziendale da oltre 25 anni.
+                        Con questa esperienza, ho fondato DRP International Ltd. in Ontario, Canada nel 2016. La nostra
+                        azienda è essenzialmente un'impresa di commercio e distribuzione multi-commodity. Dalla nostra
+                        fondazione, siamo diventati un partner affidabile in tre continenti.</p>
 
-                    <p>La nostra rete globale e le nostre capacità logistiche consentono l'approvvigionamento di commodity in una località e la consegna in un'altra. Le nostre capacità di stoccaggio e finanziamento ci permettono di eseguire operazioni attraverso fusi orari e periodi di consegna. Ci sforziamo di identificare opportunità di arbitraggio attraverso la nostra vasta conoscenza ed esperienza del mercato.</p>
+                    <p>Il commercio è al centro dell'attività di DRP. Il nostro team è altamente esperto, multilingue e
+                        globale. Creiamo transazioni fisiche che supportano le attività dei nostri clienti nelle regioni
+                        AMER (Nord, Centro, Sud America), EMEA (Europa, Medio Oriente, Africa) e APAC (Asia-Pacifico).
+                    </p>
 
-                    <p>DRP è cresciuta creando valore costruendo attività da zero - alimentate da capitale, relazioni ed esperienza approfondita. La nostra visione di creare valore sostenibile attraverso partnership strategiche continua a far avanzare la nostra missione.</p>
+                    <p>La nostra rete globale e le nostre capacità logistiche consentono l'approvvigionamento di
+                        commodity in una località e la consegna in un'altra. Le nostre capacità di stoccaggio e
+                        finanziamento ci permettono di eseguire operazioni attraverso fusi orari e periodi di consegna.
+                        Ci sforziamo di identificare opportunità di arbitraggio attraverso la nostra vasta conoscenza ed
+                        esperienza del mercato.</p>
+
+                    <p>DRP è cresciuta creando valore costruendo attività da zero - alimentate da capitale, relazioni ed
+                        esperienza approfondita. La nostra visione di creare valore sostenibile attraverso partnership
+                        strategiche continua a far avanzare la nostra missione.</p>
                 </div>
 
                 <div class="philosophy">
                     <h3>Filosofia di Gestione</h3>
                     <h4>Un'Azienda Che Crea Business da Zero</h4>
-                    <p class="philosophy-text">Creiamo valore costruendo attività da zero, alimentate da capitale, relazioni ed esperienza approfondita. Sfruttando la nostra rete globale e le capacità logistiche, forniamo soluzioni ottimali ai clienti di tutto il mondo e realizziamo una crescita sostenibile.</p>
-                    
+                    <p class="philosophy-text">Creiamo valore costruendo attività da zero, alimentate da capitale,
+                        relazioni ed esperienza approfondita. Sfruttando la nostra rete globale e le capacità
+                        logistiche, forniamo soluzioni ottimali ai clienti di tutto il mondo e realizziamo una crescita
+                        sostenibile.</p>
+
                     <div class="signature">
                         <p class="name">Ritesh Singh</p>
-                        <p class="position">Presidente & Amministratore Delegato</p>
+                        <p class="position">Fondatore</p>
                     </div>
                 </div>
             </div>
@@ -574,5 +595,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,7 +70,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1rem;
         }
 
         .nav-links a {
@@ -78,17 +79,20 @@
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
+            padding: 0.5rem 1rem;
+            display: inline-block;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
             height: 2px;
             background: var(--secondary-color);
             transition: width 0.3s ease;
+            width: 0;
         }
 
         .nav-links a:hover {
@@ -96,11 +100,11 @@
         }
 
         .nav-links a:hover::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .nav-links a.active::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .mobile-menu {
@@ -108,6 +112,7 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            padding: 10px;
         }
 
         .mobile-menu span {
@@ -361,6 +366,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -416,8 +422,12 @@
                             <td>2016年</td>
                         </tr>
                         <tr>
-                            <th>代表取締役社長</th>
+                            <th>創業者</th>
                             <td>リテシュ・シン</td>
+                        </tr>
+                        <tr>
+                            <th>常務取締役</th>
+                            <td>Roger Jie Luo</td>
                         </tr>
                         <tr>
                             <th>本社所在地</th>
@@ -445,11 +455,13 @@
                         </tr>
                         <tr>
                             <th>メールアドレス</th>
-                            <td><a href="mailto:info@drpinternational.ca" style="color: var(--secondary-color);">info@drpinternational.ca</a></td>
+                            <td><a href="mailto:info@drpinternational.ca"
+                                    style="color: var(--secondary-color);">info@drpinternational.ca</a></td>
                         </tr>
                         <tr>
                             <th>ウェブサイト</th>
-                            <td><a href="https://www.drpinternational.ca" target="_blank" style="color: var(--secondary-color);">www.drpinternational.ca</a></td>
+                            <td><a href="https://www.drpinternational.ca" target="_blank"
+                                    style="color: var(--secondary-color);">www.drpinternational.ca</a></td>
                         </tr>
                     </table>
                 </div>
@@ -467,9 +479,17 @@
 
                         <div class="office-card">
                             <h3>🇬🇧 イギリス</h3>
-                            <h4>（支店）</h4>
-                            <h4>DRP International Ltd.</h4>
+                            <p class="office-type">支店</p>
+                            <p><strong>DRP International Ltd.</strong></p>
                             <p>Bray Business Centre<br>Maidenhead, SL6 2ED<br>Berkshire</p>
+                            <p>Email: info@drpinternational.ca</p>
+                        </div>
+
+                        <div class="office-card">
+                            <h3>🇳🇱 オランダ</h3>
+                            <p class="office-type">支店</p>
+                            <p><strong>DRP International Ltd.</strong></p>
+                            <p>Businesscenter Daalwijkdreef B.V.<br>Daalwijkdreef 47, 1103 AD Amsterdam</p>
                             <p>Email: info@drpinternational.ca</p>
                         </div>
 
@@ -489,7 +509,7 @@
     <!-- Footer -->
     <footer>
         <p>© DRP. All Rights Reserved.</p>
-        
+
         <p><a href="https://www.drpinternational.ca" target="_blank">www.drpinternational.ca</a></p>
     </footer>
 
@@ -538,5 +558,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>

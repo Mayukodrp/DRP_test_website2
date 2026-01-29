@@ -70,7 +70,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1rem;
         }
 
         .nav-links a {
@@ -79,17 +79,20 @@
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
+            padding: 0.5rem 1rem;
+            display: inline-block;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
             height: 2px;
             background: var(--secondary-color);
             transition: width 0.3s ease;
+            width: 0;
         }
 
         .nav-links a:hover {
@@ -97,11 +100,11 @@
         }
 
         .nav-links a:hover::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .nav-links a.active::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .mobile-menu {
@@ -109,6 +112,7 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            padding: 10px;
         }
 
         .mobile-menu span {
@@ -418,8 +422,12 @@
                             <td>2016年</td>
                         </tr>
                         <tr>
-                            <th>总裁兼CEO</th>
+                            <th>创始人</th>
                             <td>Ritesh Singh</td>
+                        </tr>
+                        <tr>
+                            <th>常务董事</th>
+                            <td>罗杰</td>
                         </tr>
                         <tr>
                             <th>总部</th>
@@ -474,6 +482,14 @@
                             <p class="office-type">分公司</p>
                             <p><strong>DRP国际有限公司</strong></p>
                             <p>Bray Business Centre<br>Maidenhead, SL6 2ED<br>Berkshire</p>
+                            <p>电子邮件：info@drpinternational.ca</p>
+                        </div>
+
+                        <div class="office-card">
+                            <h3>🇳🇱 荷兰</h3>
+                            <p class="office-type">分公司</p>
+                            <p><strong>DRP国际有限公司</strong></p>
+                            <p>Businesscenter Daalwijkdreef B.V.<br>Daalwijkdreef 47, 1103 AD Amsterdam</p>
                             <p>电子邮件：info@drpinternational.ca</p>
                         </div>
 

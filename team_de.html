@@ -69,7 +69,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1rem;
         }
 
         .nav-links a {
@@ -78,17 +78,20 @@
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
+            padding: 0.5rem 1rem;
+            display: inline-block;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
             height: 2px;
             background: var(--secondary-color);
             transition: width 0.3s ease;
+            width: 0;
         }
 
         .nav-links a:hover {
@@ -96,11 +99,11 @@
         }
 
         .nav-links a:hover::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .nav-links a.active::after {
-            width: 100%;
+            width: calc(100% - 2rem);
         }
 
         .mobile-menu {
@@ -108,6 +111,7 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            padding: 10px;
         }
 
         .mobile-menu span {
@@ -373,45 +377,15 @@
 
     <div class="team-container">
         <div class="team-grid">
-            <div class="team-card">
-                <a href="team_member.html?id=ritesh&lang=de" class="card-link">
-                    <div class="team-card-content">
-                        <div class="team-photo"><img src="Ritesh_Singh.jpg" alt="Ritesh Singh"></div>
-                        <div class="team-info">
-                            <h3>Ritesh Singh</h3>
-                            <p class="role">Präsident & CEO</p>
-                            <p class="location">📍 Vereinigtes Königreich</p>
 
-                            <div class="languages">
-                                <span>Hindi</span><span>Englisch</span><span>Bengalisch</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="team-card">
-                <a href="team_member.html?id=dolly&lang=de" class="card-link">
-                    <div class="team-card-content">
-                        <div class="team-photo"><img src="Dolly_Singh.jpg" alt="Dolly Singh"></div>
-                        <div class="team-info">
-                            <h3>Dolly Singh</h3>
-                            <p class="role">Vizepräsidentin</p>
-                            <p class="location">📍 Vereinigtes Königreich</p>
-
-                            <div class="languages">
-                                <span>Hindi</span><span>Englisch</span><span>Punjabi</span><span>Bengalisch</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            <!-- Roger Jie Luo -->
             <div class="team-card">
                 <a href="team_member.html?id=roger&lang=de" class="card-link">
                     <div class="team-card-content">
                         <div class="team-photo"><img src="Roger_Jie_Luo.jpg" alt="Roger Jie Luo"></div>
                         <div class="team-info">
                             <h3>Roger Jie Luo</h3>
-                            <p class="role">COO</p>
+                            <p class="role">Geschäftsführer</p>
                             <p class="location">📍 Kanada</p>
 
                             <div class="languages"><span>Mandarin</span><span>Englisch</span></div>
@@ -419,6 +393,24 @@
                     </div>
                 </a>
             </div>
+
+            <!-- Prathna Singh -->
+            <div class="team-card">
+                <a href="team_member.html?id=prathna&lang=de" class="card-link">
+                    <div class="team-card-content">
+                        <div class="team-photo"><img src="Prathna_Singh.jpg" alt="Prathna Singh"></div>
+                        <div class="team-info">
+                            <h3>Prathna Singh</h3>
+                            <p class="role">Direktorin (Geschäftsentwicklung)</p>
+                            <p class="location">📍 Kanada</p>
+
+                            <div class="languages"><span>Englisch</span><span>Französisch</span></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Shivam Sonar -->
             <div class="team-card">
                 <a href="team_member.html?id=shivam&lang=de" class="card-link">
                     <div class="team-card-content">
@@ -433,6 +425,8 @@
                     </div>
                 </a>
             </div>
+
+            <!-- Benny Vanderhaeghe -->
             <div class="team-card">
                 <a href="team_member.html?id=benny&lang=de" class="card-link">
                     <div class="team-card-content">
@@ -449,6 +443,8 @@
                     </div>
                 </a>
             </div>
+
+            <!-- Rostislav Jezek -->
             <div class="team-card">
                 <a href="team_member.html?id=rostislav&lang=de" class="card-link">
                     <div class="team-card-content">
@@ -465,6 +461,8 @@
                     </div>
                 </a>
             </div>
+
+            <!-- Nizza Hernandez -->
             <div class="team-card">
                 <a href="team_member.html?id=nizza&lang=de" class="card-link">
                     <div class="team-card-content">
@@ -479,6 +477,8 @@
                     </div>
                 </a>
             </div>
+
+            <!-- Mayuko Okada -->
             <div class="team-card">
                 <a href="team_member.html?id=mayuko&lang=de" class="card-link">
                     <div class="team-card-content">
@@ -489,20 +489,6 @@
                             <p class="location">📍 Japan</p>
 
                             <div class="languages"><span>Japanisch</span><span>Englisch</span></div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="team-card">
-                <a href="team_member.html?id=prathna&lang=de" class="card-link">
-                    <div class="team-card-content">
-                        <div class="team-photo"><img src="Prathna_Singh.jpg" alt="Prathna Singh"></div>
-                        <div class="team-info">
-                            <h3>Prathna Singh</h3>
-                            <p class="role">Finanzen & Strategie</p>
-                            <p class="location">📍 Kanada</p>
-
-                            <div class="languages"><span>Englisch</span><span>Französisch</span></div>
                         </div>
                     </div>
                 </a>
